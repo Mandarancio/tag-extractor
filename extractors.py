@@ -89,8 +89,8 @@ class FlickrExtractor(Extractor):
                 else:
                     # if there are no tags there is no need to have the exact
                     # position
-                    pobj['lat'] = lat
-                    pobj['lon'] = lon
+                    pobj['lat'] = str(lat)
+                    pobj['lon'] = str(lon)
                 yield pobj
         else:
             yield {}

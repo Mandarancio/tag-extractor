@@ -36,7 +36,7 @@ class FlickrExtractor(Extractor):
         Extractor.__init__(self, 'Flickr')
         self.__apikey__ = apikey
         self.__secret__ = secret
-        sel andf.__flickr__ = flickrapi.FlickrAPI(apikey, secret)
+        self.__flickr__ = flickrapi.FlickrAPI(apikey, secret)
 
     def n_photos(self, lat, lon, radius):
         rsp = self.__flickr__.photos.search(lat=lat, lon=lon, radius=radius,

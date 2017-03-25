@@ -22,15 +22,24 @@ The output for a picture is a dictionary:
 {
   'id': '32795752924',
   'tags': [
-    {'id': '128760875-32795752924-60504812', 'tag': 'instagramapp', 'raw': 'instagram app'},
-    {'id': '128760875-32795752924-1628', 'tag': 'square', 'raw': 'square'},
-    {'id': '128760875-32795752924-14976', 'tag': 'squareformat', 'raw': 'square format'},
-    {'id': '128760875-32795752924-34115330', 'tag': 'iphoneography', 'raw': 'iphoneography'},
-    {'id': '128760875-32795752924-60643605', 'tag': 'uploaded:by=instagram', 'raw': 'uploaded:by=instagram'},
-    {'id': '128760875-32795752924-110794', 'tag': 'aden', 'raw': 'Aden'}
+    {
+      'id': '128760875-32795752924-60504812',
+      'tag': 'instagramapp',
+      'raw': 'instagram app'
+    },
+    {
+      'id': '128760875-32795752924-1628',
+      'tag': 'square',
+      'raw': 'square'
+    },
+    {
+      'id': '128760875-32795752924-110794',
+      'tag': 'aden',
+      'raw': 'Aden'
+    }
   ],
   'owner': '128806197@N06',
-  'lon': '6.150000', 
+  'lon': '6.150000',
   'lat': '46.200000'
 }
 ```

@@ -1,13 +1,24 @@
 # tag-extractor
-Python Flickr and Instagram tag extractor (by location) using python3
+Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
 
 ## Requirements
 
-For Flickr use the library [flickrapi](https://stuvel.eu/flickrapi-doc/):
+For *Flickr* use the library [flickrapi](https://stuvel.eu/flickrapi-doc/):
 ```bash
+
 pip3 install flickrapi
 # or eventually
 python3-pip install flickrapi
+
+```
+
+For *Instagram* use [python-instagram](https://github.com/facebookarchive/python-instagram):
+```bash
+
+pip3 install python-instagram
+# or eventually
+python3-pip install python-instagram
+
 ```
 
 ## Usage

@@ -21,6 +21,8 @@ The output for a picture is a dictionary:
 ```python
 {
   'id': '32795752924',
+  'posted': '1100897479',
+  'taken': '2004-11-19 12:51:19',
   'tags': [
     {
       'id': '128760875-32795752924-60504812',

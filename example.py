@@ -10,8 +10,8 @@ def prettifier(photos):
     '''
     for photo in photos:
         if len(photo['tags']) > 0:
-            string = ' + '+photo['id']+' ['+photo['lat']+
-            ', '+photo['lon']+']:\n'
+            string = ' + ' + photo['id'] + ' ['+photo['lat'] + \
+                    ', ' + photo['lon'] + ']:\n'
             for tag in photo['tags']:
                 string += '\t- '+tag['tag']+'\n'
 

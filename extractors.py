@@ -72,14 +72,18 @@ class FlickrExtractor(Extractor):
                 pobj['id'] = photo.get('id')
                 pobj['owner'] = photo.get('owner')
                 pobj['tags'] = []
-
-                tags = self.__flickr__.tags_getListPhoto(photo_id=pobj['id'])
+                info = self.__flickr__.photos.getInfo(photo_id=pobj['id'])
+                pinfo = info.find('photo')
+                tags = pinfo.find('tags')
                 for tag in tags.iter('tag'):
                     pobj['tags'].append({
                         'id': tag.get('id'),
                         'raw': tag.get('raw'),
                         'tag': tag.text
                     })
+                date = pinfo.find('dates')
+                pobj['posted'] = date.get('posted')
+                pobj['taken'] = date.get('taken')
                 if len(pobj['tags']) > 0:
                     geoloc = self.__flickr__.photos.geo.getLocation(
                         photo_id=pobj['id'])

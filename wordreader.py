@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 from nltk.corpus import wordnet as wn
 from unidecode import unidecode
 

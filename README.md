@@ -13,6 +13,18 @@ python3-pip install flickrapi
 ```
 
 An api key is required (I have one for our projects)
+## Twitter
+A simple library is the official [twitter](https://pypi.python.org/pypi/twitter):
+```bash
+
+pip3 install twitter
+# or eventually
+python3-pip install twitter
+
+```
+
+A simple helper to retrieve twits by location is ```twitthelper.py```, look inside it to understand better ;).
+
 
 ## Instagram
 A simple library to use *Instagram* is [python-instagram](https://github.com/facebookarchive/python-instagram):
@@ -95,3 +107,8 @@ The output for a picture is a dictionary:
 To be able to get overall good performance of the project its important to use a yield Pipeline.
 In this way the API calls are not blocking, try the example to understand better.
 A good example of it can be found at https://brett.is/writing/about/generator-pipelines-in-python/
+
+
+## Links
+
+https://github.com/aghie/pybabelfy

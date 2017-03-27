@@ -95,3 +95,8 @@ The output for a picture is a dictionary:
 To be able to get overall good performance of the project its important to use a yield Pipeline.
 In this way the API calls are not blocking, try the example to understand better.
 A good example of it can be found at https://brett.is/writing/about/generator-pipelines-in-python/
+
+
+## Links
+
+https://github.com/aghie/pybabelfy

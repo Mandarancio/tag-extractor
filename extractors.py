@@ -32,6 +32,10 @@ class Extractor:
 
 
 class FlickrExtractor(Extractor):
+    '''
+    Simple photo tags extractor by location
+    @Martino Ferrari
+    '''
     def __init__(self, apikey, secret):
         Extractor.__init__(self, 'Flickr')
         self.__apikey__ = apikey

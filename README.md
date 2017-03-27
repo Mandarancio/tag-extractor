@@ -13,6 +13,18 @@ python3-pip install flickrapi
 ```
 
 An api key is required (I have one for our projects)
+## Twitter
+A simple library is the official [twitter](https://pypi.python.org/pypi/twitter):
+```bash
+
+pip3 install twitter
+# or eventually
+python3-pip install twitter
+
+```
+
+A simple helper to retrieve twits by location is ```twitthelper.py```, look inside it to understand better ;).
+
 
 ## Instagram
 A simple library to use *Instagram* is [python-instagram](https://github.com/facebookarchive/python-instagram):

@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 import twitter
+import instahelper
 
 
 class TwittHelper:
@@ -33,6 +34,7 @@ class TwittHelper:
                 print(result["entities"]["urls"][0])
                 user = result["user"]["screen_name"]
                 text = result["text"]
+                created_at = result["created_at"]
                 text = text.encode('ascii', 'replace')
                 latitude = result["geo"]["coordinates"][0]
                 longitude = result["geo"]["coordinates"][1]
@@ -42,7 +44,8 @@ class TwittHelper:
                         'lat': str(latitude),
                         'lon': str(longitude),
                         'url': None,
-                        'insta_id': None
+                        'created_at': created_at,
+                        'instainfo': None
                       }
                 yield row
 
@@ -65,20 +68,24 @@ class TwittHelper:
                 if len(result["entities"]["urls"]) > 0 and \
                         'www.instagram.com' in \
                         result["entities"]["urls"][0]["expanded_url"]:
-
+                    created_at = result["created_at"]
                     user = result["user"]["screen_name"]
                     text = result["text"]
                     text = text.encode('ascii', 'replace')
                     latitude = result["geo"]["coordinates"][0]
                     longitude = result["geo"]["coordinates"][1]
+
                     url = result["entities"]["urls"][0]["expanded_url"]
                     instaid = url.split('/')[-2]
-                    row = {
-                            'user': str(user),
-                            'text': text,
-                            'lat': str(latitude),
-                            'lon': str(longitude),
-                            'url': str(url),
-                            'insta_id': str(instaid)
-                          }
-                yield row
+                    info = instahelper.get_info_from_url(url)
+                    if info['media_id'] is not None:
+                        row = {
+                                'user': str(user),
+                                'text': text,
+                                'lat': str(latitude),
+                                'lon': str(longitude),
+                                'url': str(url),
+                                'created_at': created_at,
+                                'instainfo': info
+                              }
+                        yield row

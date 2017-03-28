@@ -1,7 +1,21 @@
 #! /usr/bin/python3
 import extractors as exs
 import wordreader as wrd
-from unidecode import unidecode
+
+
+def printer(photo):
+    string = ' + ' + photo['id'] + ' [' + photo['lat'] + ', ' + photo['lon'] + ']:\n'
+    string += "\tTAGS : [  "
+    for tag in photo['tags']:
+        string += tag['tag'] + "\t"
+    string += "]\n\tLEMMAS : [ "
+    for lemma in photo['concepts']['lemmas']:
+        string += lemma.name() + "\t"
+    string += "]\n\tHYPERNYMS : [ "
+    for hyper in photo['concepts']['hypernyms']:
+        string += hyper.name() + "\t"
+    string += "]"
+    return string
 
 
 def prettifier(photos):
@@ -12,26 +26,19 @@ def prettifier(photos):
     '''
     for photo in photos:
         if len(photo['tags']) > 0:
-            photo['lemmas'] = w.lemmatizer(photo)
-            photo['hypernyms'] = w.hypernymizer(photo)
-            string = ' + ' + photo['id'] + ' ['+photo['lat'] + ', ' + photo['lon'] + ']:\n'
-            string += "\tTAGS : [  "
-            for tag in photo['tags']:
-                string += tag['tag'] + "\t"
-            string += "]\n\tLEMMAS : [  "
-            for lemma in photo['lemmas']:
-                string += lemma.name() + "\t"
-            string += "]"
+            photo['concepts'] = dict()
+            photo['concepts']['lemmas'] = w.lemmatizer(photo)
+            photo['concepts']['hypernyms'] = w.hypernymizer(photo)
+            string = printer(photo)
 
             yield string
         else:
             yield ' - '+photo['id']+' ['+photo['lat']+', '+photo['lon']+']'
 
-
 if __name__ == '__main__':
     # please do not publish it on github
-    apikey = u'38c3d06eb3ef1b1b853a235f7f34efef'
-    secret = u'd2589379f166a8cf'
+    apikey = u'KEY_HERE'
+    secret = u'SECRET_HERE'
 
     w = wrd.Wordreader()
     f = exs.FlickrExtractor(apikey, secret)

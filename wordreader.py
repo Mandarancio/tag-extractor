@@ -12,9 +12,6 @@ class Wordreader:
         self.lemmas = []
         self.hypernyms = []
 
-    def expanse(self, photo):
-        pass
-
     def lemmatizer(self, photo):
         """
         :param photo: the photo we want to find lemmas
@@ -24,13 +21,13 @@ class Wordreader:
         for tag in photo['tags']:
             synsets = wn.synsets(unidecode(tag['tag']))
             for s in synsets:
-                lems = self.get_lemmas(s)
+                lems = self.__get_lemmas__(s)
                 for l in lems:
                     if l not in self.lemmas:
                         self.lemmas.append(l)
         return self.lemmas
 
-    def get_lemmas(self, synset):
+    def __get_lemmas__(self, synset):
         """
         :param synset: synset from which lemmas are extracted
         :return: list of lemmas
@@ -40,7 +37,7 @@ class Wordreader:
 
     def hypernymizer(self, photo):
         self.hypernyms.clear()
-        for lemma in photo['lemmas']:
+        for lemma in photo['concepts']['lemmas']:
             synsets = wn.synsets(lemma.name())
             for s in synsets:
                 hyper = s.hypernyms()

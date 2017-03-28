@@ -4,9 +4,16 @@ from unidecode import unidecode
 
 
 class Wordreader:
+    """
+    A class which explore the WordNet graph with NLTK package
+    @Djavan Sergent
+    """
     def __init__(self):
         self.lemmas = []
         self.hypernyms = []
+
+    def expanse(self, photo):
+        pass
 
     def lemmatizer(self, photo):
         """
@@ -17,12 +24,19 @@ class Wordreader:
         for tag in photo['tags']:
             synsets = wn.synsets(unidecode(tag['tag']))
             for s in synsets:
-                name = s.name()
-                lems = wn.synset(name).lemmas()
+                lems = self.get_lemmas(s)
                 for l in lems:
                     if l not in self.lemmas:
                         self.lemmas.append(l)
         return self.lemmas
+
+    def get_lemmas(self, synset):
+        """
+        :param synset: synset from which lemmas are extracted
+        :return: list of lemmas
+        """
+        word = synset.name()
+        return wn.synset(word).lemmas()
 
     def hypernymizer(self, photo):
         self.hypernyms.clear()

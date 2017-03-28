@@ -1,4 +1,5 @@
 import flickrapi
+import twitthelper
 import math
 
 
@@ -29,6 +30,50 @@ class Extractor:
         :return: the list of photos with teirs tags and position (using yield)
         '''
         yield {}
+
+
+class TwitInstaExtractor(Extractor):
+    '''
+    Simple photo tags extractor by location
+    @Martino Ferrari
+    '''
+    def __init__(self, tw_access_key, tw_access_secret, tw_consumer_key,
+                 tw_consumer_secret):
+        Extractor.__init__(self, 'TwitInsta')
+        self.__twith__ = twitthelper.TwittHelper(tw_access_key,
+                                                 tw_access_secret,
+                                                 tw_consumer_key,
+                                                 tw_consumer_secret)
+
+    def n_photos(self, lat, lon, radius):
+        # TODO implement a method to retrive the number of twit ijn area
+        # and avarage it to know the aproximative number of photos
+        return -1
+
+    def get_tags(self, lat, lon, radius=1, num_photos=-1):
+        # TODO implement n_photos function
+        if num_photos < 0:
+            raise NameError('retrive all photos not yet implemented, \
+                            please specify the number of pictures')
+        for twit in \
+            self.__twith__.get_twits_with_instagram_by_location(lat, lon,
+                                                                radius,
+                                                                num_photos):
+            pobj = {}
+            pobj['id'] = twit['instainfo']['media_id']
+            pobj['owner'] = twit['instainfo']['author_id']
+            pobj['tags'] = []
+            for tag in twit['instainfo']['tags']:
+                pobj['tags'].append({
+                    'id': tag,
+                    'raw': tag,
+                    'tag': tag
+                })
+            pobj['posted'] = twit['created_at']
+            pobj['taken'] = twit['created_at']
+            pobj['lat'] = twit['lat']
+            pobj['lon'] = twit['lon']
+            yield pobj
 
 
 class FlickrExtractor(Extractor):

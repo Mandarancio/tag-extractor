@@ -4,7 +4,8 @@ import wordreader as wrd
 
 
 def printer(photo):
-    string = ' + ' + photo['id'] + ' [' + photo['lat'] + ', ' + photo['lon'] + ']:\n'
+    string = ' + ' + photo['id'] + ' [' + photo['lat'] + ', ' +\
+            photo['lon'] + ']:\n'
     string += "\tTAGS : [  "
     for tag in photo['tags']:
         string += tag['tag'] + "\t"
@@ -34,6 +35,7 @@ def prettifier(photos):
             yield string
         else:
             yield ' - '+photo['id']+' ['+photo['lat']+', '+photo['lon']+']'
+
 
 if __name__ == '__main__':
     # please do not publish it on github

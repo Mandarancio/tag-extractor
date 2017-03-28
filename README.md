@@ -23,7 +23,7 @@ python3-pip install twitter
 
 ```
 
-A simple helper to retrieve twits by location is ```twitthelper.py```, look inside it to understand better ;).
+  A simple helper to retrieve twits by location is ```twitthelper.py```, look inside it to understand better ;).
 
 
 ## Instagram
@@ -108,6 +108,9 @@ To be able to get overall good performance of the project its important to use a
 In this way the API calls are not blocking, try the example to understand better.
 A good example of it can be found at https://brett.is/writing/about/generator-pipelines-in-python/
 
+## Where to test your code?
+
+If you wish to test your code with personal apikey or trash code, please do it and name your script ```{FILE NAME}_test.py```, this will be automatically ignored by git (look at ```.gitignore``` file to understand why). 
 
 ## Links
 

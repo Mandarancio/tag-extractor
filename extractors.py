@@ -2,6 +2,7 @@ import flickrapi
 import twitthelper
 import instahelper
 import math
+import json
 
 
 class Extractor:
@@ -31,6 +32,28 @@ class Extractor:
         :return: the list of photos with teirs tags and position (using yield)
         '''
         yield {}
+
+
+class JsonExtractor(Extractor):
+    '''
+    Simple demo extractor, take data from json file
+    @Martino Ferrari
+    '''
+    def __init__(self, file_path):
+        Extractor.__init__(self, 'Json')
+        self.__file_path__ = file_path
+        f = open(file_path)
+        self.__data__ = json.load(f)
+        f.close()
+
+    def n_photos(self, lat, lon, radius):
+        return len(self.__data__['photos'])
+
+    def get_tags(self, lat, lon, radius=1, num_photos=-1):
+        if num_photos == -1 or num_photos >= self.n_photos(lat, lon, radius):
+            num_photos = self.n_photos(lat, lon, radius)
+        for i in range(0, num_photos):
+            yield self.__data__['photos'][i]
 
 
 class TwitInstaExtractor(Extractor):

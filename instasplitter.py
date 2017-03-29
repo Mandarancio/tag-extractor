@@ -2,7 +2,8 @@
 import re
 from nltk import FreqDist
 from nltk.corpus import brown
-from nltk.corpus import words
+# from nltk.corpus import words
+import time
 
 
 def pprint(tree, space=''):
@@ -25,7 +26,23 @@ class SimpleSplitter:
 class HashtagSplitter:
     def __init__(self):
         self.__frequency_list__ = FreqDist(i.lower() for i in brown.words())
-        self.__words__ = words.words()
+        self.__most_10000__ = self.__to_dic__(
+            self.__frequency_list__.most_common(100000))
+        # self.__words__ = words.words()
+
+    def __to_dic__(self, freqs):
+        res = {}
+        tot = 0
+        for l in freqs:
+            if len(l[0]) > 1:
+                res[l[0]] = l[1]
+                tot += l[1]
+            elif l[0] == 'a' or l[0] == 'i':
+                res[l[0]] = l[1]
+                tot += l[1]
+        for k in res:
+            res[k] /= tot
+        return res
 
     def parseTag(self, term):
         words = []
@@ -33,73 +50,60 @@ class HashtagSplitter:
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
         tags = re.sub(r"([A-Z])", r" \1", term).split()
         for tag in tags:
-            if len(tag) <= 2:
+            if len(tag) <= 2 or len(tag) > 20:
                 words.append(tag)
             else:
-                res = self.recursiveParse(tag)
-                prob, extracted = self.__max__(res)
-                # pprint(res)
-                words.extend(extracted)
+                prob, res = self.recursiveParse(tag)
+                # prob, extracted = self.__max__(res)
+                words.extend(res)
         return words
 
     def recursiveParse(self, term):
         if len(term) == 1:
-            return [{'term': term, 'freq': self.freq(term), 'rest': None}]
-        reslist = []
-        for i in range(1, len(term)+1):
-            if self.findWord(term[0:i]):
-                res = {}
-                if i < len(term):
-                    res['term'] = term[0:i]
-                    res['freq'] = self.freq(term[0:i])
-                    res['rest'] = self.recursiveParse(term[i:])
-                else:
-                    res['term'] = term
-                    res['freq'] = self.freq(term)
-                    res['rest'] = None
-                reslist.append(res)
-        if len(reslist) == 0:
-            return [{'term': term, 'freq': 0, 'rest': None}]
-        return reslist
-
-    def __max__(self, l):
-        if l is None:
-            return 1, []
-        max_i = 0
-        max_score = l[0]['freq']
-        max_path = []
-        if l[0]['rest'] is not None:
-            ms, path = self.__max__(l[0]['rest'])
-            max_score *= ms
-            max_path = path
-        for i in range(1, len(l)):
-            score = l[i]['freq']
-            path = []
-            if l[i]['rest'] is not None:
-                ms, path = self.__max__(l[i]['rest'])
-                score *= ms
-            if score > max_score:
-                max_score = score
-                max_i = i
-                max_path = path
-        path = [l[max_i]['term']]
-        path.extend(max_path)
-        return max_score, path
+            return self.freq(term), [term]
+        if self.findWord(term):
+            max_freq = self.freq(term)
+        else:
+            max_freq = 0
+        res = [term]
+        if max_freq > 0:
+            # print(term+' : '+str(max_freq))
+            return max_freq, res
+        for i in range(len(term), 0, -1):
+            # if i == 0 and not (term[0] == 'a' or term[0] == 'i'):
+            # break
+            word = term[0:i]
+            if self.findWord(word):
+                ff = self.freq(word)
+                fr, rest = self.recursiveParse(term[i:])
+                ff = ff*fr
+                if ff > max_freq:
+                    max_freq = ff
+                    res = [word]
+                    res.extend(rest)
+        return max_freq, res
 
     def freq(self, word):
-        return self.__frequency_list__.freq(word)
+        return self.__most_10000__[word]
 
     def findWord(self, token):
-        return token in self.__words__
+        return token in self.__most_10000__
+
+
+def test(tag):
+    print('Hashtag: '+tag)
+    t = time.time()
+    print(splitter.parseTag(tag))
+    t = time.time()-t
+    print(t)
 
 
 if __name__ == "__main__":
     splitter = HashtagSplitter()
     print('loaded')
-    hashtag = 'awesomedayofmylife'
-    hashtag = 'ilovegeneva'
-    print('Hashtag: '+hashtag)
-    print(splitter.parseTag(hashtag))
+    test('awesome-dayofmylife')
+    test('awesomedayofmylife')
+    test('ilovegeneva')
     hashtag = "ILoveGeneva"
     print('Hashtag: '+hashtag)
     simple = SimpleSplitter()

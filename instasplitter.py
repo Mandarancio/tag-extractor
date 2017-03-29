@@ -66,12 +66,7 @@ class HashtagSplitter:
         else:
             max_freq = 0
         res = [term]
-        if max_freq > 0:
-            # print(term+' : '+str(max_freq))
-            return max_freq, res
         for i in range(len(term), 0, -1):
-            # if i == 0 and not (term[0] == 'a' or term[0] == 'i'):
-            # break
             word = term[0:i]
             if self.findWord(word):
                 ff = self.freq(word)

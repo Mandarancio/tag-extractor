@@ -1,6 +1,19 @@
 # tag-extractor
 Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
 
+
+## NLTK
+
+For *NLTK* use the library [nltk]:
+```bash
+
+pip3 install nltk
+# or eventually
+python3-pip install nltk
+
+```
+
+
 ## Flicrk
 
 For *Flickr* use the library [flickrapi](https://stuvel.eu/flickrapi-doc/):
@@ -82,17 +95,23 @@ The output for a picture is a dictionary:
     {
       'id': '128760875-32795752924-60504812',
       'tag': 'instagramapp',
-      'raw': 'instagram app'
+      'raw': 'instagram app',
+      'lemmas': [],
+      'hypernyms':[]
     },
     {
       'id': '128760875-32795752924-1628',
       'tag': 'square',
-      'raw': 'square'
+      'raw': 'square',
+      'lemmas':['square', 'foursquare', 'second_power'],
+      'hypernyms':['rectangle.n.01', 'regular_polygon.n.01', 'number.n.02']
     },
     {
       'id': '128760875-32795752924-110794',
       'tag': 'aden',
-      'raw': 'Aden'
+      'raw': 'Aden',
+      'lemmas':['Aden'],
+      'hypernyms':[]
     }
   ],
   'owner': '128806197@N06',

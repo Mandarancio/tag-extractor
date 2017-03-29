@@ -40,7 +40,7 @@ if __name__ == '__main__':
     apikey = u'KEY_HERE'
     secret = u'SECRET_HERE'
 
-    w = wrd.Wordreader()
+    w = wrd.Wordnetreader()
     f = exs.FlickrExtractor(apikey, secret)
     pipeline = prettifier(f.get_tags(lat=46.205850, lon=6.157521,
                                      radius=1, num_photos=50))

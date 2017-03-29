@@ -12,10 +12,10 @@ pip3 install nltk
 python3-pip install nltk
 
 ---
-Accès au différentes langues :
+# Accès au différentes langues :
 
 nltk.download("omw")
-
+nltk.download("brown")
 ```
 
 
@@ -127,6 +127,7 @@ The output for a picture is a dictionary:
       'hypernyms':[]
     }
   ],
+  'ntags': 3,
   'owner': '128806197@N06',
   'lon': '6.150000',
   'lat': '46.200000'

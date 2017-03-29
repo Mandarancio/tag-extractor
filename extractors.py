@@ -74,6 +74,7 @@ class TwitInstaExtractor(Extractor):
             pobj['taken'] = twit['created_at']
             pobj['lat'] = twit['lat']
             pobj['lon'] = twit['lon']
+            pobj['ntags'] = len(twit['instainfo']['tags'])
             yield pobj
 
 
@@ -134,6 +135,7 @@ class FlickrExtractor(Extractor):
                 date = pinfo.find('dates')
                 pobj['posted'] = date.get('posted')
                 pobj['taken'] = date.get('taken')
+                pobj['ntags'] = len(pobj['tags'])
                 if len(pobj['tags']) > 0:
                     geoloc = self.__flickr__.photos.geo.getLocation(
                         photo_id=pobj['id'])

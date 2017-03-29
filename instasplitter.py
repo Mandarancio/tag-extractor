@@ -15,7 +15,7 @@ def pprint(tree, space=''):
 
 
 class SimpleSplitter:
-    def parseTag(self, term):
+    def parse_tag(self, term):
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
@@ -44,7 +44,7 @@ class HashtagSplitter:
             res[k] /= tot
         return res
 
-    def parseTag(self, term):
+    def parse_tag(self, term):
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
@@ -53,24 +53,24 @@ class HashtagSplitter:
             if len(tag) <= 2 or len(tag) > 20:
                 words.append(tag)
             else:
-                prob, res = self.recursiveParse(tag)
+                prob, res = self.recursive_split(tag)
                 # prob, extracted = self.__max__(res)
                 words.extend(res)
         return words
 
-    def recursiveParse(self, term):
+    def recursive_split(self, term):
         if len(term) == 1:
             return self.freq(term), [term]
-        if self.findWord(term):
+        if self.find_word(term):
             max_freq = self.freq(term)
         else:
             max_freq = 0
         res = [term]
         for i in range(len(term), 0, -1):
             word = term[0:i]
-            if self.findWord(word):
+            if self.find_word(word):
                 ff = self.freq(word)
-                fr, rest = self.recursiveParse(term[i:])
+                fr, rest = self.recursive_split(term[i:])
                 ff = ff*fr
                 if ff > max_freq:
                     max_freq = ff
@@ -81,7 +81,7 @@ class HashtagSplitter:
     def freq(self, word):
         return self.__most_10000__[word]
 
-    def findWord(self, token):
+    def find_word(self, token):
         return token in self.__most_10000__
 
 
@@ -102,4 +102,4 @@ if __name__ == "__main__":
     hashtag = "ILoveGeneva"
     print('Hashtag: '+hashtag)
     simple = SimpleSplitter()
-    print(simple.parseTag(hashtag))
+    print(simple.parse_tag(hashtag))

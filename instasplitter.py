@@ -16,6 +16,11 @@ def pprint(tree, space=''):
 
 class SimpleSplitter:
     def parse_tag(self, term):
+        '''
+        Simple Splitter based on capitals, dash and underscores.
+        :param term: tag to split
+        :return: array of splitted words
+        '''
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
@@ -53,14 +58,11 @@ class HashtagSplitter:
             if len(tag) <= 2 or len(tag) > 20:
                 words.append(tag)
             else:
-                prob, res = self.recursive_split(tag)
-                # prob, extracted = self.__max__(res)
+                _, res = self.recursive_split(tag)
                 words.extend(res)
         return words
 
     def recursive_split(self, term):
-        if len(term) == 1:
-            return self.freq(term), [term]
         if self.find_word(term):
             max_freq = self.freq(term)
         else:
@@ -71,7 +73,7 @@ class HashtagSplitter:
             if self.find_word(word):
                 ff = self.freq(word)
                 fr, rest = self.recursive_split(term[i:])
-                ff = ff*fr
+                ff = ff*fr/2
                 if ff > max_freq:
                     max_freq = ff
                     res = [word]
@@ -88,7 +90,7 @@ class HashtagSplitter:
 def test(tag):
     print('Hashtag: '+tag)
     t = time.time()
-    print(splitter.parseTag(tag))
+    print(splitter.parse_tag(tag))
     t = time.time()-t
     print(t)
 
@@ -96,7 +98,10 @@ def test(tag):
 if __name__ == "__main__":
     splitter = HashtagSplitter()
     print('loaded')
-    test('awesome-dayofmylife')
+    print('freq: makeup')
+    print(splitter.freq('makeup'))
+    print(splitter.freq('make')*splitter.freq('up'))
+    test('makeupartist')
     test('awesomedayofmylife')
     test('ilovegeneva')
     hashtag = "ILoveGeneva"

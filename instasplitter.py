@@ -53,12 +53,13 @@ class HashtagSplitter:
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
-        tags = re.sub(r"([A-Z])", r" \1", term).split()
+        tags = re.sub(r"([0-9])", r" \1 ",
+                      re.sub(r"([A-Z])", r" \1", term)).split()
         for tag in tags:
-            if len(tag) <= 2 or len(tag) > 20:
+            if len(tag) <= 2 or len(tag) > 15:
                 words.append(tag)
             else:
-                _, res = self.recursive_split(tag)
+                _, res = self.recursive_split(tag.lower())
                 words.extend(res)
         return words
 

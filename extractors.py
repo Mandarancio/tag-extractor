@@ -1,5 +1,6 @@
 import flickrapi
 import twitthelper
+import instahelper
 import math
 
 
@@ -66,8 +67,8 @@ class TwitInstaExtractor(Extractor):
             for tag in twit['instainfo']['tags']:
                 pobj['tags'].append({
                     'id': tag,
-                    'raw': tag,
-                    'tag': tag
+                    'raw': tag[1:],
+                    'tag': tag[1:]
                 })
             pobj['posted'] = twit['created_at']
             pobj['taken'] = twit['created_at']

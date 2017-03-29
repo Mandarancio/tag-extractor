@@ -53,7 +53,7 @@ class HashtagSplitter:
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
-        tags = re.sub(r"([0-9])", r" \1 ",
+        tags = re.sub(r"([0-9]+)", r" \1 ",
                       re.sub(r"([A-Z])", r" \1", term)).split()
         for tag in tags:
             if len(tag) <= 2 or len(tag) > 15:

@@ -11,6 +11,19 @@ pip3 install nltk
 # or eventually
 python3-pip install nltk
 
+---
+Accès au différentes langues :
+
+nltk.download("omw")
+
+```
+
+
+## UNIDECODE
+```bash
+
+pip3 install unidecode
+
 ```
 
 

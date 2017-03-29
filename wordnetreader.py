@@ -9,8 +9,7 @@ class Wordnetreader:
     @Djavan Sergent
     """
     def __init__(self):
-        self.lemmas = []
-        self.hypernyms = []
+        self.langs = ["fra", "eng"]
 
     def tag_expanser(self, photo):
         """
@@ -27,14 +26,17 @@ class Wordnetreader:
         :param tag: the tag we want to find lemmas
         :return: a list of lemmas
         """
-        self.lemmas.clear()
-        synsets = wn.synsets(unidecode(tag))
+        lemmas = []
+        synsets = []
+        for lang in self.langs:
+            synsets += wn.synsets(tag, lang=lang)
+            synsets += wn.synsets(unidecode(tag), lang=lang)
         for s in synsets:
             lems = self.__get_lemmas__(s)
             for l in lems:
-                if l.name() not in self.lemmas:
-                    self.lemmas.append(l.name())
-        return self.lemmas[:]
+                if l.name() not in lemmas:
+                    lemmas.append(l.name())
+        return lemmas
 
     def __get_lemmas__(self, synset):
         """
@@ -42,19 +44,22 @@ class Wordnetreader:
         :return: list of lemmas
         """
         word = synset.name()
-        return wn.synset(word).lemmas()
+        synsets = []
+        for lan in self.langs:
+            synsets += wn.synset(word).lemmas(lang=lan)
+        return synsets
 
     def __hypernymizer__(self, lemmas):
         """
         :param lemmas: list of lemmas to extract hypernyms
         :return: a list of hypernyms
         """
-        self.hypernyms.clear()
+        hypernyms = []
         for lemma in lemmas:
             synsets = wn.synsets(lemma)
             for syn in synsets:
                 hyper = syn.hypernyms()
                 for h in hyper:
-                    if h.name() not in self.hypernyms:
-                        self.hypernyms.append(h.name())
-        return self.hypernyms[:]
+                    if h.name() not in hypernyms:
+                        hypernyms.append(h.name())
+        return hypernyms

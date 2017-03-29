@@ -10,7 +10,7 @@ if __name__ == '__main__':
     # Example for desambiguate a sentence
     sentence = "I bought a car"
     print(babel.desambiguate(sentence))
-    #Exeample to get the sense of a word in a file
+    # Example to get the sense of a word in a file
     word = "slowly"
     outputFile = "myFile.txt"
-    babel.getSense(word, outputFile)    
+    babel.getSense(word, outputFile)

@@ -9,7 +9,7 @@ class Babel:
     '''
     def __init__(self):
         # please do not publish it on github
-        self.apikey = "4580dd97-4c89-4765-90cc-72fa8604cbc3"
+        self.apikey = "apikey"
         self.lang = "EN"
 
     def getSense(self, word, outputFile):

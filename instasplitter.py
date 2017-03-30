@@ -1,8 +1,5 @@
 #! /usr/bin/python3
 import re
-# from nltk import FreqDist
-# from nltk.corpus import brown
-# from nltk.corpus import words
 import time
 import json
 
@@ -31,10 +28,6 @@ class SimpleSplitter:
 
 class HashtagSplitter:
     def __init__(self, freq_file):
-        # self.__frequency_list__ = FreqDist(i.lower() for i in brown.words())
-        # self.__most_10000__ = self.__to_dic__(
-        # self.__frequency_list__.most_common(100000))
-        # self.__words__ = words.words()
         fp = open(freq_file)
         self.__most_10000__ = json.load(fp)
         fp.close()

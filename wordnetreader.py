@@ -9,7 +9,7 @@ class Wordnetreader:
     @Djavan Sergent
     """
     def __init__(self):
-        self.langs = ["fra", "eng"]
+        self.langs = ["eng"]
 
     def tag_expanser(self, photo):
         """

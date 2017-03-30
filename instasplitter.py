@@ -36,9 +36,11 @@ class HashtagSplitter:
         '''
         parse a tag, first step use standarad delimiter, numbers to split
         then it use the frequency
-        :param term: tag to parse (no hash please)
+        :param term: tag to parse
         :return: tag splitted in a list
         '''
+        if term.startswith('#'):
+            term = term[1:]
         words = []
         # Remove hashtag, split by dash
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')

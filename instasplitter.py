@@ -93,21 +93,28 @@ class HashtagSplitter:
 
 
 if __name__ == "__main__":
-    def test(tag):
-        print('Hashtag: '+tag)
-        t = time.time()
-        print(splitter.parse_tag(tag))
-        t = time.time()-t
-        print(t)
+    def test(line):
+        line = line.replace('\n', '')
+        tag = line.split(',')[0]
+        expected = line.split(',')[1]
+        done = ' '.join(splitter.parse_tag(tag))
+        output = tag+' -> '+done
+        if done != expected:
+            output += ' \033[1;31m('+expected+')\033[0m'
+        else:
+            output += ' \033[1;32m('+expected+')\033[0m'
+        print(output)
+        return 1 if done == expected else 0
 
     splitter = HashtagSplitter('resources/freqs.json')
-    print('loaded')
-    test('makeupartist')
-    test('awesome-dayofmylife')
-    test('awesomedayofmylife')
-    test('ilovegeneva')
-    hashtag = "ILoveGeneva"
-    print('Hashtag: '+hashtag)
-    simple = SimpleSplitter()
-    print(simple.parse_tag(hashtag))
-    test('ILoveGeneva')
+
+    fp = open('resources/100tags')
+    lines = fp.readlines()
+    fp.close()
+    res = 0
+    t = time.time()
+    for l in lines:
+        res += test(l)
+    t = time.time()-t
+    print('Time: '+str(t))
+    print('Total: '+str(res)+'/'+str(len(lines)))

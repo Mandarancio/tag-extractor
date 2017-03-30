@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy import Column, Integer, String, Sequence, create_engine, ForeignKey
 
 Base = declarative_base()
-engine = create_engine('sqlite:///:memory:', echo=False)  # echo = logging in console
+engine = create_engine('sqlite:///../database/kr.bd', echo=False)  # echo = logging in console
 Session = sessionmaker(bind=engine)
 
 

@@ -1,7 +1,10 @@
+#! /usr/bin/python3
+# Martino Ferrari
 import flickrapi
 import twitthelper
 import instahelper
 import math
+import json
 
 
 class Extractor:
@@ -33,9 +36,31 @@ class Extractor:
         yield {}
 
 
+class JsonExtractor(Extractor):
+    '''
+    Simple demo extractor, take data from json file
+    @Martino Ferrari
+    '''
+    def __init__(self, file_path):
+        Extractor.__init__(self, 'Json')
+        self.__file_path__ = file_path
+        f = open(file_path)
+        self.__data__ = json.load(f)
+        f.close()
+
+    def n_photos(self, lat, lon, radius):
+        return len(self.__data__['photos'])
+
+    def get_tags(self, lat, lon, radius=1, num_photos=-1):
+        if num_photos == -1 or num_photos >= self.n_photos(lat, lon, radius):
+            num_photos = self.n_photos(lat, lon, radius)
+        for i in range(0, num_photos):
+            yield self.__data__['photos'][i]
+
+
 class TwitInstaExtractor(Extractor):
     '''
-    Simple photo tags extractor by location
+    Simple instagram photo tags extractor by twitted photo location
     @Martino Ferrari
     '''
     def __init__(self, tw_access_key, tw_access_secret, tw_consumer_key,
@@ -74,12 +99,13 @@ class TwitInstaExtractor(Extractor):
             pobj['taken'] = twit['created_at']
             pobj['lat'] = twit['lat']
             pobj['lon'] = twit['lon']
+            pobj['ntags'] = len(twit['instainfo']['tags'])
             yield pobj
 
 
 class FlickrExtractor(Extractor):
     '''
-    Simple photo tags extractor by location
+    Simple flickr photo tags extractor by location
     @Martino Ferrari
     '''
     def __init__(self, apikey, secret):
@@ -134,6 +160,7 @@ class FlickrExtractor(Extractor):
                 date = pinfo.find('dates')
                 pobj['posted'] = date.get('posted')
                 pobj['taken'] = date.get('taken')
+                pobj['ntags'] = len(pobj['tags'])
                 if len(pobj['tags']) > 0:
                     geoloc = self.__flickr__.photos.geo.getLocation(
                         photo_id=pobj['id'])

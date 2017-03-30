@@ -20,8 +20,9 @@ class Babel:
         :param outputFile:
         :return: a file with the sense of the word
         """
-        urlRequest = "https://babelnet.io/v4/getSenses?word={}&lang={}&key={}".format(
-            word, self.lang, self.apikey)
+        urlRequest = \
+            "https://babelnet.io/v4/getSenses?word={}&lang={}&key={}".format(
+                word, self.lang, self.apikey)
         r = requests.get(urlRequest)
         parsed = json.loads(r.text)
         self.saveJson(parsed, outputFile)
@@ -32,8 +33,9 @@ class Babel:
         :param sentence:
         :return: a new sentence without useless words
         """
-        urlRequest = "https://babelfy.io/v1/disambiguate?text={}&lang={}&key={}".format(
-            sentence, self.lang, self.apikey)
+        urlRequest = \
+            "https://babelfy.io/v1/disambiguate?text={}&lang={}&key={}".format(
+                sentence, self.lang, self.apikey)
         r = requests.get(urlRequest)
         parsed = json.loads(r.text)
         wordsKeep = []

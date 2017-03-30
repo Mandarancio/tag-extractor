@@ -18,7 +18,8 @@ class Wordnetreader:
         i = 0
         for tag in photo['tags']:
             photo['tags'][i]['lemmas'] = self.__lemmatizer__(tag['tag'])
-            photo['tags'][i]['hypernyms'] = self.__hypernymizer__(photo['tags'][i]['lemmas'])
+            photo['tags'][i]['hypernyms'] = \
+                self.__hypernymizer__(photo['tags'][i]['lemmas'])
             i += 1
 
     def __lemmatizer__(self, tag):

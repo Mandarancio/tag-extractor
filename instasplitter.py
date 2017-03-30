@@ -9,6 +9,7 @@ class SimpleSplitter:
     def parse_tag(self, term):
         '''
         Simple Splitter based on capitals, dash and underscores.
+        @Martino Ferrari
         :param term: tag to split
         :return: array of splitted words
         '''

@@ -54,7 +54,7 @@ class HashtagSplitter:
                       re.sub(r"([A-Z])", r" \1", term)).split()
         for tag in tags:
             if len(tag) <= 2 or len(tag) > 20:
-                words.append(tag)
+                words.append(tag.lower())
             else:
                 _, res = self.recursive_split(tag.lower())
                 words.extend(res)
@@ -96,13 +96,12 @@ def test(tag):
 if __name__ == "__main__":
     splitter = HashtagSplitter('resources/freqs.json')
     print('loaded')
-    print('freq: makeup')
-    print(splitter.freq('makeup'))
-    print(splitter.freq('make')*splitter.freq('up'))
     test('makeupartist')
+    test('awesome-dayofmylife')
     test('awesomedayofmylife')
     test('ilovegeneva')
     hashtag = "ILoveGeneva"
     print('Hashtag: '+hashtag)
     simple = SimpleSplitter()
     print(simple.parse_tag(hashtag))
+    test('ILoveGeneva')

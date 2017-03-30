@@ -14,7 +14,8 @@ if __name__ == "__main__":
 
     # Création d'instances de Pictures
     for i in range(10):
-        pict = sql.Pictures(pict=str(i), tags="test"+str(i), location=str(random.random()))
+        pict = sql.Pictures(pict=str('{0:010d}'.format(random.randint(1, 9999999999))),
+                            tags="test"+str(i), ntags=1, lat=random.random(), lon=random.random())
 
         # Persistance de l'instance dans l'ORM
         session.add(pict)

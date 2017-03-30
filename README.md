@@ -4,7 +4,7 @@ Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
 
 ## NLTK
 
-For *NLTK* use the library [nltk]:
+For *NLTK* use the library [nltk](http://www.nltk.org/howto/wordnet.html):
 ```bash
 
 pip3 install nltk
@@ -23,6 +23,8 @@ nltk.download("brown")
 ```bash
 
 pip3 install unidecode
+# or eventually
+python3-pip install unidecode
 
 ```
 
@@ -32,9 +34,12 @@ for *SQLAlchemy* use the library [sqlalchemy](http://docs.sqlalchemy.org/en/late
 ```bash
 
 pip3 install sqlalchemy
+# or eventually
+python3-pip install sqlalchemy
+
 
 ```
-SQLAlchemy is the Python SQL toolkit and Object Relational Mapper.
+SQLAlchemy is a Python SQL toolkit and Object Relational Mapper.
 
 
 ## Flicrk

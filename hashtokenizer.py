@@ -93,6 +93,7 @@ class HashTagTokenizer:
 
 
 if __name__ == "__main__":
+    import sys
     def test(line):
         line = line.replace('\n', '')
         tag = line.split(',')[0]
@@ -105,8 +106,11 @@ if __name__ == "__main__":
             output += ' \033[1;32m'+str(expected)+'\033[0m'
         print(output)
         return 1 if done in expected else 0
+    path = 'resources/freqs.json'
+    if len(sys.argv) == 2:
+       path = sys.argv[1]
 
-    splitter = HashTagTokenizer('resources/freqs.json')
+    splitter = HashTagTokenizer(path)
 
     fp = open('resources/1000tags')
     lines = fp.readlines()

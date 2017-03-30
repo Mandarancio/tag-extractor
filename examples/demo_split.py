@@ -1,5 +1,5 @@
 import extractors as exs
-import instasplitter
+import hashsplitter
 print('loading demo....')
 demoExt = exs.JsonExtractor('demophotos.json')
 print('loading splitter....')

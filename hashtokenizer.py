@@ -5,7 +5,7 @@ import time
 import json
 
 
-class SimpleSplitter:
+class SimpleTokenizer:
     def parse_tag(self, term):
         '''
         Simple Splitter based on capitals, dash and underscores.
@@ -20,9 +20,9 @@ class SimpleSplitter:
         return tags
 
 
-class HashtagSplitter:
+class HashTagTokenizer:
     '''
-    High-perforamnce Advanced hashtag splitter using frequency of possible word
+    High-perforamnce Advanced hashtag tokenizerr using frequency of possible word
     combination to split correctly the tag.
     @Martino Ferrari
     :param freq_file: json frequency wordlist
@@ -32,7 +32,7 @@ class HashtagSplitter:
         self.__freqs__ = json.load(fp)
         fp.close()
 
-    def parse_tag(self, term):
+    def tokenize_tag(self, term):
         '''
         parse a tag, first step use standarad delimiter, numbers to split
         then it use the frequency
@@ -46,14 +46,14 @@ class HashtagSplitter:
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
         tags = re.sub(r"([0-9]+)", r" \1 ", term).split()
         for tag in tags:
-            if len(tag) <= 2 or len(tag) > 20 or tag.isdigit():
+            if len(tag) <= 2 or len(tag) > 25 or tag.isdigit():
                 words.append(tag.lower())
             else:
-                _, res = self.recursive_split(tag.lower())
+                _, res = self.recursive_tokenizer(tag.lower())
                 words.extend(res)
         return words
 
-    def recursive_split(self, term):
+    def recursive_tokenizer(self, term):
         '''
         this is the actual magic of the class ;)
         :param term: all low case tag to split
@@ -65,7 +65,7 @@ class HashtagSplitter:
             word = term[0:i]
             ff = self.freq(word)
             if ff > 0:
-                fr, rest = self.recursive_split(term[i:])
+                fr, rest = self.recursive_tokenizer(term[i:])
                 ff = ff*fr/2
                 if ff > max_freq:
                     max_freq = ff
@@ -96,19 +96,19 @@ if __name__ == "__main__":
     def test(line):
         line = line.replace('\n', '')
         tag = line.split(',')[0]
-        expected = line.split(',')[1]
-        done = ' '.join(splitter.parse_tag(tag))
+        expected = line.split(',')[1:]
+        done = ' '.join(splitter.tokenize_tag(tag))
         output = tag+' -> '+done
-        if done != expected:
-            output += ' \033[1;31m('+expected+')\033[0m'
+        if done not in expected:
+            output += ' \033[1;31m'+str(expected)+'\033[0m'
         else:
-            output += ' \033[1;32m('+expected+')\033[0m'
+            output += ' \033[1;32m'+str(expected)+'\033[0m'
         print(output)
-        return 1 if done == expected else 0
+        return 1 if done in expected else 0
 
-    splitter = HashtagSplitter('resources/freqs.json')
+    splitter = HashTagTokenizer('resources/freqs.json')
 
-    fp = open('resources/100tags')
+    fp = open('resources/1000tags')
     lines = fp.readlines()
     fp.close()
     res = 0

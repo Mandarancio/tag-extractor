@@ -26,6 +26,16 @@ pip3 install unidecode
 
 ```
 
+## SQLAlchemy
+
+for *SQLAlchemy* use the library [sqlalchemy](http://docs.sqlalchemy.org/en/latest/)
+```bash
+
+pip3 install sqlalchemy
+
+```
+SQLAlchemy is the Python SQL toolkit and Object Relational Mapper.
+
 
 ## Flicrk
 

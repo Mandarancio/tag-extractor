@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+# Martino Ferrari
 import flickrapi
 import twitthelper
 import instahelper
@@ -58,7 +60,7 @@ class JsonExtractor(Extractor):
 
 class TwitInstaExtractor(Extractor):
     '''
-    Simple photo tags extractor by location
+    Simple instagram photo tags extractor by twitted photo location
     @Martino Ferrari
     '''
     def __init__(self, tw_access_key, tw_access_secret, tw_consumer_key,
@@ -103,7 +105,7 @@ class TwitInstaExtractor(Extractor):
 
 class FlickrExtractor(Extractor):
     '''
-    Simple photo tags extractor by location
+    Simple flickr photo tags extractor by location
     @Martino Ferrari
     '''
     def __init__(self, apikey, secret):

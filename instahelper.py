@@ -1,7 +1,14 @@
+#! /usr/bin/python3
+# Martino Ferraari
 import requests as r
 
 
 def get_info_from_url(url):
+    '''
+    Recover basic info of an instagram photo from its URL
+    :param url: url of the instagram post
+    :return: dictionary contains basic informations and hashtags
+    '''
     request = "https://api.instagram.com/oembed/?url="+url
     res = r.get(request)
     if res.text == "No Media Match":

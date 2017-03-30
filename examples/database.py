@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     # Récupération d'une entrée de la base
     pict = session.query(sql.Pictures).filter_by(id="3").first()
-    picts = session.query(sql.Pictures).filter(sql.Pictures.tags.in_(['test1','test4','test8']))
+    picts = session.query(sql.Pictures).filter(sql.Pictures.tags.in_(['test1', 'test4', 'test8']))
 
     # Modification de l'objet
     pict.location = "65.093434 ; 98.0293984"

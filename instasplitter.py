@@ -94,7 +94,7 @@ def test(tag):
 
 
 if __name__ == "__main__":
-    splitter = HashtagSplitter('freqs.json')
+    splitter = HashtagSplitter('resources/freqs.json')
     print('loaded')
     print('freq: makeup')
     print(splitter.freq('makeup'))

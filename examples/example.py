@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 import extractors as exs
 import wordnetreader as wrd
+import sqlmanager as sql
 
 
 def printer(photo):
@@ -30,6 +31,17 @@ def prettifier(photos):
             w.tag_expanser(photo)
             string = printer(photo)
 
+            # Database entry management
+            tags = ''
+            for tag in photo['tags']:
+                tags += tag['tag']+ " "
+
+            pict = sql.Pictures(pict=photo['id'], posted=photo['posted'], taken=photo['taken'],
+                                tags=tags, ntags=len(photo['tags']), owner=photo['owner'],
+                                lat=photo['lat'], lon=photo['lon'])
+            session.add(pict)
+            session.commit()  # not optimized !
+
             yield string
         else:
             yield ' - '+photo['id']+' ['+photo['lat']+', '+photo['lon']+']'
@@ -37,10 +49,17 @@ def prettifier(photos):
 
 if __name__ == '__main__':
     # please do not publish it on github
-    apikey = u'KEY_HERE'
-    secret = u'SECRET_HERE'
+    apikey = u'a7770612faae4b07a675cdcd2f968a2b'
+    secret = u'32ae760b89ef2de2'
 
+    # Database management
+    sql.Base.metadata.create_all(sql.engine)
+    session = sql.Session()
+
+    # Wordnet Reader
     w = wrd.Wordnetreader()
+
+    # Flickr Extractor
     f = exs.FlickrExtractor(apikey, secret)
     pipeline = prettifier(f.get_tags(lat=46.205850, lon=6.157521,
                                      radius=1, num_photos=50))

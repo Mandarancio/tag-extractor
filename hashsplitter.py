@@ -118,4 +118,4 @@ if __name__ == "__main__":
     t = time.time()-t
     print('Time: '+str(t))
     print('Total: '+str(res)+'/'+str(len(lines))+' \033[1;32m(' +
-          str(res/len(lines)*100)+'%)\033[0m')
+          str(float(res)/len(lines)*100)+'%)\033[0m')

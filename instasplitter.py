@@ -1,9 +1,10 @@
 #! /usr/bin/python3
 import re
-from nltk import FreqDist
-from nltk.corpus import brown
+# from nltk import FreqDist
+# from nltk.corpus import brown
 # from nltk.corpus import words
 import time
+import json
 
 
 def pprint(tree, space=''):
@@ -29,11 +30,14 @@ class SimpleSplitter:
 
 
 class HashtagSplitter:
-    def __init__(self):
-        self.__frequency_list__ = FreqDist(i.lower() for i in brown.words())
-        self.__most_10000__ = self.__to_dic__(
-            self.__frequency_list__.most_common(100000))
+    def __init__(self, freq_file):
+        # self.__frequency_list__ = FreqDist(i.lower() for i in brown.words())
+        # self.__most_10000__ = self.__to_dic__(
+        # self.__frequency_list__.most_common(100000))
         # self.__words__ = words.words()
+        fp = open(freq_file)
+        self.__most_10000__ = json.load(fp)
+        fp.close()
 
     def __to_dic__(self, freqs):
         res = {}
@@ -56,7 +60,7 @@ class HashtagSplitter:
         tags = re.sub(r"([0-9]+)", r" \1 ",
                       re.sub(r"([A-Z])", r" \1", term)).split()
         for tag in tags:
-            if len(tag) <= 2 or len(tag) > 15:
+            if len(tag) <= 2 or len(tag) > 20:
                 words.append(tag)
             else:
                 _, res = self.recursive_split(tag.lower())
@@ -97,7 +101,7 @@ def test(tag):
 
 
 if __name__ == "__main__":
-    splitter = HashtagSplitter()
+    splitter = HashtagSplitter('freqs.json')
     print('loaded')
     print('freq: makeup')
     print(splitter.freq('makeup'))

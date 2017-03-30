@@ -45,5 +45,8 @@ if __name__ == "__main__":
     most_100000['twit'] = 0.7e-5
     most_100000['insta'] = 0.1e-6
     most_100000['linux'] = 0.1e-6
+    most_100000['usa'] = 1e-5
+    most_100000['lifestyle'] = 2e-5
+    most_100000['tattoo'] = 1e-6
     json.dump(most_100000, fp)
     fp.close()

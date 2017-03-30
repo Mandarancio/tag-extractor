@@ -46,7 +46,7 @@ class HashtagSplitter:
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
         tags = re.sub(r"([0-9]+)", r" \1 ", term).split()
         for tag in tags:
-            if len(tag) <= 2 or len(tag) > 20:
+            if len(tag) <= 2 or len(tag) > 20 or tag.isdigit():
                 words.append(tag.lower())
             else:
                 _, res = self.recursive_split(tag.lower())

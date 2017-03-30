@@ -46,7 +46,7 @@ class HashtagSplitter:
         term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
         tags = re.sub(r"([0-9]+)", r" \1 ", term).split()
         for tag in tags:
-            if len(tag) <= 2 or len(tag) > 20 or tag.isdigit():
+            if len(tag) <= 2 or len(tag) > 25 or tag.isdigit():
                 words.append(tag.lower())
             else:
                 _, res = self.recursive_split(tag.lower())
@@ -96,19 +96,19 @@ if __name__ == "__main__":
     def test(line):
         line = line.replace('\n', '')
         tag = line.split(',')[0]
-        expected = line.split(',')[1]
+        expected = line.split(',')[1:]
         done = ' '.join(splitter.parse_tag(tag))
         output = tag+' -> '+done
-        if done != expected:
-            output += ' \033[1;31m('+expected+')\033[0m'
+        if done not in expected:
+            output += ' \033[1;31m'+str(expected)+'\033[0m'
         else:
-            output += ' \033[1;32m('+expected+')\033[0m'
+            output += ' \033[1;32m'+str(expected)+'\033[0m'
         print(output)
-        return 1 if done == expected else 0
+        return 1 if done in expected else 0
 
     splitter = HashtagSplitter('resources/freqs.json')
 
-    fp = open('resources/100tags')
+    fp = open('resources/1000tags')
     lines = fp.readlines()
     fp.close()
     res = 0

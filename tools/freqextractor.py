@@ -39,6 +39,9 @@ if __name__ == "__main__":
     most_100000['vlogger'] = 0.2e-5
     most_100000['instagram'] = 0.5e-5
     most_100000['twitter'] = 0.5e-5
+    most_100000['porn'] = 1e-5
+    most_100000['pic'] = 1e-5
+    most_100000['repost'] = 0.7e-5
     most_100000['twit'] = 0.7e-5
     most_100000['insta'] = 0.1e-6
     most_100000['linux'] = 0.1e-6

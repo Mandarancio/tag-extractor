@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+# Martino Ferrari
 from nltk import FreqDist
 from nltk.corpus import brown
 

@@ -32,15 +32,7 @@ def prettifier(photos):
             string = printer(photo)
 
             # Database entry management
-            tags = ''
-            for tag in photo['tags']:
-                tags += tag['tag']+ " "
-
-            pict = sql.Pictures(pict=photo['id'], posted=photo['posted'], taken=photo['taken'],
-                                tags=tags, ntags=len(photo['tags']), owner=photo['owner'],
-                                lat=photo['lat'], lon=photo['lon'])
-            session.add(pict)
-            session.commit()  # not optimized !
+            db.add_to_db(photo,session)
 
             yield string
         else:
@@ -49,12 +41,13 @@ def prettifier(photos):
 
 if __name__ == '__main__':
     # please do not publish it on github
-    apikey = u'a7770612faae4b07a675cdcd2f968a2b'
-    secret = u'32ae760b89ef2de2'
+    apikey = u'KEY_HERE'
+    secret = u'SECRET_HERE'
 
     # Database management
-    sql.Base.metadata.create_all(sql.engine)
-    session = sql.Session()
+    db = sql.Dbconfig()
+    db.Base.metadata.create_all(db.engine)
+    session = db.Session()
 
     # Wordnet Reader
     w = wrd.Wordnetreader()

@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+# See http://docs.sqlalchemy.org/en/latest/orm/tutorial.html for more details about SQLAlchemy
 from sqlalchemy import Column, Integer, Float, String, Sequence
 import sqlmanager as sql
 

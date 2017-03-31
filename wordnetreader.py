@@ -50,7 +50,8 @@ class Wordnetreader:
             synsets += wn.synset(word).lemmas(lang=lan)
         return synsets
 
-    def __hypernymizer__(self, lemmas):
+    @staticmethod
+    def __hypernymizer__(lemmas):
         """
         :param lemmas: list of lemmas to extract hypernyms
         :return: a list of hypernyms

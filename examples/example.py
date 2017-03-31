@@ -32,7 +32,7 @@ def prettifier(photos):
             string = printer(photo)
 
             # Database entry management
-            db.add_to_db(photo,session)
+            db.add_to_db(photo, session)
 
             yield string
         else:

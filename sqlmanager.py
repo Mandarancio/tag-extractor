@@ -6,13 +6,14 @@ from sqlalchemy import create_engine
 import models.pictures as pic
 
 
-class Dbconfig():
+class Dbconfig:
     def __init__(self):
         self.Base = declarative_base()
         self.engine = create_engine('sqlite:///../database/kr.db', echo=False)  # echo = logging in console
         self.Session = sessionmaker(bind=self.engine)
 
-    def add_to_db(self, picture, session):
+    @staticmethod
+    def add_to_db(picture, session):
         tags = ''
         for tag in picture['tags']:
             tags += tag['tag'] + " "

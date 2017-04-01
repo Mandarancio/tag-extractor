@@ -32,7 +32,7 @@ def prettifier(photos):
             string = printer(photo)
 
             # Database entry management
-            db.add_to_db(photo, session)
+            sql.add_to_db(photo, session)
 
             yield string
         else:
@@ -45,9 +45,7 @@ if __name__ == '__main__':
     secret = u'SECRET_HERE'
 
     # Database management
-    db = sql.Dbconfig()
-    db.Base.metadata.create_all(db.engine)
-    session = db.Session()
+    session = sql.Session()
 
     # Wordnet Reader
     w = wrd.Wordnetreader()

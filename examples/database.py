@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 # @Djavan Sergent
 # Exemples d'utilisation du sql manager
-import sqlmanager as sql
+import dbmanager as sql
 import random
 
 if __name__ == "__main__":

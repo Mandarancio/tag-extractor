@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import extractors as exs
 import wordnetreader as wrd
-import sqlmanager as sql
+import dbmanager as db
 
 
 def printer(photo):
@@ -32,7 +32,7 @@ def prettifier(photos):
             string = printer(photo)
 
             # Database entry management
-            sql.add_pict_to_db(photo, session)
+            db.add_pict_to_db(photo, session)
 
             yield string
         else:
@@ -44,8 +44,11 @@ if __name__ == '__main__':
     apikey = u'KEY_HERE'
     secret = u'SECRET_HERE'
 
+    # Création de la base de données (Tables)
+    db.Base.metadata.create_all(db.engine)
+
     # Database management
-    session = sql.Session()
+    session = db.Session()
 
     # Wordnet Reader
     w = wrd.Wordnetreader()

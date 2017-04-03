@@ -1,5 +1,5 @@
 #! /usr/bin/python3
-import sqlmanager as sql
+import dbmanager as sql
 
 # Checking the database content
 # @Djavan Sergent

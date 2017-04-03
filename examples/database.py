@@ -12,11 +12,8 @@ if __name__ == "__main__":
     # Création de l'instance de l'ORM
     session = sql.Session()
 
-    # Création de l'instance de l'ORM
-    session = sql.Session()
-
     # Création d'instances de Pictures
-    for i in range(11, 100):
+    for i in range(1, 100):
         pict = sql.Pictures(pict=str('{0:010d}'.format(random.randint(1, 9999999999))),
                             tags="test"+str(i), ntags=1, lat=random.random(), lon=random.random())
 

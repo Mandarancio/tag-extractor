@@ -32,7 +32,8 @@ def prettifier(photos):
             string = printer(photo)
 
             # Database entry management
-            sql.add_to_db(photo, session)
+            sql.add_pict_to_db(photo, session)
+            sql.add_tag_to_db("mytag", session)
 
             yield string
         else:

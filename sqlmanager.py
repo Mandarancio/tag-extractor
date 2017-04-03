@@ -16,7 +16,7 @@ class Pictures(Base):
     """
     __tablename__ = 'pictures'
 
-    # Table field
+    # Table fields
     id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
     pict = Column(String, nullable=False)
     posted = Column(String)
@@ -32,7 +32,19 @@ class Pictures(Base):
                % (self.id, self.pict, self.tags, self.lat, self.lon)
 
 
-def add_to_db(picture, session):
+class Tags(Base):
+    __tablename__ = "tags"
+
+    # Table fields
+    id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
+    tag = Column(String, nullable=False)
+
+
+def add_pict_to_db(picture, session):
+    """
+    :param picture: the picture to store
+    :param session: database session
+    """
     tags = ''
     for tag in picture['tags']:
         tags += tag['tag'] + " "
@@ -42,3 +54,13 @@ def add_to_db(picture, session):
                         lat=picture['lat'], lon=picture['lon'])
     session.add(pict)
     session.commit()  # not optimized !
+
+def add_tag_to_db(tag, session):
+    """
+    :param tag: the picture to store
+    :param session: database session
+    """
+
+    t = Tags(tag=tag)
+    session.add(t)
+    session.commit()

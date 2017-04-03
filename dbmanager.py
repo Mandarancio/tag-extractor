@@ -2,18 +2,18 @@
 # @Djavan Sergent
 # See http://docs.sqlalchemy.org/en/latest/orm/tutorial.html for more details about SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy import create_engine, Column, Integer, Float, String, Sequence, ForeignKey, exists
-
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 
 # Database engine and session parameters
 Base = declarative_base()
-engine = create_engine('sqlite:///../database/kr4.db', echo=False)  # echo = logging in console
+engine = create_engine('sqlite:///../database/kr2.db', echo=False)  # echo = logging in console
 Session = sessionmaker(bind=engine)
 
+# Classes which needed a Base, no on top import
 from models.tag import Tag
 from models.picture import Picture
-from models.picturetaglink import PictureTagLink # Used for table creation ! do not delete this line !
+from models.picturetaglink import PictureTagLink  # Used for table creation ! do not delete this line !
 
 
 def add_pict_to_db(picture, session):

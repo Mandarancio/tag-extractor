@@ -6,7 +6,7 @@ import sqlmanager as sql
 if __name__ == "__main__":
     session = sql.Session()
 
-    picts = session.query(sql.Pictures).order_by(sql.Pictures.id)
-
-    for pict in picts:
-        print(pict)
+    # content = session.query(sql.Tag).order_by(sql.Tag.id)
+    content = session.query(sql.PictureTagLink)
+    for c in content:
+        print(c)

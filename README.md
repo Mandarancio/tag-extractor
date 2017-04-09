@@ -14,6 +14,7 @@ python3-pip install nltk
 ---
 # Accès au différentes langues :
 
+import nltk
 nltk.download("omw")
 nltk.download("brown")
 ```

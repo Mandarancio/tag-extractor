@@ -54,9 +54,6 @@ class Babel:
         :param dicPhotos: dictionnary photos
         :return: the same dictionnary with a new field for each tag which is lemmas
         """
-
-        print(listPhotos)
-        listPhotosLem = []
         for photo in listPhotos:
             for tags in photo["tags"]:
                 cleanTag = tags["raw"]
@@ -64,8 +61,7 @@ class Babel:
                     cleanTag = cleanTag.replace("#", "")
                 lemmasTemp = self.desambiguate(cleanTag)
                 tags["lemmas"] = lemmasTemp
-            listPhotosLem.append(photo)
-        return listPhotosLem
+            yield photo
 
     def saveJson(self, parsed, nameFile):
         """

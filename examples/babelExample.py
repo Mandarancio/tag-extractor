@@ -28,18 +28,16 @@ def printer(photo):
 if __name__ == '__main__':
 
     flickrKey = u'flickrKey'
-    flickrSecretKey = u'flickrSecretKey'
-    babelKey = 'babelKey'
+    flickrSecretKey = u'flickSecretKey'
+    babelKey = "babelKey"
     babel = Babel(babelKey)
 
     # Flickr Extractor
     f = exs.FlickrExtractor(flickrKey, flickrSecretKey)
-    photos = f.get_tags(lat=46.205850, lon=6.157521,
-                         radius=1, num_photos=1)
 
-    photosWithLemmas = babel.returnLemmas(photos)
-
-    print(photosWithLemmas)
+    for i in babel.add_lemmas( f.get_tags(lat=46.205850, lon=6.157521,
+                         radius=1, num_photos=1)):
+        print(i)
 
     """
     # Example for desambiguate a sentence
@@ -48,5 +46,5 @@ if __name__ == '__main__':
     # Example to get the sense of a word in a file
     word = "slowly"
     outputFile = "myFile.txt"
-    babel.getSense(word, outputFile)
+    babel.get_sense(word, outputFile)
     """

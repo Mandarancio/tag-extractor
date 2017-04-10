@@ -13,7 +13,7 @@ class Babel:
         self.apikey = apikey
         self.lang = "EN"
 
-    def getSense(self, word, outputFile):
+    def get_sense(self, word, outputFile):
         """
         Give the sense of a word and put it in an output file
         :param word:
@@ -48,7 +48,7 @@ class Babel:
             wordsKeep.append(sentence[start:end])
         return wordsKeep
 
-    def returnLemmas(self, listPhotos):
+    def add_lemmas(self, listPhotos):
         """
         Return lemmas for each tag of each photos
         :param dicPhotos: dictionnary photos
@@ -63,7 +63,7 @@ class Babel:
                 tags["lemmas"] = lemmasTemp
             yield photo
 
-    def saveJson(self, parsed, nameFile):
+    def save_json(self, parsed, nameFile):
         """
         Save json in the request r in a file
         """

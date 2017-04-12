@@ -1,87 +1,32 @@
 # tag-extractor
 Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
 
+## Dependencies
 
-## NLTK
+The project uses multiple standard python libraries:
+ - [nltk](http://www.nltk.org/howto/wordnet.html) (and the modules ```omw``` and ```brown```)
+ - [unidecode](https://pypi.python.org/pypi/Unidecode)
+ - [SQLAlchemy](http://docs.sqlalchemy.org/en/latest/)
+ - [flickrapi](https://stuvel.eu/flickrapi-doc/)
+ - [twitter](https://pypi.python.org/pypi/twitter)
+ - [requests](http://docs.python-requests.org/en/master/)
 
-For *NLTK* use the library [nltk](http://www.nltk.org/howto/wordnet.html):
+To install this dependencies:
 ```bash
-
 pip3 install nltk
-# or eventually
-python3-pip install nltk
+pip3 install unidecode
+pip3 install flickrapi
+pip3 install twitter
+pip3 install requests
+```
 
----
-# Accès au différentes langues :
-
+To install the nltk modules, run the following ```python3``` script:
+```python
+#! /usr/bin/python3
 import nltk
 nltk.download("omw")
 nltk.download("brown")
 ```
-
-
-## UNIDECODE
-```bash
-
-pip3 install unidecode
-# or eventually
-python3-pip install unidecode
-
-```
-
-## SQLAlchemy
-
-for *SQLAlchemy* use the library [sqlalchemy](http://docs.sqlalchemy.org/en/latest/)
-```bash
-
-pip3 install sqlalchemy
-# or eventually
-python3-pip install sqlalchemy
-
-
-```
-SQLAlchemy is a Python SQL toolkit and Object Relational Mapper.
-
-
-## Flicrk
-
-For *Flickr* use the library [flickrapi](https://stuvel.eu/flickrapi-doc/):
-```bash
-
-pip3 install flickrapi
-# or eventually
-python3-pip install flickrapi
-
-```
-
-An api key is required (I have one for our projects)
-## Twitter
-A simple library is the official [twitter](https://pypi.python.org/pypi/twitter):
-```bash
-
-pip3 install twitter
-# or eventually
-python3-pip install twitter
-
-```
-
-  A simple helper to retrieve twits by location is ```twitthelper.py```, look inside it to understand better ;).
-
-
-## Instagram and Twitter
-
-To use the simple extractor for instagram based on twits you need the following libraries:
-```bash
-
-pip3 install requests
-pip3 install twitter
-
-```
-
-Than you will need the apikey and access code of twitter (very easy to get, please look at twetter developer documents).
-
-### References
-[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
 
 ## Usage
 
@@ -113,8 +58,10 @@ for photo in twitInstExt.get_tags(lat=46.205850, lon=6.157521, radius=1,
     print(photo)
 ```
 
+## Data Structure
 
-The output for a picture is a dictionary:
+The photo and its tags are represented as a dictionary in this form 
+
 ```python
 {
   'id': '32795752924',
@@ -160,8 +107,22 @@ A good example of it can be found at https://brett.is/writing/about/generator-pi
 
 If you wish to test your code with personal apikey or trash code, please do it and name your script ```{FILE NAME}_test.py```, this will be automatically ignored by git (look at ```.gitignore``` file to understand why).
 
-## Links
 
-https://github.com/aghie/pybabelfy
+## References and Links
 
-https://github.com/ideoforms/python-twitter-examples
+### References
+ - [A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
+
+### References
+[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
+
+### References
+[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
+
+### References
+[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
+
+### Links
+
+ - [PyBabelfy](https://github.com/aghie/pybabelfy)
+ - [python twitter examples](https://github.com/ideoforms/python-twitter-examples)

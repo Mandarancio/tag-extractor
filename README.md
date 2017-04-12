@@ -28,7 +28,7 @@ nltk.download("omw")
 nltk.download("brown")
 ```
 
-## Usage
+## Extraction Examples
 
 ```python
 import extractors as exs
@@ -60,7 +60,7 @@ for photo in twitInstExt.get_tags(lat=46.205850, lon=6.157521, radius=1,
 
 ## Data Structure
 
-The photo and its tags are represented as a dictionary in this form 
+The photo and its tags are represented as a dictionary in this form
 
 ```python
 {

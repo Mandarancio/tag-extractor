@@ -113,16 +113,8 @@ If you wish to test your code with personal apikey or trash code, please do it a
 ### References
  - [A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
 
-### References
-[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
-
-### References
-[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
-
-### References
-[A methodology for mapping Instagram hashtags](http://firstmonday.org/article/view/5563/4195)
-
 ### Links
 
  - [PyBabelfy](https://github.com/aghie/pybabelfy)
  - [python twitter examples](https://github.com/ideoforms/python-twitter-examples)
+ - [Piplines in Python]( https://brett.is/writing/about/generator-pipelines-in-python/)

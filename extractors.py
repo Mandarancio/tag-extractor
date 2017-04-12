@@ -2,6 +2,7 @@
 # Martino Ferrari
 import flickrapi
 import twitthelper
+import hashtokenizer as ht
 import instahelper
 import math
 import json
@@ -66,6 +67,7 @@ class TwitInstaExtractor(Extractor):
     def __init__(self, tw_access_key, tw_access_secret, tw_consumer_key,
                  tw_consumer_secret):
         Extractor.__init__(self, 'TwitInsta')
+        self.__htt__ = ht.HashTagTokenizer()
         self.__twith__ = twitthelper.TwittHelper(tw_access_key,
                                                  tw_access_secret,
                                                  tw_consumer_key,
@@ -92,7 +94,7 @@ class TwitInstaExtractor(Extractor):
             for tag in twit['instainfo']['tags']:
                 pobj['tags'].append({
                     'id': tag,
-                    'raw': tag[1:],
+                    'raw': ' '.join(self.__htt__.tokenize_tag(tag)),
                     'tag': tag[1:]
                 })
             pobj['posted'] = twit['created_at']

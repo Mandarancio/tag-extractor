@@ -17,16 +17,25 @@ def get_info_from_url(url):
             'author_id': None,
             'tags': []
         }
-    res = res.json()
-    media_id = res['media_id']
-    author_id = res['author_id']
-    text = res['title'].split(' ')
-    tags = []
-    for t in text:
-        if t.startswith('#'):
-            tags.append(t)
-    return {
-        'media_id': media_id,
-        'author_id': author_id,
-        'tags': tags
-    }
+    if res.status_code == 200:
+
+        res = res.json()
+        media_id = res['media_id']
+        author_id = res['author_id']
+        text = res['title'].split(' ')
+        tags = []
+        for t in text:
+            if t.startswith('#'):
+                tags.append(t)
+        return {
+            'media_id': media_id,
+            'author_id': author_id,
+            'tags': tags
+        }
+
+    else:
+        return {
+            'media_id': '',
+            'author_id': '',
+            'tags': []
+        }

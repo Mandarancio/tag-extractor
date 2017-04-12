@@ -27,7 +27,7 @@ class HashTagTokenizer:
     @Martino Ferrari
     :param freq_file: json frequency wordlist
     '''
-    def __init__(self, freq_file):
+    def __init__(self, freq_file='resources/freqs.json'):
         fp = open(freq_file)
         self.__freqs__ = json.load(fp)
         fp.close()

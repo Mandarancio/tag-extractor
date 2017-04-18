@@ -3,6 +3,7 @@
 import re
 import time
 import json
+import sys
 
 
 class SimpleTokenizer:
@@ -22,8 +23,8 @@ class SimpleTokenizer:
 
 class HashTagTokenizer:
     '''
-    High-perforamnce Advanced hashtag tokenizerr using frequency of possible word
-    combination to split correctly the tag.
+    High-perforamnce Advanced hashtag tokenizerr using frequency of possible
+    word combination to split correctly the tag.
     @Martino Ferrari
     :param freq_file: json frequency wordlist
     '''
@@ -93,7 +94,6 @@ class HashTagTokenizer:
 
 
 if __name__ == "__main__":
-    import sys
     def test(line):
         line = line.replace('\n', '')
         tag = line.split(',')[0]
@@ -108,7 +108,7 @@ if __name__ == "__main__":
         return 1 if done in expected else 0
     path = 'resources/freqs.json'
     if len(sys.argv) == 2:
-       path = sys.argv[1]
+        path = sys.argv[1]
 
     splitter = HashTagTokenizer(path)
 

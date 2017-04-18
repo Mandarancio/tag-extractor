@@ -1,6 +1,7 @@
 import json
 import extractors as X
 import hashtokenizer as ht
+import argparse
 import sys
 
 
@@ -25,11 +26,14 @@ class Processor(object):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Tag extraction and\
+                                     preprocessing')
+    parser.add_argument('--config', dest='config',
+                        default='config.json',
+                        help='Configuration file (default: config.json)')
+    args = parser.parse_args()
+    cfg_path = args.config
     print("Load configuration")
-
-    cfg_path = "config.json"
-    if len(sys.argv) == 2:
-        cfg_path = sys.argv[1]
 
     with open(cfg_path) as f:
         config = json.load(f)
@@ -66,9 +70,9 @@ if __name__ == "__main__":
             sys.stdout.write('\r {}/{}'.format(i, config["number"]))
             sys.stdout.flush()
             d.append(x)
-        print
+        print('\r {}/{}'.format(i, config['number']))
         with open(config["output_path"], "w") as f:
-            json.dump(d, f)
+            json.dump(d, f, indent=4)
     else:
         for x in pipliner.process():
             print("save {}".format(x["id"]))

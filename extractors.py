@@ -89,6 +89,7 @@ class TwitInstaExtractor(Extractor):
                                                                 num_photos):
             pobj = {}
             pobj['id'] = twit['instainfo']['media_id']
+            pobj['url'] = twit['url']
             pobj['owner'] = twit['instainfo']['author_id']
             pobj['tags'] = []
             for tag in twit['instainfo']['tags']:
@@ -148,6 +149,8 @@ class FlickrExtractor(Extractor):
             for photo in page.iter('photo'):
                 pobj = {}
                 pobj['id'] = photo.get('id')
+                pobj['url'] = 'https://www.flickr.com/photos/' + \
+                    photo.get('owner') + '/' + photo.get('id')
                 pobj['owner'] = photo.get('owner')
                 pobj['tags'] = []
                 info = self.__flickr__.photos.getInfo(photo_id=pobj['id'])

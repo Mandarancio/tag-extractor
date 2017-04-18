@@ -9,6 +9,7 @@ class TwittHelper:
     Simple class to help to retrive twits by location.
     @Martino Ferrari
     '''
+
     def __init__(self, access_key, access_secret, consumer_key,
                  consumer_secret):
         self.__api__ = twitter.Twitter(
@@ -79,8 +80,9 @@ class TwittHelper:
                                                count=100, max_id=last_id)
             for result in query["statuses"]:
                 if result["geo"]:
-                    if len(result["entities"]["urls"]) == 1 and \
-                            'www.instagram.com' in \
+                    if len(result["entities"]["urls"]) == 1 and not \
+                        result["retweeted"] and \
+                        'www.instagram.com' in \
                             result["entities"]["urls"][0]["expanded_url"]:
                         created_at = result["created_at"]
                         user = result["user"]["screen_name"]
@@ -92,7 +94,7 @@ class TwittHelper:
                         url = result["entities"]["urls"][0]["expanded_url"]
                         instaid = url.split('/')[-2]
                         info = instahelper.get_info_from_url(url)
-                        if info['media_id'] is not None:
+                        if info['media_id'] is not None and len(info['tags']):
                             row = {
                                     'user': str(user),
                                     'text': text,
@@ -105,4 +107,6 @@ class TwittHelper:
                                   }
                             result_count += 1
                             yield row
+                    if result_count >= number_twits:
+                        break
                     last_id = result['id']

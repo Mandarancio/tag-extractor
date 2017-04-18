@@ -67,6 +67,7 @@ The photo and its tags are represented as a dictionary in this form
   'id': '32795752924',
   'posted': '1100897479',
   'taken': '2004-11-19 12:51:19',
+  'url' : 'https://www.flickr.com/photos/49625814@N05/34114294175',
   'tags': [
     {
       'id': '128760875-32795752924-60504812',

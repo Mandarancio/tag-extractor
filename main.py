@@ -5,8 +5,9 @@ import sys
 
 
 class Processor(object):
+
     def __init__(self, photos):
-        self._photos= photos
+        self._photos = photos
         self._filters = []
 
     def add_filter(self, new_filter):
@@ -27,7 +28,7 @@ if __name__ == "__main__":
     print("Load configuration")
 
     cfg_path = "config.json"
-    if len(sys.argv) == 2 :
+    if len(sys.argv) == 2:
         cfg_path = sys.argv[1]
 
     with open(cfg_path) as f:
@@ -39,17 +40,21 @@ if __name__ == "__main__":
         ACCESS_SECRET = config["apicfg"]["ACCESS_SECRET"]
         CONSUMER_KEY = config["apicfg"]["CONSUMER_KEY"]
         CONSUMER_SECRET = config["apicfg"]["CONSUMER_SECRET"]
-        extractor = X.TwitInstaExtractor(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY,
-                               CONSUMER_SECRET)
+        extractor = X.TwitInstaExtractor(ACCESS_TOKEN, ACCESS_SECRET,
+                                         CONSUMER_KEY, CONSUMER_SECRET)
     else:
         API_KEY = config["apicfg"]["API_KEY"]
         API_SECRET = config["apicfg"]["API_SECRET"]
         extractor = X.FlickrExtractor(API_KEY, API_SECRET)
 
-    pipliner = Processor(extractor.get_tags(lat=config["location"]["lat"], lon=config["location"]["lon"], radius=config["location"]["radius"],num_photos=config["number"]))
+    pipliner = Processor(extractor.get_tags(lat=config["location"]["lat"],
+                                            lon=config["location"]["lon"],
+                                            radius=config[
+                                                "location"]["radius"],
+                                            num_photos=config["number"]))
     # for fiter in config["pipeline"]:
-        # if filter == "Babel":
-            # htt =
+    # if filter == "Babel":
+    # htt =
     if config["output_type"] == "STDOUT":
         for x in pipliner.process():
             print(x)
@@ -57,13 +62,13 @@ if __name__ == "__main__":
         d = []
         i = 0
         for x in pipliner.process():
-            i+=1
-            sys.stdout.write('\r {}/{}'.format(i,config["number"]))
+            i += 1
+            sys.stdout.write('\r {}/{}'.format(i, config["number"]))
             sys.stdout.flush()
             d.append(x)
-        print()
-        with open(config["output_path"],"w") as f:
-            json.dump(d,f)
+        print
+        with open(config["output_path"], "w") as f:
+            json.dump(d, f)
     else:
         for x in pipliner.process():
             print("save {}".format(x["id"]))

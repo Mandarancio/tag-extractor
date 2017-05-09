@@ -1,0 +1,764 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.tagis.kr.com#"
+     xml:base="http://www.tagis.kr.com"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.tagis.kr.com"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.tagis.kr.com#Academy -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Academy">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Badminton -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Badminton">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Bar -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Bar">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EntertainmentConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Basketball -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Basketball">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Beverage -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Beverage">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Boat -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Boat">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Bowling -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Bowling">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Bus -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Bus">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Business -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Business">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Cafe -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Cafe">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Car -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Car">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Category -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Category"/>
+    
+
+
+    <!-- http://www.tagis.kr.com#Chess -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Chess">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#PlayingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Cinema -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Cinema">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#CultureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#College -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#College">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Company -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Company">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Concept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Concept"/>
+    
+
+
+    <!-- http://www.tagis.kr.com#Corporation -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Corporation">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Cruise -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Cruise">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Culture -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Culture">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#CultureConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#CultureConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Disco -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Disco">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EntertainmentConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Diving -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Diving">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Education -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Education">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#EducationConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#EducationConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Employee -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Employee">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Entertainment -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Entertainment">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#EntertainmentConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#EntertainmentConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Exposition -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Exposition">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#CultureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Fac -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Fac">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Fish -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Fish">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Fishing -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Fishing">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Fly -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Fly">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Food -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Food">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Football -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Football">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Game -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Game">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#PlayingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Hockey -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Hockey">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#IceCream -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#IceCream">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#InternetCafe -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#InternetCafe">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#PlayingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Journey -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Journey">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Judo -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Judo">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Karate -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Karate">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Kungfu -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Kungfu">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Learn -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Learn">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Library -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Library">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Mall -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Mall">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#ShoppingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Meat -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Meat">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#MiddleSchool -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#MiddleSchool">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Musee -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Musee">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#CultureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#None -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#None">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Nutrition -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Nutrition">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#NutritionConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#NutritionConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Picture -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Picture"/>
+    
+
+
+    <!-- http://www.tagis.kr.com#PingPong -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#PingPong">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Playing -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Playing">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#PlayingConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#PlayingConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Production -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Production">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Professor -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Professor">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Reading -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Reading">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Restaurant -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Restaurant">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Running -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Running">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Sailing -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Sailing">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Salary -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Salary">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#School -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#School">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Services -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Services">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#ShoppingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Shop -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Shop">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#ShoppingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Shopping -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Shopping">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#ShoppingBag -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#ShoppingBag">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#ShoppingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#ShoppingConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#ShoppingConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Ski -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Ski">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Sport -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Sport">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#SportConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#SportConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Student -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Student">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Supermarket -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Supermarket">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#ShoppingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Syndicate -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Syndicate">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Teach -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Teach">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Tearoom -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Tearoom">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Tennis -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Tennis">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Theatre -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Theatre">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#CultureConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Tour -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Tour">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Train -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Train">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#TravelConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Travel -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Travel">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#TravelConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#TravelConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Union -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Union">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#University -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#University">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EducationConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Vegan -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Vegan">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Vegetable -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Vegetable">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#NutritionConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#VideoGame -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#VideoGame">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#PlayingConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Volunteering -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Volunteering">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#WorkConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Walking -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Walking">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#SportConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Work -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Work">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#WorkConcept -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#WorkConcept">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.tagis.kr.com#Zoo -->
+
+    <owl:Class rdf:about="http://www.tagis.kr.com#Zoo">
+        <rdfs:subClassOf rdf:resource="http://www.tagis.kr.com#EntertainmentConcept"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

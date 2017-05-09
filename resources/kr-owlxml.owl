@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.tagis.kr.com"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.tagis.kr.com">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Tearoom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Zoo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Disco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sailing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Beverage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CultureConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cinema"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Category"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SportConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Syndicate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Journey"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Education"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#University"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mall"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Playing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bowling"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Learn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Library"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Union"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Professor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Football"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IceCream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Entertainment"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Reading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Karate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Production"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vegan"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WorkConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Food"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Exposition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InternetCafe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ski"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Judo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Shopping"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Diving"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Car"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Train"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hockey"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EntertainmentConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#School"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Work"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Company"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Shop"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tour"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShoppingBag"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EducationConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Chess"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Teach"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Meat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Musee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShoppingConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Volunteering"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Walking"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Theatre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Student"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Concept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Picture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fishing"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VideoGame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cafe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TravelConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nutrition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kungfu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Culture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Bus"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PlayingConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Game"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fish"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Supermarket"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Business"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Cruise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#College"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fac"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tennis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Basketball"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Running"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NutritionConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sport"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vegetable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PingPong"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Badminton"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fly"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Corporation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#None"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MiddleSchool"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Restaurant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Travel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Employee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Academy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Salary"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Services"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Academy"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Badminton"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bar"/>
+        <Class IRI="#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Basketball"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Beverage"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boat"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bowling"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bus"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Business"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cafe"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Car"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Chess"/>
+        <Class IRI="#PlayingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cinema"/>
+        <Class IRI="#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#College"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Company"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Corporation"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cruise"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Culture"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CultureConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Disco"/>
+        <Class IRI="#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Diving"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Education"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EducationConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Entertainment"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EntertainmentConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Exposition"/>
+        <Class IRI="#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fac"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fish"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fishing"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Fly"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Food"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Football"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Game"/>
+        <Class IRI="#PlayingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hockey"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IceCream"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#InternetCafe"/>
+        <Class IRI="#PlayingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Journey"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Judo"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Karate"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kungfu"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Learn"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Library"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mall"/>
+        <Class IRI="#ShoppingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Meat"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MiddleSchool"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Musee"/>
+        <Class IRI="#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#None"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nutrition"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NutritionConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PingPong"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Playing"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PlayingConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Production"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Professor"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Reading"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Restaurant"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Running"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sailing"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Salary"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#School"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Services"/>
+        <Class IRI="#ShoppingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Shop"/>
+        <Class IRI="#ShoppingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Shopping"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShoppingBag"/>
+        <Class IRI="#ShoppingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ski"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sport"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SportConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Supermarket"/>
+        <Class IRI="#ShoppingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Syndicate"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Teach"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tearoom"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tennis"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Theatre"/>
+        <Class IRI="#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tour"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Train"/>
+        <Class IRI="#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Travel"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TravelConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Union"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#University"/>
+        <Class IRI="#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vegan"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vegetable"/>
+        <Class IRI="#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VideoGame"/>
+        <Class IRI="#PlayingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Volunteering"/>
+        <Class IRI="#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Walking"/>
+        <Class IRI="#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Work"/>
+        <Class IRI="#Category"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WorkConcept"/>
+        <Class IRI="#Concept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Zoo"/>
+        <Class IRI="#EntertainmentConcept"/>
+    </SubClassOf>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

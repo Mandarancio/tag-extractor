@@ -1,0 +1,477 @@
+@prefix : <http://www.tagis.kr.com#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.tagis.kr.com> .
+
+<http://www.tagis.kr.com> rdf:type owl:Ontology .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.tagis.kr.com#Academy
+:Academy rdf:type owl:Class ;
+         rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Badminton
+:Badminton rdf:type owl:Class ;
+           rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Bar
+:Bar rdf:type owl:Class ;
+     rdfs:subClassOf :EntertainmentConcept .
+
+
+###  http://www.tagis.kr.com#Basketball
+:Basketball rdf:type owl:Class ;
+            rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Beverage
+:Beverage rdf:type owl:Class ;
+          rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Boat
+:Boat rdf:type owl:Class ;
+      rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Bowling
+:Bowling rdf:type owl:Class ;
+         rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Bus
+:Bus rdf:type owl:Class ;
+     rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Business
+:Business rdf:type owl:Class ;
+          rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Cafe
+:Cafe rdf:type owl:Class ;
+      rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Car
+:Car rdf:type owl:Class ;
+     rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Category
+:Category rdf:type owl:Class .
+
+
+###  http://www.tagis.kr.com#Chess
+:Chess rdf:type owl:Class ;
+       rdfs:subClassOf :PlayingConcept .
+
+
+###  http://www.tagis.kr.com#Cinema
+:Cinema rdf:type owl:Class ;
+        rdfs:subClassOf :CultureConcept .
+
+
+###  http://www.tagis.kr.com#College
+:College rdf:type owl:Class ;
+         rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Company
+:Company rdf:type owl:Class ;
+         rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Concept
+:Concept rdf:type owl:Class .
+
+
+###  http://www.tagis.kr.com#Corporation
+:Corporation rdf:type owl:Class ;
+             rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Cruise
+:Cruise rdf:type owl:Class ;
+        rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Culture
+:Culture rdf:type owl:Class ;
+         rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#CultureConcept
+:CultureConcept rdf:type owl:Class ;
+                rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Disco
+:Disco rdf:type owl:Class ;
+       rdfs:subClassOf :EntertainmentConcept .
+
+
+###  http://www.tagis.kr.com#Diving
+:Diving rdf:type owl:Class ;
+        rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Education
+:Education rdf:type owl:Class ;
+           rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#EducationConcept
+:EducationConcept rdf:type owl:Class ;
+                  rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Employee
+:Employee rdf:type owl:Class ;
+          rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Entertainment
+:Entertainment rdf:type owl:Class ;
+               rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#EntertainmentConcept
+:EntertainmentConcept rdf:type owl:Class ;
+                      rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Exposition
+:Exposition rdf:type owl:Class ;
+            rdfs:subClassOf :CultureConcept .
+
+
+###  http://www.tagis.kr.com#Fac
+:Fac rdf:type owl:Class ;
+     rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Fish
+:Fish rdf:type owl:Class ;
+      rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Fishing
+:Fishing rdf:type owl:Class ;
+         rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Fly
+:Fly rdf:type owl:Class ;
+     rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Food
+:Food rdf:type owl:Class ;
+      rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Football
+:Football rdf:type owl:Class ;
+          rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Game
+:Game rdf:type owl:Class ;
+      rdfs:subClassOf :PlayingConcept .
+
+
+###  http://www.tagis.kr.com#Hockey
+:Hockey rdf:type owl:Class ;
+        rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#IceCream
+:IceCream rdf:type owl:Class ;
+          rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#InternetCafe
+:InternetCafe rdf:type owl:Class ;
+              rdfs:subClassOf :PlayingConcept .
+
+
+###  http://www.tagis.kr.com#Journey
+:Journey rdf:type owl:Class ;
+         rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Judo
+:Judo rdf:type owl:Class ;
+      rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Karate
+:Karate rdf:type owl:Class ;
+        rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Kungfu
+:Kungfu rdf:type owl:Class ;
+        rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Learn
+:Learn rdf:type owl:Class ;
+       rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Library
+:Library rdf:type owl:Class ;
+         rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Mall
+:Mall rdf:type owl:Class ;
+      rdfs:subClassOf :ShoppingConcept .
+
+
+###  http://www.tagis.kr.com#Meat
+:Meat rdf:type owl:Class ;
+      rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#MiddleSchool
+:MiddleSchool rdf:type owl:Class ;
+              rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Musee
+:Musee rdf:type owl:Class ;
+       rdfs:subClassOf :CultureConcept .
+
+
+###  http://www.tagis.kr.com#None
+:None rdf:type owl:Class ;
+      rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#Nutrition
+:Nutrition rdf:type owl:Class ;
+           rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#NutritionConcept
+:NutritionConcept rdf:type owl:Class ;
+                  rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Picture
+:Picture rdf:type owl:Class .
+
+
+###  http://www.tagis.kr.com#PingPong
+:PingPong rdf:type owl:Class ;
+          rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Playing
+:Playing rdf:type owl:Class ;
+         rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#PlayingConcept
+:PlayingConcept rdf:type owl:Class ;
+                rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Production
+:Production rdf:type owl:Class ;
+            rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Professor
+:Professor rdf:type owl:Class ;
+           rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Reading
+:Reading rdf:type owl:Class ;
+         rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Restaurant
+:Restaurant rdf:type owl:Class ;
+            rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Running
+:Running rdf:type owl:Class ;
+         rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Sailing
+:Sailing rdf:type owl:Class ;
+         rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Salary
+:Salary rdf:type owl:Class ;
+        rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#School
+:School rdf:type owl:Class ;
+        rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Services
+:Services rdf:type owl:Class ;
+          rdfs:subClassOf :ShoppingConcept .
+
+
+###  http://www.tagis.kr.com#Shop
+:Shop rdf:type owl:Class ;
+      rdfs:subClassOf :ShoppingConcept .
+
+
+###  http://www.tagis.kr.com#Shopping
+:Shopping rdf:type owl:Class ;
+          rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#ShoppingBag
+:ShoppingBag rdf:type owl:Class ;
+             rdfs:subClassOf :ShoppingConcept .
+
+
+###  http://www.tagis.kr.com#ShoppingConcept
+:ShoppingConcept rdf:type owl:Class ;
+                 rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Ski
+:Ski rdf:type owl:Class ;
+     rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Sport
+:Sport rdf:type owl:Class ;
+       rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#SportConcept
+:SportConcept rdf:type owl:Class ;
+              rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Supermarket
+:Supermarket rdf:type owl:Class ;
+             rdfs:subClassOf :ShoppingConcept .
+
+
+###  http://www.tagis.kr.com#Syndicate
+:Syndicate rdf:type owl:Class ;
+           rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Teach
+:Teach rdf:type owl:Class ;
+       rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Tearoom
+:Tearoom rdf:type owl:Class ;
+         rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Tennis
+:Tennis rdf:type owl:Class ;
+        rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Theatre
+:Theatre rdf:type owl:Class ;
+         rdfs:subClassOf :CultureConcept .
+
+
+###  http://www.tagis.kr.com#Tour
+:Tour rdf:type owl:Class ;
+      rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Train
+:Train rdf:type owl:Class ;
+       rdfs:subClassOf :TravelConcept .
+
+
+###  http://www.tagis.kr.com#Travel
+:Travel rdf:type owl:Class ;
+        rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#TravelConcept
+:TravelConcept rdf:type owl:Class ;
+               rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Union
+:Union rdf:type owl:Class ;
+       rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#University
+:University rdf:type owl:Class ;
+            rdfs:subClassOf :EducationConcept .
+
+
+###  http://www.tagis.kr.com#Vegan
+:Vegan rdf:type owl:Class ;
+       rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#Vegetable
+:Vegetable rdf:type owl:Class ;
+           rdfs:subClassOf :NutritionConcept .
+
+
+###  http://www.tagis.kr.com#VideoGame
+:VideoGame rdf:type owl:Class ;
+           rdfs:subClassOf :PlayingConcept .
+
+
+###  http://www.tagis.kr.com#Volunteering
+:Volunteering rdf:type owl:Class ;
+              rdfs:subClassOf :WorkConcept .
+
+
+###  http://www.tagis.kr.com#Walking
+:Walking rdf:type owl:Class ;
+         rdfs:subClassOf :SportConcept .
+
+
+###  http://www.tagis.kr.com#Work
+:Work rdf:type owl:Class ;
+      rdfs:subClassOf :Category .
+
+
+###  http://www.tagis.kr.com#WorkConcept
+:WorkConcept rdf:type owl:Class ;
+             rdfs:subClassOf :Concept .
+
+
+###  http://www.tagis.kr.com#Zoo
+:Zoo rdf:type owl:Class ;
+     rdfs:subClassOf :EntertainmentConcept .
+
+
+###  Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi

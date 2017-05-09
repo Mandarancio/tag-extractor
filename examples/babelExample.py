@@ -23,9 +23,10 @@ def printer(photo):
     string += "]"
     return string
 
-#Attention ne utilisant les requêtes babelfly/bablenet
-#le nombre est très limité pour l'instant!
+
 if __name__ == '__main__':
+    #Attention ne utilisant les requêtes babelfly/bablenet
+    #le nombre est très limité pour l'instant!
 
     flickrKey = u'flickrKey'
     flickrSecretKey = u'flickSecretKey'

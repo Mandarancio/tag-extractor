@@ -1,0 +1,17 @@
+html,body{
+	height: 100%;
+	width:100%;
+}
+
+body{
+	height: 100%;
+	background-color:#FAFFFF;
+	margin:0px;
+	padding:0px;
+}
+
+#map_geolocalisation{
+
+	height:400px;
+
+}

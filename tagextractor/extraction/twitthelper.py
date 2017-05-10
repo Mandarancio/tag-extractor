@@ -3,8 +3,9 @@
 
 author: Martino Ferrari
 """
+import time
 import twitter
-import instahelper
+import extraction.instahelper as instahelper
 
 
 def __extract_twit__(twit):
@@ -63,13 +64,9 @@ class TwittHelper:
 
         last_id = None
         result_count = 0
+
         while result_count < number_twits:
-            query = self.__api__.search.tweets(q="",
-                                               geocode="%f,%f,%dkm" % (lat,
-                                                                       lon,
-                                                                       radius),
-                                               count=100, max_id=last_id)
-            for result in query["statuses"]:
+            for result in self.__query__(lat, lon, radius, last_id):
                 if result["geo"]:
                     print(result["entities"]["urls"][0])
                     user = result["user"]["screen_name"]
@@ -92,6 +89,18 @@ class TwittHelper:
                     yield row
                 last_id = result["id"]
 
+    def __query__(self, lat, lon, radius, last_id):
+        code = "%f,%f,%dkm" % (lat, lon, radius)
+        try:
+            query = self.__api__.search.tweets(q="",
+                                               geocode=code,
+                                               count=100, max_id=last_id)
+            return query["statuses"]
+        except twitter.api.TwitterHTTPError:
+            print("\n!!!Limit reached, waiting 15 minutes!!!\n")
+            time.sleep(15*60)
+            return self.__query__(lat, lon, radius, last_id)
+
     def get_instatwits_by_location(self, lat, lon, radius=1,
                                    number_twits=100):
         '''
@@ -106,12 +115,7 @@ class TwittHelper:
         last_id = None
         result_count = 0
         while result_count < number_twits:
-            query = self.__api__.search.tweets(q="",
-                                               geocode="%f,%f,%dkm" % (lat,
-                                                                       lon,
-                                                                       radius),
-                                               count=100, max_id=last_id)
-            for result in query["statuses"]:
+            for result in self.__query__(lat, lon, radius, last_id):
                 if result["geo"]:
                     twit = __extract_twit__(result)
                     if twit:

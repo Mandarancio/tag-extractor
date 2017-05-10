@@ -6,22 +6,36 @@ details about SQLAlchemy.
 
 author: Djavan Sergent
 """
-
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
 # Classes which needed a Base, no on top import
-from tagextractor.models.tag import Tag
-from tagextractor.models.picture import Picture
-# Used for table creation ! do not delete this line !
-# from tagextractor.models.picturetaglink import PictureTagLink
+from storage.models.tag import Tag
+from storage.models.picture import Picture
 
-# Database engine and session parameters
-BASE = declarative_base()
-# echo = logging in console
-ENGINE = create_engine('sqlite:///../database/kr2.db', echo=False)
-SESSION = sessionmaker(bind=ENGINE)
+# Used for table creation ! do not delete this line !
+from storage.models.picturetaglink import PictureTagLink
+
+
+class DBManager:
+    """DB manager"""
+    def __init__(self, path):
+        # Database engine and session parameters
+        # echo = logging in console
+        self.__engine__ = create_engine(path, echo=False)
+        self.__session__ = sessionmaker(bind=self.__engine__)
+
+    def engine(self):
+        """Get engine"""
+        return self.__engine__
+
+    def session(self):
+        """Get session"""
+        return self.__session__()
+
+    def close(self):
+        """Close sessions"""
+        self.__session__.close_all()
 
 
 def add_pict_to_db(picture, session):
@@ -38,7 +52,7 @@ def add_pict_to_db(picture, session):
     if not pict.exist(session):
         for ptag in picture['tags']:
             # add tags to the database
-            add_tag_to_db(ptag['tag'], session)
+            __add_tag_to_db__(ptag, session)
 
         # Picture added to session
         session.add(pict)
@@ -53,11 +67,11 @@ def add_pict_to_db(picture, session):
         session.commit()
 
 
-def add_tag_to_db(tag, session):
+def __add_tag_to_db__(tag, session):
     """
     :param tag: the tag to store
     :param session: database transaction session
     """
-    tag = Tag(tag=tag)
+    tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'])
     if not tag.exist(session):
         session.add(tag)

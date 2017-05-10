@@ -8,11 +8,13 @@ import math
 import json
 from collections import namedtuple
 import flickrapi
-import tagextractor.extraction.twitthelper as twitthelper
-import tagextractor.utils.nlp.hashtokenizer as ht
+import extraction.twitthelper as twitthelper
+import utils.nlp.hashtokenizer as ht
 
 
-Geoinfo = namedtuple('Geoinfo', ['lat', 'lon', 'radius'], verbose=True)
+Geoinfo = namedtuple('Geoinfo', ['lat', 'lon', 'radius'])
+TwitterAPI = namedtuple('TwitterAPI', ['access_key', 'access_secret',
+                                       'consumer_key', 'consumer_secret'])
 
 
 class Extractor:
@@ -74,14 +76,13 @@ class TwitInstaExtractor(Extractor):
     Simple instagram photo tags extractor by twitted photo location
     @Martino Ferrari
     '''
-    def __init__(self, tw_access_key, tw_access_secret, tw_consumer_key,
-                 tw_consumer_secret):
+    def __init__(self, twapi, frequency_path):
         Extractor.__init__(self, 'TwitInsta')
-        self.__htt__ = ht.HashTagTokenizer()
-        self.__twith__ = twitthelper.TwittHelper(tw_access_key,
-                                                 tw_access_secret,
-                                                 tw_consumer_key,
-                                                 tw_consumer_secret)
+        self.__htt__ = ht.HashTagTokenizer(frequency_path)
+        self.__twith__ = twitthelper.TwittHelper(twapi.access_key,
+                                                 twapi.access_secret,
+                                                 twapi.consumer_key,
+                                                 twapi.consumer_secret)
 
     def n_photos(self, lat, lon, radius):
         """Get number of photos.

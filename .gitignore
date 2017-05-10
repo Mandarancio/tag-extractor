@@ -90,4 +90,4 @@ ENV/
 
 # personal test file
 *_test.py
-private*_config.json
+private*_config.*

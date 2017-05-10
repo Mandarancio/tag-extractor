@@ -1,24 +1,25 @@
 #! /usr/bin/python3
-# Martino Ferrari
+"""Hashtag tokenizer.
+
+author: Martino Ferrari
+"""
 import re
 import time
 import json
 import sys
 
 
-class SimpleTokenizer:
-    def parse_tag(self, term):
-        '''
-        Simple Splitter based on capitals, dash and underscores.
-        @Martino Ferrari
-        :param term: tag to split
-        :return: array of splitted words
-        '''
-        words = []
-        # Remove hashtag, split by dash
-        term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
-        tags = re.sub(r"([A-Z])", r" \1", term).split()
-        return tags
+def parse_tag(term):
+    '''
+    Simple Splitter based on capitals, dash and underscores.
+    @Martino Ferrari
+    :param term: tag to split
+    :return: array of splitted words
+    '''
+    # Remove hashtag, split by dash
+    term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
+    tags = re.sub(r"([A-Z])", r" \1", term).split()
+    return tags
 
 
 class HashTagTokenizer:
@@ -29,9 +30,8 @@ class HashTagTokenizer:
     :param freq_file: json frequency wordlist
     '''
     def __init__(self, freq_file='resources/freqs.json'):
-        fp = open(freq_file)
-        self.__freqs__ = json.load(fp)
-        fp.close()
+        with open(freq_file) as frequency_file:
+            self.__freqs__ = json.load(frequency_file)
 
     def tokenize_tag(self, term):
         '''
@@ -44,7 +44,9 @@ class HashTagTokenizer:
             term = term[1:]
         words = []
         # Remove hashtag, split by dash
-        term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
+        term = term.replace('-', ' ')
+        term = term.replace('_', ' ')
+        term = term.replace('+', ' ')
         tags = re.sub(r"([0-9]+)", r" \1 ", term).split()
         for tag in tags:
             if len(tag) <= 2 or len(tag) > 50 or tag.isdigit():
@@ -61,18 +63,18 @@ class HashTagTokenizer:
         :return: most probable bag of words
         '''
         max_freq = self.freq(term)
-        res = [term]
+        results = [term]
         for i in range(len(term), 0, -1):
             word = term[0:i]
-            ff = self.freq(word)
-            if ff > 0:
-                fr, rest = self.recursive_tokenizer(term[i:])
-                ff = ff*fr/2
-                if ff > max_freq:
-                    max_freq = ff
-                    res = [word]
-                    res.extend(rest)
-        return max_freq, res
+            word_frequency = self.freq(word)
+            if word_frequency > 0:
+                s_frequency, rest = self.recursive_tokenizer(term[i:])
+                word_frequency = word_frequency*s_frequency/2
+                if word_frequency > max_freq:
+                    max_freq = word_frequency
+                    results = [word]
+                    results.extend(rest)
+        return max_freq, results
 
     def freq(self, word):
         '''
@@ -94,11 +96,11 @@ class HashTagTokenizer:
 
 
 if __name__ == "__main__":
-    def test(line):
+    def __test__(line):
         line = line.replace('\n', '')
         tag = line.split(',')[0]
         expected = line.split(',')[1:]
-        done = ' '.join(splitter.tokenize_tag(tag))
+        done = ' '.join(SPLITTER.tokenize_tag(tag))
         output = tag+' -> '+done
         if done not in expected:
             output += ' \033[1;31m'+str(expected)+'\033[0m'
@@ -106,20 +108,21 @@ if __name__ == "__main__":
             output += ' \033[1;32m'+str(expected)+'\033[0m'
         print(output)
         return 1 if done in expected else 0
-    path = 'resources/freqs.json'
+    PATH = 'resources/freqs.json'
     if len(sys.argv) == 2:
-        path = sys.argv[1]
+        PATH = sys.argv[1]
 
-    splitter = HashTagTokenizer(path)
+    SPLITTER = HashTagTokenizer(PATH)
 
-    fp = open('resources/1000tags')
-    lines = fp.readlines()
-    fp.close()
-    res = 0
-    t = time.time()
-    for l in lines:
-        res += test(l)
-    t = time.time()-t
-    print('Time: '+str(t))
-    print('Total: '+str(res)+'/'+str(len(lines))+' \033[1;32m(' +
-          str(float(res)/len(lines)*100)+'%)\033[0m')
+    with open('resources/1000tags') as tags_file:
+        LINES = tags_file.readlines()
+    RESULT = 0
+    TIME = time.time()
+    for l in LINES:
+        RESULT += __test__(l)
+    TIME = time.time()-TIME
+    print('Time: {}'.format(TIME))
+    PERC = float(RESULT)/len(LINES)*100
+    print('Total: {}/{} \033[1;32m({} %)\033[0m'.format(RESULT,
+                                                        len(LINES),
+                                                        PERC))

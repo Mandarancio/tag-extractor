@@ -2,20 +2,20 @@
 """Picture Database table.
 author: Djavan Sergent
 """
-import tagextractor.storage.dbmanager as db
+import storage.base as db
+from storage.models.tag import Tag
 from sqlalchemy import Column, Integer, Float, String, Sequence, exists
 from sqlalchemy.orm import relationship
-from models.tag import Tag
 
 
-class Picture(db.Base):
+class Picture(db.BASE):
     """
     A Mapping class for Picture Objects
     """
     __tablename__ = 'picture'
 
     # Table fields
-    picture_id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
+    id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
     pict = Column(String, nullable=False)
     posted = Column(String)
     taken = Column(String)

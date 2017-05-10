@@ -1,13 +1,14 @@
 #! /usr/bin/python3
+"""TAG Table DB manager.
+
+author: Djavan Sergent
 """
-"""
-# @Djavan Sergent
-import tagextractor.storage.dbmanager as db
+import storage.base as db
 from sqlalchemy import Column, Integer, Sequence, String, exists
 from sqlalchemy.orm import relationship
 
 
-class Tag(db.Base):
+class Tag(db.BASE):
     """
     A mapping class for Tag Objects
     """
@@ -16,6 +17,10 @@ class Tag(db.Base):
     # Table fields
     id = Column(Integer, Sequence('tag_id_seq'), primary_key=True)
     tag = Column(String, nullable=False)
+    raw = Column(String, nullable=False)
+    tag_id = Column(String, nullable=False)
+    lemma = Column(String)
+    synset = Column(String)
     pictures = relationship('Picture', secondary='picture_tag_link')
 
     def exist(self, session):

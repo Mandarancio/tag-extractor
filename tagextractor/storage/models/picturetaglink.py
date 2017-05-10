@@ -2,11 +2,11 @@
 """Picture tag link database table manager
 author: Djavan Sergent
 """
-import tagextractor.storage.dbmanager as db
+import storage.base as db
 from sqlalchemy import Column, Integer, ForeignKey
 
 
-class PictureTagLink(db.Base):
+class PictureTagLink(db.BASE):
     """
     A mapping class for link between Picture and Tag Object
     """

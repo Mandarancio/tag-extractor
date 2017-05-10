@@ -6,7 +6,10 @@ author: Martino Ferrari
 import sys
 import json
 import argparse
-import tagextractor.extraction.extractors as X
+import yaml
+import extraction.extractors as X
+import storage.dbmanager as dbm
+from storage.base import BASE
 
 
 class Processor(object):
@@ -33,58 +36,84 @@ class Processor(object):
         return pipeline
 
 
+def __load_cfg__(path):
+    with open(path) as config_file:
+        return yaml.load(config_file)
+
+
+def __load_extractor__(config):
+    if config["api"] == "JSON":
+        extractor = X.JsonExtractor(config["api"]["api_cfg"]["path"])
+    elif config["api"] == "instagram":
+        access_token = config["api_cfg"]["ACCESS_TOKEN"]
+        access_secret = config["api_cfg"]["ACCESS_SECRET"]
+        consumer_key = config["api_cfg"]["CONSUMER_KEY"]
+        consumer_secret = config["api_cfg"]["CONSUMER_SECRET"]
+        frequency_path = config["api_cfg"]["frequency"]
+        extractor = X.TwitInstaExtractor(X.TwitterAPI(
+            access_token, access_secret,
+            consumer_key, consumer_secret),
+                                         frequency_path)
+    else:
+        api_key = config["api_cfg"]["API_KEY"]
+        api_secret = config["api_cfg"]["API_SECRET"]
+        extractor = X.FlickrExtractor(api_key, api_secret)
+    return extractor
+
+
+def __export__(pipeline, config):
+    if config["module"] == "STDOUT":
+        for processed in pipeline.process():
+            print(processed)
+    elif config["module"] == "JSON":
+        output = []
+        i = 0
+        for processed in pipeline.process():
+            i += 1
+            sys.stdout.write('\r {}'.format(i))
+            sys.stdout.flush()
+            output.append(processed)
+        print()
+        with open(config["module_cfg"]['path'], "w") as output_file:
+            json.dump(output, output_file, indent=4)
+    elif config["module"] == "DB":
+        manager = dbm.DBManager(config["module_cfg"]["path"])
+        BASE.metadata.create_all(manager.engine())
+        i = 0
+        session = manager.session()
+        for processed in pipeline.process():
+            i += 1
+            sys.stdout.write('\r {}'.format(i))
+            sys.stdout.flush()
+            dbm.add_pict_to_db(processed, session)
+            session.commit()
+        manager.close()
+    else:
+        for processed in pipeline.process():
+            print("save {}".format(processed["id"]))
+
+
 def main():
     """Main function"""
     parser = argparse.ArgumentParser(description='Tag extraction and\
                                      preprocessing')
-    parser.add_argument('--config', dest='config',
-                        default='config.json',
-                        help='Configuration file (default: config.json)')
+    parser.add_argument('--config', dest='config', required=True,
+                        help='Configuration file (default: config.yml)')
     args = parser.parse_args()
     cfg_path = args.config
     print("Load configuration")
-
-    with open(cfg_path) as config_file:
-        config = json.load(config_file)
-    if config["api"] == "JSON":
-        extractor = X.JsonExtractor(config["api"]["apicfg"]["file"])
-    elif config["api"] == "instagram":
-        access_token = config["apicfg"]["ACCESS_TOKEN"]
-        access_secret = config["apicfg"]["ACCESS_SECRET"]
-        consumer_key = config["apicfg"]["CONSUMER_KEY"]
-        consumer_secret = config["apicfg"]["CONSUMER_SECRET"]
-        extractor = X.TwitInstaExtractor(access_token, access_secret,
-                                         consumer_key, consumer_secret)
-    else:
-        api_key = config["apicfg"]["API_KEY"]
-        api_secret = config["apicfg"]["API_SECRET"]
-        extractor = X.FlickrExtractor(api_key, api_secret)
-
-    pipliner = Processor(extractor.get_tags(lat=config["location"]["lat"],
-                                            lon=config["location"]["lon"],
-                                            radius=config[
-                                                "location"]["radius"],
-                                            num_photos=config["number"]))
-    # for fiter in config["pipeline"]:
-    # if filter == "Babel":
-    # htt =
-    if config["output_type"] == "STDOUT":
-        for processed in pipliner.process():
-            print(processed)
-    elif config["output_type"] == "JSON":
-        output = []
-        i = 0
-        for processed in pipliner.process():
-            i += 1
-            sys.stdout.write('\r {}/{}'.format(i, config["number"]))
-            sys.stdout.flush()
-            output.append(processed)
-        print('\r {}/{}'.format(i, config['number']))
-        with open(config["output_path"], "w") as output_file:
-            json.dump(output, output_file, indent=4)
-    else:
-        for processed in pipliner.process():
-            print("save {}".format(processed["id"]))
+    config = __load_cfg__(cfg_path)
+    extraction = config['extraction']
+    extractor = __load_extractor__(extraction)
+    lat = extraction["location"]["lat"]
+    lon = extraction["location"]["lon"]
+    radius = extraction["location"]["radius"]
+    num_photos = extraction["number"]
+    pipeliner = Processor(extractor.get_tags(lat=lat,
+                                             lon=lon,
+                                             radius=radius,
+                                             num_photos=num_photos))
+    __export__(pipeliner, config['storage'])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+--- # Configuration
+extraction:
+  api: instagram
+  api_cfg:
+    ACCESS_TOKEN : YOUR_TOKEN
+    ACCESS_SECRET : YOUR_SECRET_KEY
+    CONSUMER_KEY : CONSUMER_KEY
+    CONSUMER_SECRET : CONSUMER_SECRET
+    frequency: ../resources/frequs.json
+  location:
+    lat: 46.205850
+    lon: 6.157521
+    radius: 1
+  number: 1000
+pipeline:
+  Babel: true
+  WordNet: true
+storage:
+  module: JSON
+  module_cfg:
+    path: data/output

@@ -1,14 +1,10 @@
 #! /usr/bin/python3
-
-import requests
-import json
-import sys
-from babel import Babel
-import extractors as exs
-import wordnetreader as wrd
+"""Example of use  of the babel net api"""
+from tagextractor.conceptualization.babel import Babel
+import tagextractor.extraction.extractors as exs
 
 
-def printer(photo):
+def __printer__(photo):
     string = ' + ' + photo['id'] + ' [' + photo['lat'] + ', ' +\
         photo['lon'] + ']:\n'
     string += " TAGS : [\n"

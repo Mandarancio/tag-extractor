@@ -7,9 +7,9 @@ import sys
 import json
 import argparse
 import yaml
-import extraction.extractors as X
-import storage.dbmanager as dbm
-from storage.base import BASE
+import tagextractor.extraction.extractors as X
+import tagextractor.storage.dbmanager as dbm
+from tagextractor.storage.base import BASE
 
 
 class Processor(object):

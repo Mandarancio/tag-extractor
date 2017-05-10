@@ -5,7 +5,7 @@ author: Martino Ferrari
 """
 import time
 import twitter
-import extraction.instahelper as instahelper
+import tagextractor.extraction.instahelper as instahelper
 
 
 def __extract_twit__(twit):

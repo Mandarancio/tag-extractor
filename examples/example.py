@@ -1,10 +1,11 @@
 #! /usr/bin/python3
-import extractors as exs
-import wordnetreader as wrd
-import dbmanager as db
+"""Example of wnet reader"""
+import tagextractor.extraction.extractors as exs
+import tagextractor.conceptualization.wordnetreader as wrd
+import tagextractor.storage.dbmanager as db
 
 
-def printer(photo):
+def __printer__(photo):
     string = ' + ' + photo['id'] + ' [' + photo['lat'] + ', ' +\
             photo['lon'] + ']:\n'
     string += " TAGS : [\n"
@@ -27,9 +28,9 @@ def prettifier(photos):
     :return: list of pretty strings
     """
     for photo in photos:
-        if len(photo['tags']) > 0:
+        if photo['tags']:
             w.tag_expanser(photo)
-            string = printer(photo)
+            string = __printer__(photo)
 
             # Database entry management
             db.add_pict_to_db(photo, session)
@@ -45,10 +46,9 @@ if __name__ == '__main__':
     secret = u'SECRET_HERE'
 
     # Création de la base de données (Tables)
-    db.Base.metadata.create_all(db.engine)
-
+    DB = db.DBManager("sqlite:///../database/instagram.db")
     # Database management
-    session = db.Session()
+    session = DB.session()
 
     # Wordnet Reader
     w = wrd.Wordnetreader()

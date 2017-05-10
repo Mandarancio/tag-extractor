@@ -2,8 +2,8 @@
 """Picture Database table.
 author: Djavan Sergent
 """
-import storage.base as db
-from storage.models.tag import Tag
+import tagextractor.storage.base as db
+from tagextractor.storage.models.tag import Tag
 from sqlalchemy import Column, Integer, Float, String, Sequence, exists
 from sqlalchemy.orm import relationship
 

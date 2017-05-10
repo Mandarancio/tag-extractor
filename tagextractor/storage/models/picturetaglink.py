@@ -2,7 +2,7 @@
 """Picture tag link database table manager
 author: Djavan Sergent
 """
-import storage.base as db
+import tagextractor.storage.base as db
 from sqlalchemy import Column, Integer, ForeignKey
 
 

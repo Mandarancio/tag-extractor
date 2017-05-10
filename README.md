@@ -10,6 +10,7 @@ The project uses multiple standard python libraries:
  - [flickrapi](https://stuvel.eu/flickrapi-doc/)
  - [twitter](https://pypi.python.org/pypi/twitter)
  - [requests](http://docs.python-requests.org/en/master/)
+ - [pyyaml]()
 
 To install this dependencies:
 ```bash
@@ -18,6 +19,7 @@ pip3 install unidecode
 pip3 install flickrapi
 pip3 install twitter
 pip3 install requests
+pip3 install pyyaml
 ```
 
 To install the nltk modules, run the following ```python3``` script:
@@ -28,35 +30,17 @@ nltk.download("omw")
 nltk.download("brown")
 ```
 
-## Extraction Examples
+## How to Run
 
-```python
-import extractors as exs
-
-apikey = u'YOUR_API_KEY'
-secret = u'YOUR_SECRET_KEY'
-
-f = exs.FlickrExtractor(apikey, secret)
-
-for photo in f.get_tags(lat=46.205850, lon=6.157521, radius=1, num_photos=25):
-    if len(photo['tags']) > 0:
-        print(photo)
-    else:
-        print('-')
+Simply:
+```bash
+python3 setup.py develop
+```
+Then:
+```bash
+tagextractor --config YOURCONFIG.yml
 ```
 
-With instagram:
-
-```python
-import extractors as exs
-
-twitInstExt =exs.TwitInstaExtractor(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY,
-                       CONSUMER_SECRET)
-
-for photo in twitInstExt.get_tags(lat=46.205850, lon=6.157521, radius=1,
-                                  num_photos=25):
-    print(photo)
-```
 
 ## Data Structure
 

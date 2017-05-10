@@ -8,8 +8,8 @@ import math
 import json
 from collections import namedtuple
 import flickrapi
-import extraction.twitthelper as twitthelper
-import utils.nlp.hashtokenizer as ht
+import tagextractor.extraction.twitthelper as twitthelper
+import tagextractor.utils.nlp.hashtokenizer as ht
 
 
 Geoinfo = namedtuple('Geoinfo', ['lat', 'lon', 'radius'])

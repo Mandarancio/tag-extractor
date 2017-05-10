@@ -1,12 +1,14 @@
 #! /usr/bin/python3
-import dbmanager as sql
+"""Example for read a table from the DB"""
+import tagextractor.storage.dbmanager as dbm
 
 # Checking the database content
 # @Djavan Sergent
 if __name__ == "__main__":
-    session = sql.Session()
+    SQL = dbm.DBManager("sqlite:///../database/instagram.db")
+    SESSION = SQL.session()
 
     # content = session.query(sql.Tag).order_by(sql.Tag.id)
-    content = session.query(sql.PictureTagLink)
-    for c in content:
+    CONTENT = SESSION.query(dbm.PictureTagLink)
+    for c in CONTENT:
         print(c)

@@ -21,9 +21,9 @@ setup(
                       'flickrapi'],
     # Add test suite
     # Add entry point
-    # entry_points={
-    #     'console_scripts': [
-    #         'tagextractor = tagextractor.main:main'
-    #     ],
-    # },
+    entry_points={
+        'console_scripts': [
+            'tagextractor = tagextractor.main:main'
+        ],
+    },
 )

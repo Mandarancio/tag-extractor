@@ -3,7 +3,7 @@
 
 author: Djavan Sergent
 """
-import storage.base as db
+import tagextractor.storage.base as db
 from sqlalchemy import Column, Integer, Sequence, String, exists
 from sqlalchemy.orm import relationship
 
@@ -21,6 +21,7 @@ class Tag(db.BASE):
     tag_id = Column(String, nullable=False)
     lemma = Column(String)
     synset = Column(String)
+
     pictures = relationship('Picture', secondary='picture_tag_link')
 
     def exist(self, session):

@@ -10,11 +10,11 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
 # Classes which needed a Base, no on top import
-from storage.models.tag import Tag
-from storage.models.picture import Picture
+from tagextractor.storage.models.tag import Tag
+from tagextractor.storage.models.picture import Picture
 
 # Used for table creation ! do not delete this line !
-from storage.models.picturetaglink import PictureTagLink
+from tagextractor.storage.models.picturetaglink import PictureTagLink
 
 
 class DBManager:

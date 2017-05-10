@@ -1,7 +1,40 @@
 #! /usr/bin/python3
-# Martino Ferrari
+"""Helper to extract and retrive twitter by location.
+
+author: Martino Ferrari
+"""
 import twitter
 import instahelper
+
+
+def __extract_twit__(twit):
+    if len(twit["entities"]["urls"]) == 1 and not \
+        twit["retweeted"] and \
+        'www.instagram.com' in \
+            twit["entities"]["urls"][0]["expanded_url"]:
+        created_at = twit["created_at"]
+        user = twit["user"]["screen_name"]
+        text = twit["text"]
+        text = text.encode('ascii', 'replace')
+        latitude = twit["geo"]["coordinates"][0]
+        longitude = twit["geo"]["coordinates"][1]
+
+        url = twit["entities"]["urls"][0]["expanded_url"]
+        # instaid = url.split('/')[-2]
+        info = instahelper.get_info_from_url(url)
+        if info['media_id'] is not None and info['tags']:
+            row = {
+                'user': str(user),
+                'text': text,
+                'lat': str(latitude),
+                'lon': str(longitude),
+                'url': str(url),
+                'lang': twit['lang'],
+                'created_at': created_at,
+                'instainfo': info
+            }
+            return row
+    return None
 
 
 class TwittHelper:
@@ -46,21 +79,21 @@ class TwittHelper:
                     latitude = result["geo"]["coordinates"][0]
                     longitude = result["geo"]["coordinates"][1]
                     row = {
-                            'user': str(user),
-                            'text': text,
-                            'lat': str(latitude),
-                            'lon': str(longitude),
-                            'url': None,
-                            'lang': result['lang'],
-                            'created_at': created_at,
-                            'instainfo': None
-                          }
+                        'user': str(user),
+                        'text': text,
+                        'lat': str(latitude),
+                        'lon': str(longitude),
+                        'url': None,
+                        'lang': result['lang'],
+                        'created_at': created_at,
+                        'instainfo': None
+                    }
                     result_count += 1
                     yield row
                 last_id = result["id"]
 
-    def get_twits_with_instagram_by_location(self, lat, lon, radius=1,
-                                             number_twits=100):
+    def get_instatwits_by_location(self, lat, lon, radius=1,
+                                   number_twits=100):
         '''
         Retrive last twits by location that contains a link to instagram
         :param lat: latitude
@@ -80,33 +113,10 @@ class TwittHelper:
                                                count=100, max_id=last_id)
             for result in query["statuses"]:
                 if result["geo"]:
-                    if len(result["entities"]["urls"]) == 1 and not \
-                        result["retweeted"] and \
-                        'www.instagram.com' in \
-                            result["entities"]["urls"][0]["expanded_url"]:
-                        created_at = result["created_at"]
-                        user = result["user"]["screen_name"]
-                        text = result["text"]
-                        text = text.encode('ascii', 'replace')
-                        latitude = result["geo"]["coordinates"][0]
-                        longitude = result["geo"]["coordinates"][1]
-
-                        url = result["entities"]["urls"][0]["expanded_url"]
-                        instaid = url.split('/')[-2]
-                        info = instahelper.get_info_from_url(url)
-                        if info['media_id'] is not None and len(info['tags']):
-                            row = {
-                                    'user': str(user),
-                                    'text': text,
-                                    'lat': str(latitude),
-                                    'lon': str(longitude),
-                                    'url': str(url),
-                                    'lang': result['lang'],
-                                    'created_at': created_at,
-                                    'instainfo': info
-                                  }
-                            result_count += 1
-                            yield row
+                    twit = __extract_twit__(result)
+                    if twit:
+                        result_count += 1
+                        yield twit
                     if result_count >= number_twits:
                         break
                     last_id = result['id']

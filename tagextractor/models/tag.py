@@ -1,6 +1,8 @@
 #! /usr/bin/python3
+"""
+"""
 # @Djavan Sergent
-import dbmanager as db
+import tagextractor.storage.dbmanager as db
 from sqlalchemy import Column, Integer, Sequence, String, exists
 from sqlalchemy.orm import relationship
 

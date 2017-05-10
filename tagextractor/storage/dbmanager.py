@@ -1,19 +1,27 @@
 #! /usr/bin/python3
-# @Djavan Sergent
-# See http://docs.sqlalchemy.org/en/latest/orm/tutorial.html for more details about SQLAlchemy
+"""DB manager using SQLAlchemy.
+
+See http://docs.sqlalchemy.org/en/latest/orm/tutorial.html for more
+details about SQLAlchemy.
+
+author: Djavan Sergent
+"""
+
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
-# Database engine and session parameters
-Base = declarative_base()
-engine = create_engine('sqlite:///../database/kr2.db', echo=False)  # echo = logging in console
-Session = sessionmaker(bind=engine)
-
 # Classes which needed a Base, no on top import
-from models.tag import Tag
-from models.picture import Picture
-from models.picturetaglink import PictureTagLink  # Used for table creation ! do not delete this line !
+from tagextractor.models.tag import Tag
+from tagextractor.models.picture import Picture
+# Used for table creation ! do not delete this line !
+# from tagextractor.models.picturetaglink import PictureTagLink
+
+# Database engine and session parameters
+BASE = declarative_base()
+# echo = logging in console
+ENGINE = create_engine('sqlite:///../database/kr2.db', echo=False)
+SESSION = sessionmaker(bind=ENGINE)
 
 
 def add_pict_to_db(picture, session):
@@ -21,7 +29,8 @@ def add_pict_to_db(picture, session):
     :param picture: the picture to store
     :param session: database transaction session
     """
-    pict = Picture(pict=picture['id'], posted=picture['posted'], taken=picture['taken'],
+    pict = Picture(pict=picture['id'], posted=picture['posted'],
+                   taken=picture['taken'],
                    ntags=len(picture['tags']), owner=picture['owner'],
                    lat=picture['lat'], lon=picture['lon'])
 
@@ -49,6 +58,6 @@ def add_tag_to_db(tag, session):
     :param tag: the tag to store
     :param session: database transaction session
     """
-    t = Tag(tag=tag)
-    if not t.exist(session):
-        session.add(t)
+    tag = Tag(tag=tag)
+    if not tag.exist(session):
+        session.add(tag)

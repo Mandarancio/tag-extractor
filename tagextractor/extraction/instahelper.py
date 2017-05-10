@@ -1,5 +1,8 @@
 #! /usr/bin/python3
-# Martino Ferraari
+"""Instagram information extraction module.
+
+author: Martino Ferraari
+"""
 import requests as r
 
 
@@ -17,25 +20,23 @@ def get_info_from_url(url):
             'author_id': None,
             'tags': []
         }
-    if res.status_code == 200:
 
+    if res.status_code == 200:
         res = res.json()
         media_id = res['media_id']
         author_id = res['author_id']
         text = res['title'].split(' ')
         tags = []
-        for t in text:
-            if t.startswith('#'):
-                tags.append(t)
+        for word in text:
+            if word.startswith('#'):
+                tags.append(word)
         return {
             'media_id': media_id,
             'author_id': author_id,
             'tags': tags
         }
-
-    else:
-        return {
-            'media_id': '',
-            'author_id': '',
-            'tags': []
-        }
+    return {
+        'media_id': '',
+        'author_id': '',
+        'tags': []
+    }

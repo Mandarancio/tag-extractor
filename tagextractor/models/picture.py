@@ -1,6 +1,8 @@
 #! /usr/bin/python3
-# @Djavan Sergent
-import dbmanager as db
+"""Picture Database table.
+author: Djavan Sergent
+"""
+import tagextractor.storage.dbmanager as db
 from sqlalchemy import Column, Integer, Float, String, Sequence, exists
 from sqlalchemy.orm import relationship
 from models.tag import Tag
@@ -13,7 +15,7 @@ class Picture(db.Base):
     __tablename__ = 'picture'
 
     # Table fields
-    id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
+    picture_id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
     pict = Column(String, nullable=False)
     posted = Column(String)
     taken = Column(String)
@@ -25,7 +27,7 @@ class Picture(db.Base):
 
     # Bind tags to picture and picture to tags
     def add_tags(self, tags, session):
-
+        """add tags to dB."""
         # List of picture's tags
         ptags = []
         for ptag in tags:
@@ -35,9 +37,9 @@ class Picture(db.Base):
         tags = session.query(Tag).filter(Tag.tag.in_(ptags))
 
         # Binding
-        for t in tags:
-            self.tags.append(t)
-            t.pictures.append(self)
+        for tag in tags:
+            self.tags.append(tag)
+            tag.pictures.append(self)
 
     # Test of existance in database
     def exist(self, session):
@@ -45,8 +47,9 @@ class Picture(db.Base):
         :param session: database transaction session
         :return: Boolean - False if not in database
         """
-        return session.query(exists().where(Picture.pict == self.pict)).scalar()
+        return session.query(exists().where(
+            Picture.pict == self.pict)).scalar()
 
     def __repr__(self):
         return "<Picture(id='%s', pict='%s', lat='%s', lon='%s')>" \
-               % (self.id, self.pict, self.lat, self.lon)
+               % (self.picture_id, self.pict, self.lat, self.lon)

@@ -1,6 +1,8 @@
 #! /usr/bin/python3
-# @Djavan Sergent
-import dbmanager as db
+"""Picture tag link database table manager
+author: Djavan Sergent
+"""
+import tagextractor.storage.dbmanager as db
 from sqlalchemy import Column, Integer, ForeignKey
 
 

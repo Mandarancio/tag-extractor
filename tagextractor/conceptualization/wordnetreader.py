@@ -1,4 +1,8 @@
 #! /usr/bin/python3
+"""WordNet utils.
+
+author: Djavan Sergent
+"""
 from nltk.corpus import wordnet as wn
 from unidecode import unidecode
 
@@ -11,6 +15,10 @@ class Wordnetreader:
     def __init__(self):
         self.langs = ["eng"]
 
+    def avaible_langs(self):
+        """return avaible langs"""
+        return self.langs
+
     def tag_expanser(self, photo):
         """
         :param photo: the photo we want to expanse tags information
@@ -19,7 +27,7 @@ class Wordnetreader:
         for tag in photo['tags']:
             photo['tags'][i]['lemmas'] = self.__lemmatizer__(tag['tag'])
             photo['tags'][i]['hypernyms'] = \
-                self.__hypernymizer__(photo['tags'][i]['lemmas'])
+                __hypernymizer__(photo['tags'][i]['lemmas'])
             i += 1
 
     def __lemmatizer__(self, tag):
@@ -32,11 +40,11 @@ class Wordnetreader:
         for lang in self.langs:
             synsets += wn.synsets(tag, lang=lang)
             synsets += wn.synsets(unidecode(tag), lang=lang)
-        for s in synsets:
-            lems = self.__get_lemmas__(s)
-            for l in lems:
-                if l.name() not in lemmas:
-                    lemmas.append(l.name())
+        for synset in synsets:
+            lems = self.__get_lemmas__(synset)
+            for lemma in lems:
+                if lemma.name() not in lemmas:
+                    lemmas.append(lemma.name())
         return lemmas
 
     def __get_lemmas__(self, synset):
@@ -50,18 +58,18 @@ class Wordnetreader:
             synsets += wn.synset(word).lemmas(lang=lan)
         return synsets
 
-    @staticmethod
-    def __hypernymizer__(lemmas):
-        """
-        :param lemmas: list of lemmas to extract hypernyms
-        :return: a list of hypernyms
-        """
-        hypernyms = []
-        for lemma in lemmas:
-            synsets = wn.synsets(lemma)
-            for syn in synsets:
-                hyper = syn.hypernyms()
-                for h in hyper:
-                    if h.name() not in hypernyms:
-                        hypernyms.append(h.name())
-        return hypernyms
+
+def __hypernymizer__(lemmas):
+    """
+    :param lemmas: list of lemmas to extract hypernyms
+    :return: a list of hypernyms
+    """
+    hypernyms = []
+    for lemma in lemmas:
+        synsets = wn.synsets(lemma)
+        for syn in synsets:
+            hypers = syn.hypernyms()
+            for hyper in hypers:
+                if hyper.name() not in hypernyms:
+                    hypernyms.append(hyper.name())
+    return hypernyms

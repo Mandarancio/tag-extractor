@@ -152,8 +152,9 @@ class FlickrExtractor(Extractor):
             for photo in self.__get_tags__(Geoinfo(lat, lon, radius),
                                            page=page,
                                            per_page=per_page):
-                yield photo
-                count += 1
+                if photo['tags']:
+                    yield photo
+                    count += 1
                 if count >= num_photos:
                     break
 
@@ -196,4 +197,5 @@ class FlickrExtractor(Extractor):
                     pobj['lon'] = str(geoinfo.lon)
                 yield pobj
         else:
-            yield {}
+            raise Exception("Something wrong...")
+            # yield {}

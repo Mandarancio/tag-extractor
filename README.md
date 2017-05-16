@@ -1,3 +1,5 @@
+!(build)[https://travis-ci.org/Mandarancio/tag-extractor.svg?branch=master]
+
 # tag-extractor
 Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
 

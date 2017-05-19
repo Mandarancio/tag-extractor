@@ -32,10 +32,15 @@ class Picture(db.BASE):
         # List of picture's tags
         ptags = []
         for ptag in tags:
-            ptags.append(ptag['tag'])
+            if ptag['lemmas']:
+                for i in range(0, len(ptag['lemmas'])):
+                    tid = '{}#{}'.format(ptag['id'], i)
+                    ptags.append(tid)
+            else:
+                ptags.append(ptag['id'])
 
         # Tag request, filtered on ptags
-        tags = session.query(Tag).filter(Tag.tag.in_(ptags))
+        tags = session.query(Tag).filter(Tag.id.in_(ptags))
 
         # Binding
         for tag in tags:

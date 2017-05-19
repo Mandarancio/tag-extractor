@@ -10,6 +10,7 @@ import yaml
 import tagextractor.extraction.extractors as X
 import tagextractor.storage.dbmanager as dbm
 from tagextractor.storage.base import BASE
+from tagextractor.conceptualization.wordnetreader import Wordnetreader
 
 
 class Processor(object):
@@ -34,6 +35,12 @@ class Processor(object):
         for new_filter in self._filters:
             pipeline = new_filter(pipeline)
         return pipeline
+
+    def config(self, config):
+        """Load pipeline configuration."""
+        if config['WordNet']:
+            wn_r = Wordnetreader()
+            self.add_filter(wn_r.extract)
 
 
 def __load_cfg__(path):
@@ -113,6 +120,7 @@ def main():
                                              lon=lon,
                                              radius=radius,
                                              num_photos=num_photos))
+    pipeliner.config(config['pipeline'])
     __export__(pipeliner, config['storage'])
 
 

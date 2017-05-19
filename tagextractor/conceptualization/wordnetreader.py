@@ -4,6 +4,7 @@
 author: Djavan Sergent
 """
 from nltk.corpus import wordnet as wn
+from nltk.wsd import lesk
 from unidecode import unidecode
 
 
@@ -19,44 +20,43 @@ class Wordnetreader:
         """return avaible langs"""
         return self.langs
 
+    def extract(self, photos):
+        """Extract Lemmas and synset from each photo."""
+        for photo in photos:
+            yield self.tag_expanser(photo)
+
     def tag_expanser(self, photo):
         """
         :param photo: the photo we want to expanse tags information
         """
+        sentence = ''
+        for tag in photo['tags']:
+            sentence += unidecode(tag['raw'])+' '
         i = 0
         for tag in photo['tags']:
-            photo['tags'][i]['lemmas'] = self.__lemmatizer__(tag['tag'])
-            photo['tags'][i]['hypernyms'] = \
-                __hypernymizer__(photo['tags'][i]['lemmas'])
+            photo['tags'][i]['lemmas'] = []
+            photo['tags'][i]['synsets'] = []
+            for word in tag['raw'].split():
+                lemmas, synsets = self.__lemmatizer__(word, sentence)
+                if lemmas:
+                    photo['tags'][i]['lemmas'].append(lemmas)
+                    photo['tags'][i]['synsets'].append(synsets)
             i += 1
+        return photo
 
-    def __lemmatizer__(self, tag):
+    # pylint: disable=R0201
+    def __lemmatizer__(self, tag, sentence):
         """
         :param tag: the tag we want to find lemmas
         :return: a list of lemmas
         """
-        lemmas = []
-        synsets = []
-        for lang in self.langs:
-            synsets += wn.synsets(tag, lang=lang)
-            synsets += wn.synsets(unidecode(tag), lang=lang)
-        for synset in synsets:
-            lems = self.__get_lemmas__(synset)
-            for lemma in lems:
-                if lemma.name() not in lemmas:
-                    lemmas.append(lemma.name())
-        return lemmas
 
-    def __get_lemmas__(self, synset):
-        """
-        :param synset: synset from which lemmas are extracted
-        :return: list of lemmas
-        """
-        word = synset.name()
-        synsets = []
-        for lan in self.langs:
-            synsets += wn.synset(word).lemmas(lang=lan)
-        return synsets
+        synsets = lesk(sentence, unidecode(tag))
+        if synsets:
+            syns = synsets.name()
+            lemma = synsets.lemmas()[0].name()
+            return lemma, syns
+        return None, None
 
 
 def __hypernymizer__(lemmas):

@@ -73,6 +73,14 @@ def __add_tag_to_db__(tag, session):
     :param tag: the tag to store
     :param session: database transaction session
     """
-    tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'])
-    if not tag.exist(session):
-        session.add(tag)
+    if tag['lemmas']:
+        for i in range(0, len(tag['lemmas'])):
+            tid = '{}#{}'.format(tag['id'], i)
+            ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tid,
+                       lemma=tag['lemmas'][i], synset=tag['synsets'][i])
+        if not ntag.exist(session):
+            session.add(ntag)
+    else:
+        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'])
+        if not tag.exist(session):
+            session.add(tag)

@@ -10,12 +10,13 @@ import sys
 
 
 def parse_tag(term):
-    '''
+    """
     Simple Splitter based on capitals, dash and underscores.
+
     @Martino Ferrari
     :param term: tag to split
     :return: array of splitted words
-    '''
+    """
     # Remove hashtag, split by dash
     term = term.replace('-', ' ').replace('_', ' ').replace('+', ' ')
     tags = re.sub(r"([A-Z])", r" \1", term).split()
@@ -23,23 +24,26 @@ def parse_tag(term):
 
 
 class HashTagTokenizer:
-    '''
+    """
     High-perforamnce Advanced hashtag tokenizerr using frequency of possible
     word combination to split correctly the tag.
+
     @Martino Ferrari
     :param freq_file: json frequency wordlist
-    '''
+    """
     def __init__(self, freq_file='resources/freqs.json'):
+        """Initialize class."""
         with open(freq_file) as frequency_file:
             self.__freqs__ = json.load(frequency_file)
 
     def tokenize_tag(self, term):
-        '''
-        parse a tag, first step use standarad delimiter, numbers to split
-        then it use the frequency
+        """
+        Parse a tag, first step use standarad delimiter, numbers to split
+        then it use the frequency.
+
         :param term: tag to parse
         :return: tag splitted in a list
-        '''
+        """
         if term.startswith('#'):
             term = term[1:]
         words = []
@@ -57,11 +61,12 @@ class HashTagTokenizer:
         return words
 
     def recursive_tokenizer(self, term):
-        '''
-        this is the actual magic of the class ;)
+        """
+        This is the actual magic of the class ;)
+
         :param term: all low case tag to split
         :return: most probable bag of words
-        '''
+        """
         max_freq = self.freq(term)
         results = [term]
         for i in range(len(term), 0, -1):
@@ -77,21 +82,23 @@ class HashTagTokenizer:
         return max_freq, results
 
     def freq(self, word):
-        '''
-        return the frequency of a word
+        """
+        Return the frequency of a word.
+
         :param word: word to check
         :return: frequency (0 if not in dictionary)
-        '''
+        """
         if word not in self.__freqs__:
             return 0
         return self.__freqs__[word]
 
     def find_word(self, word):
-        '''
-        check if a word is the dictionary
+        """
+        Check if a word is the dictionary.
+
         :param word: word to check
         :return: boolean
-        '''
+        """
         return word in self.__freqs__
 
 

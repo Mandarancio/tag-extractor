@@ -16,6 +16,7 @@ from tagextractor.conceptualization.wordnetreader import Wordnetreader
 class Processor(object):
     """Pipeline Processor."""
     def __init__(self, photos):
+        """Init pipeline."""
         self._photos = photos
         self._filters = []
 
@@ -25,7 +26,7 @@ class Processor(object):
             self._filters.append(new_filter)
 
     def process(self):
-        """ Execute the pipeline.
+        """Execute the pipeline.
 
         this is the pattern for creating a generator
         pipeline, we start with a generator then wrap

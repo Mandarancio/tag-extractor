@@ -20,6 +20,7 @@ TwitterAPI = namedtuple('TwitterAPI', ['access_key', 'access_secret',
 class Extractor:
     """Generic Extractor class."""
     def __init__(self, name):
+        '''Abstract constructor.'''
         self.__name__ = name
 
     def name(self):
@@ -56,15 +57,18 @@ class JsonExtractor(Extractor):
     @Martino Ferrari
     '''
     def __init__(self, file_path):
+        '''Init and load json file.'''
         Extractor.__init__(self, 'Json')
         self.__file_path__ = file_path
         with open(file_path) as json_file:
             self.__data__ = json.load(json_file)
 
     def n_photos(self, lat, lon, radius):
+        '''Return number of photos in file.'''
         return len(self.__data__['photos'])
 
     def get_tags(self, lat, lon, radius=1, num_photos=-1):
+        '''Return tags and picture from json file.'''
         if num_photos == -1 or num_photos >= self.n_photos(lat, lon, radius):
             num_photos = self.n_photos(lat, lon, radius)
         for i in range(0, num_photos):
@@ -77,6 +81,7 @@ class TwitInstaExtractor(Extractor):
     @Martino Ferrari
     '''
     def __init__(self, twapi, frequency_path):
+        '''Init twitter instagram extractor.'''
         Extractor.__init__(self, 'TwitInsta')
         self.__htt__ = ht.HashTagTokenizer(frequency_path)
         self.__twith__ = twitthelper.TwittHelper(twapi.access_key,
@@ -88,7 +93,8 @@ class TwitInstaExtractor(Extractor):
         """Get number of photos.
 
         Todo: implement a method to retrive the number of twit ijn area
-        and avarage it to know the aproximative number of photos"""
+        and avarage it to know the aproximative number of photos
+        """
         return -1
 
     def get_tags(self, lat, lon, radius=1, num_photos=-1):
@@ -128,12 +134,14 @@ class FlickrExtractor(Extractor):
     @Martino Ferrari
     '''
     def __init__(self, apikey, secret):
+        '''Init flickr extractor.'''
         Extractor.__init__(self, 'Flickr')
         self.__apikey__ = apikey
         self.__secret__ = secret
         self.__flickr__ = flickrapi.FlickrAPI(apikey, secret)
 
     def n_photos(self, lat, lon, radius):
+        '''Return number of photos in the location selected.'''
         rsp = self.__flickr__.photos.search(lat=lat, lon=lon, radius=radius,
                                             radius_units="km", per_page=100)
         if rsp.get('stat') == 'ok':
@@ -141,6 +149,7 @@ class FlickrExtractor(Extractor):
         return 0
 
     def get_tags(self, lat, lon, radius, num_photos=-1):
+        '''Return tags and photos in the location selected.'''
         if num_photos == -1:
             num_photos = self.n_photos(lat, lon, radius)
         pages = math.ceil(num_photos/250.)
@@ -159,6 +168,7 @@ class FlickrExtractor(Extractor):
                     break
 
     def __get_tags__(self, geoinfo, page=1, per_page=100):
+        '''Get tags is magic.'''
         page = self.__flickr__.photos.search(lat=geoinfo.lat, lon=geoinfo.lon,
                                              radius=geoinfo.radius,
                                              radius_units="km",

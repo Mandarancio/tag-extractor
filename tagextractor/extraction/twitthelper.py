@@ -43,9 +43,9 @@ class TwittHelper:
     Simple class to help to retrive twits by location.
     @Martino Ferrari
     '''
-
     def __init__(self, access_key, access_secret, consumer_key,
                  consumer_secret):
+        '''Init twitter helper.'''
         self.__api__ = twitter.Twitter(
             auth=twitter.OAuth(access_key,
                                access_secret,
@@ -61,7 +61,6 @@ class TwittHelper:
         :param number_twits: number of twits to reterive (default 100)
         :return: yield with twits, user and location
         '''
-
         last_id = None
         result_count = 0
 
@@ -90,6 +89,7 @@ class TwittHelper:
                 last_id = result["id"]
 
     def __query__(self, lat, lon, radius, last_id):
+        '''Query is magic.'''
         code = "%f,%f,%dkm" % (lat, lon, radius)
         try:
             query = self.__api__.search.tweets(q="",
@@ -111,7 +111,6 @@ class TwittHelper:
         :param number_twits: number of twits to reterive (default 100)
         :return: yield with twits, user, location, url and instagram photo id
         '''
-
         last_id = None
         result_count = 0
         while result_count < number_twits:

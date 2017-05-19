@@ -21,6 +21,7 @@ from tagextractor.storage.models.picturetaglink import PictureTagLink
 class DBManager:
     """DB manager"""
     def __init__(self, path):
+        """Initialize database manager."""
         # Database engine and session parameters
         # echo = logging in console
         self.__engine__ = create_engine(path, echo=False)

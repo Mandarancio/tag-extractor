@@ -10,9 +10,7 @@ from sqlalchemy.orm import relationship
 
 # pylint: disable=too-few-public-methods
 class Tag(db.BASE):
-    """
-    A mapping class for Tag Objects
-    """
+    """A mapping class for Tag Objects."""
     __tablename__ = "tag"
 
     # Table fields
@@ -34,5 +32,6 @@ class Tag(db.BASE):
         return session.query(exists().where(Tag.tag == self.tag)).scalar()
 
     def __repr__(self):
+        """Print the tag."""
         return "<Tag(id='%s', tag='%s')>" \
                % (self.id, self.tag)

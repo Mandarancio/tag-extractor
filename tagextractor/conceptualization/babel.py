@@ -12,9 +12,7 @@ DISAMBIGUATE_URI = "disambiguate?"
 
 
 def save_json(parsed, json_path):
-    """
-    Save json in the request r in a file
-    """
+    """Save json in the request r in a file."""
     with open(json_path, "w") as json_file:
         json_file.write(json.dumps(parsed, indent=4))
 
@@ -24,8 +22,8 @@ class Babel:
     Utilisation of Babel
     @Damien Morard
     '''
-
     def __init__(self, apikey):
+        """Initialize babel class."""
         # please do not publish it on github
         self.apikey = apikey
         self.lang = "EN"
@@ -50,7 +48,6 @@ class Babel:
         :param sentence:
         :return: a new sentence without useless words
         """
-
         # L'url contient un argument annRes = WN qui signifie qu'on restreint
         # notre desambiguisation à wordnet
         url_request = "{}{}text={}&lang={}&annRes=WN&key={}".format(

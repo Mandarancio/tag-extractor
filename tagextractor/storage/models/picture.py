@@ -9,9 +9,7 @@ from sqlalchemy.orm import relationship
 
 
 class Picture(db.BASE):
-    """
-    A Mapping class for Picture Objects
-    """
+    """A Mapping class for Picture Objects."""
     __tablename__ = 'picture'
 
     # Table fields
@@ -28,7 +26,7 @@ class Picture(db.BASE):
 
     # Bind tags to picture and picture to tags
     def add_tags(self, tags, session):
-        """add tags to dB."""
+        """Add tags to dB."""
         # List of picture's tags
         ptags = []
         for ptag in tags:
@@ -57,5 +55,6 @@ class Picture(db.BASE):
             Picture.pict == self.pict)).scalar()
 
     def __repr__(self):
+        """Print the picture."""
         return "<Picture(id='%s', pict='%s', lat='%s', lon='%s')>" \
                % (self.picture_id, self.pict, self.lat, self.lon)

@@ -14,10 +14,11 @@ class Wordnetreader:
     @Djavan Sergent
     """
     def __init__(self):
+        """Initialize wordnet reader."""
         self.langs = ["eng"]
 
     def avaible_langs(self):
-        """return avaible langs"""
+        """Return avaible langs"""
         return self.langs
 
     def extract(self, photos):
@@ -26,7 +27,8 @@ class Wordnetreader:
             yield self.tag_expanser(photo)
 
     def tag_expanser(self, photo):
-        """
+        """Expnase the tag to lemma and synset.
+
         :param photo: the photo we want to expanse tags information
         """
         sentence = ''
@@ -50,7 +52,6 @@ class Wordnetreader:
         :param tag: the tag we want to find lemmas
         :return: a list of lemmas
         """
-
         synsets = lesk(sentence, unidecode(tag))
         if synsets:
             syns = synsets.name()

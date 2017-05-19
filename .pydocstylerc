@@ -3,4 +3,4 @@
 # D104: Missing docstring in public package
 # D203: 1 blank line required before class docstring (found 0)
 # D213: Multi-line docstring summary should start at the second line
-ignore = D104,D203,D213
+ignore = D104,D203,D213,D212,D404,D401,D400,D205,D204,D300

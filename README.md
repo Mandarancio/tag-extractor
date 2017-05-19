@@ -1,4 +1,4 @@
-![build](https://travis-ci.org/Mandarancio/tag-extractor.svg?branch=master)
+[![Build][travis-image]][travis-url]
 
 # tag-extractor
 Python *Flickr* and *Instagram* tag extractor (by location) using **Python 3**
@@ -106,3 +106,6 @@ If you wish to test your code with personal apikey or trash code, please do it a
  - [python twitter examples](https://github.com/ideoforms/python-twitter-examples)
  - [Piplines in Python](https://brett.is/writing/about/generator-pipelines-in-python/)
  - [FlickrAPI bug fix](https://github.com/sybrenstuvel/flickrapi/issues/75)
+
+[travis-image]:https://travis-ci.org/Mandarancio/tag-extractor.svg?branch=master
+[travis-url]:https://travis-ci.org/Mandarancio/tag-extractor

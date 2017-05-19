@@ -14,6 +14,7 @@ from tagextractor.storage.models.tag import Tag
 from tagextractor.storage.models.picture import Picture
 
 # Used for table creation ! do not delete this line !
+# pylint: disable = unused-import
 from tagextractor.storage.models.picturetaglink import PictureTagLink
 
 

@@ -15,6 +15,7 @@ class Picture(db.BASE):
     __tablename__ = 'picture'
 
     # Table fields
+    # pylint: disable=invalid-name
     id = Column(Integer, Sequence('pictures_id_seq'), primary_key=True)
     pict = Column(String, nullable=False)
     posted = Column(String)

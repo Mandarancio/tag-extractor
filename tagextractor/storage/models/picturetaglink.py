@@ -6,6 +6,7 @@ import tagextractor.storage.base as db
 from sqlalchemy import Column, Integer, ForeignKey
 
 
+# pylint: disable = too-few-public-methods
 class PictureTagLink(db.BASE):
     """
     A mapping class for link between Picture and Tag Object

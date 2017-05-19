@@ -94,7 +94,7 @@ def __export__(pipeline, config):
 
 
 def main():
-    """Main function"""
+    """Main enrty point function."""
     parser = argparse.ArgumentParser(description='Tag extraction and\
                                      preprocessing')
     parser.add_argument('--config', dest='config', required=True,

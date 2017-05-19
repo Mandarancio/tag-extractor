@@ -8,6 +8,7 @@ from sqlalchemy import Column, Integer, Sequence, String, exists
 from sqlalchemy.orm import relationship
 
 
+# pylint: disable=too-few-public-methods
 class Tag(db.BASE):
     """
     A mapping class for Tag Objects
@@ -15,6 +16,7 @@ class Tag(db.BASE):
     __tablename__ = "tag"
 
     # Table fields
+    # pylint: disable=invalid-name
     id = Column(Integer, Sequence('tag_id_seq'), primary_key=True)
     tag = Column(String, nullable=False)
     raw = Column(String, nullable=False)

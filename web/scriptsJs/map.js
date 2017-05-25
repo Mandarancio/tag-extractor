@@ -10,30 +10,36 @@ function initialize() {
 	var options = {
 			center: latlng,
 			zoom: 15,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
+			//mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
 	map = new google.maps.Map(document.getElementById("map_geolocalisation"), options);
 
-
-	//On vérifie que l'utilisateur possède la géocalisation ou non
-	/*if(navigator.geolocation){
-		navigator.geolocation.getCurrentPosition(successCallback, null, {enableHighAccuracy:true});
-	}
-	else{
-	  //alert("Votre navigateur ne supporte pas le système de géolocalisation");
-	}*/
+	create_marker(map, latlng);
 
 }
 
-//Si la géocalisation fonctionne, on change la latitude et la longitude par rapport aux nouvelles coordonnées
-function successCallback(position){
-	//panTo permet de centrer notre carte sur nos nouvelles coordonnées
-	map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-	/*var marker = new google.maps.Marker({
-		position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-		map: map
-	});*/
+function create_marker(map, latlng){
+	var marker = new google.maps.Marker({
+		position: latlng,
+		map: map,
+		title: 'My marker'
+	});
+
+	var contentString = 'test';
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
+
+	var marker = new google.maps.Marker({
+		position: latlng,
+		map: map,
+		title: 'AYAHHHHHH'
+	});
+	marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	});
 
 }
 

@@ -26,7 +26,7 @@ function create_marker(map, latlng){
 		title: 'My marker'
 	});
 
-	var contentString = 'test';
+	var contentString = '<h1>test</h1>';
 
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString

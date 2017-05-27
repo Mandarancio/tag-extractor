@@ -57,4 +57,4 @@ class Picture(db.BASE):
     def __repr__(self):
         """Print the picture."""
         return "<Picture(id='%s', pict='%s', lat='%s', lon='%s')>" \
-               % (self.picture_id, self.pict, self.lat, self.lon)
+               % (self.id, self.pict, self.lat, self.lon)

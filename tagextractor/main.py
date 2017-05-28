@@ -114,17 +114,21 @@ def main():
     print("Load configuration")
     config = __load_cfg__(cfg_path)
     extraction = config['extraction']
-    extractor = __load_extractor__(extraction)
-    lat = extraction["location"]["lat"]
-    lon = extraction["location"]["lon"]
-    radius = extraction["location"]["radius"]
-    num_photos = extraction["number"]
-    pipeliner = Processor(extractor.get_tags(lat=lat,
-                                             lon=lon,
-                                             radius=radius,
-                                             num_photos=num_photos))
-    pipeliner.config(config['pipeline'])
-    __export__(pipeliner, config['storage'])
+    if extraction['enabled']:
+        extractor = __load_extractor__(extraction)
+        lat = extraction["location"]["lat"]
+        lon = extraction["location"]["lon"]
+        radius = extraction["location"]["radius"]
+        num_photos = extraction["number"]
+        pipeliner = Processor(extractor.get_tags(lat=lat,
+                                                 lon=lon,
+                                                 radius=radius,
+                                                 num_photos=num_photos))
+        pipeliner.config(config['pipeline'])
+        __export__(pipeliner, config['storage'])
+    classification = config['classification']
+    if classification['enabled']:
+        print("TODO")
 
 
 if __name__ == "__main__":

@@ -91,7 +91,9 @@ def __export__(pipeline, config):
         session = manager.session()
         for processed in pipeline.process():
             i += 1
-            sys.stdout.write('\r {}'.format(i))
+            # print(processed)
+            ntags = len(processed['tags'])
+            sys.stdout.write('\r {:04d}, tags: {:02d}'.format(i, ntags))
             sys.stdout.flush()
             dbm.add_pict_to_db(processed, session)
             session.commit()

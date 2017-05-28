@@ -6,9 +6,21 @@ Details here
 """
 
 from setuptools import setup
+from setuptools.command.install import install as _install
+
+class Install(_install):
+    def run(self):
+        _install.do_egg_install(self)
+        import nltk
+        print("EEE")
+        nltk.download("omw")
+        nltk.download("brown")
+
+
 
 setup(
     name='tag-extractor',
+    cmdclass={'install': Install},
     description='A tool to extract GIS from photo tag.',
     author='Martino Ferrari',
     author_email='manda.mgf@gmail.com',
@@ -19,6 +31,7 @@ setup(
     packages=['tagextractor'],
     install_requires=['requests', 'nltk', 'pyyaml', 'twitter', 'unidecode',
                       'flickrapi', 'SQLAlchemy', 'Owlready'],
+    setup_requires=['nltk'],
     # Add test suite
     # Add entry point
     entry_points={

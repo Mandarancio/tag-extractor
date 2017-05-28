@@ -11,7 +11,7 @@ def __get_synset__(owlclass):
     name = owlclass.name.lower()
     synsets = wn.synsets(name)
     if synsets:
-        return synsets[0]
+        return synsets
     return None
 
 
@@ -21,11 +21,12 @@ def __classify__(tag, classes):
         shortest = 0.1
         category = NONE_CATEGORY
         for name in classes:
-            syn = classes[name][1]
-            taxonomy_distance = synset.path_similarity(syn)
-            if taxonomy_distance and taxonomy_distance > shortest:
-                category = name
-                shortest = taxonomy_distance
+            syns = classes[name][1]
+            for syn in syns:
+                taxonomy_distance = synset.path_similarity(syn)
+                if taxonomy_distance and taxonomy_distance > shortest:
+                    category = name
+                    shortest = taxonomy_distance
         # if shortest > 0.1:
             # print("{}: {}[{}]".format(tag['raw'], category, shortest))
         return category

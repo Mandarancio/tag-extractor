@@ -18,7 +18,7 @@ setup(
     platforms=["any"],
     packages=['tagextractor'],
     install_requires=['requests', 'nltk', 'pyyaml', 'twitter', 'unidecode',
-                      'flickrapi', 'SQLAlchemy'],
+                      'flickrapi', 'SQLAlchemy', 'Owlready'],
     # Add test suite
     # Add entry point
     entry_points={

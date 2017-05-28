@@ -1,5 +1,7 @@
 from owlready import *
 import tagextractor.storage.dbmanager as dbm
+from nltk.corpus import wordnet as wn
+
 
 # Data sources
 onto_path.append('..\\resources')

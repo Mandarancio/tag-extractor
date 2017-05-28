@@ -96,5 +96,5 @@ class DBLoader(Loader):
 if __name__ == '__main__':
     LOADER = DBLoader("sqlite:///database/synx_instagram.db")
     print(LOADER.photo_number())
-    for photo in LOADER.load(2):
-        print(photo)
+    for photo in LOADER.load(10):
+        print(photo['tags'])

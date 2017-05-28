@@ -12,6 +12,9 @@ import tagextractor.storage.dbmanager as dbm
 from tagextractor.storage.base import BASE
 from tagextractor.conceptualization.wordnetreader import Wordnetreader
 
+import tagextractor.classification.ontotagmapper as owlc
+from tagextractor.classification.loader import DBLoader
+
 
 class Processor(object):
     """Pipeline Processor."""
@@ -103,6 +106,16 @@ def __export__(pipeline, config):
             print("save {}".format(processed["id"]))
 
 
+def __classify__(config):
+    loader = DBLoader(config['inputdb'])
+    print("Photos to load: {}".format(loader.photo_number()))
+    for pic in owlc.classifier(loader.load(), config['ontology_path'],
+                               config['ontology']):
+        print(pic['name'])
+        for ptag in pic['tags']:
+            print('  {}: {}'.format(ptag['raw'], ptag['concept']))
+
+
 def main():
     """Main enrty point function."""
     parser = argparse.ArgumentParser(description='Tag extraction and\
@@ -128,7 +141,8 @@ def main():
         __export__(pipeliner, config['storage'])
     classification = config['classification']
     if classification['enabled']:
-        print("TODO")
+        print("\nClassification:\n")
+        __classify__(classification)
 
 
 if __name__ == "__main__":

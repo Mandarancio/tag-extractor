@@ -13,13 +13,13 @@ extraction:
     lon: 6.157521
     radius: 1
   number: 1000
-pipeline:
-  Babel: false
-  WordNet: true
-storage:
-  module: DB
-  module_cfg:
-    path: sqlite:///database/output.db
+  pipeline:
+    Babel: false
+    WordNet: true
+  storage:
+    module: DB
+    module_cfg:
+      path: sqlite:///database/output.db
 classification:
   enabled: true
   inputdb: sqlite:///database/output.db

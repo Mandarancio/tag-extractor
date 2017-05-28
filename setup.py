@@ -8,14 +8,15 @@ Details here
 from setuptools import setup
 from setuptools.command.install import install as _install
 
+
 class Install(_install):
+    """Custom installer."""
     def run(self):
+        """Installs the nltk modules."""
         _install.do_egg_install(self)
         import nltk
-        print("EEE")
         nltk.download("omw")
         nltk.download("brown")
-
 
 
 setup(

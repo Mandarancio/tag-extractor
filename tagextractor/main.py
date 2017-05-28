@@ -137,8 +137,8 @@ def main():
                                                  lon=lon,
                                                  radius=radius,
                                                  num_photos=num_photos))
-        pipeliner.config(config['pipeline'])
-        __export__(pipeliner, config['storage'])
+        pipeliner.config(extraction['pipeline'])
+        __export__(pipeliner, extraction['storage'])
     classification = config['classification']
     if classification['enabled']:
         print("\nClassification:\n")

@@ -38,8 +38,7 @@ class Picture(db.BASE):
                 ptags.append(ptag['id'])
 
         # Tag request, filtered on ptags
-        tags = session.query(Tag).filter(Tag.id.in_(ptags))
-
+        tags = session.query(Tag).filter(Tag.tag_id.in_(ptags))
         # Binding
         for tag in tags:
             self.tags.append(tag)

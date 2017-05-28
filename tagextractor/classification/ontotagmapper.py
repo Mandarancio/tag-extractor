@@ -38,8 +38,9 @@ def classifier(pictures, base_path, ontology):
     owlr.onto_path.append(base_path)
     ontology = owlr.get_ontology(ontology)
     ontology.load()
+    ontology = owlr.ONTOLOGIES['http://tagis.kr.com']
     # TODO how to get only the concept sub-class?
-    owlclasses = owlr.ONTOLOGIES['http://tagis.kr.com'].classes
+    owlclasses = ontology.classes
     classes = {}
     for owlclass in owlclasses:
         # print(owlclass.name)
@@ -48,17 +49,23 @@ def classifier(pictures, base_path, ontology):
             classes[owlclass.name] = (owlclass, syn)
     for picture in pictures:
         tags = picture['tags']
+        instance = classes['Picture'][0]()
         for tag in tags:
             tag['concept'] = __classify__(tag, classes)
+            concept = classes[tag['concept'].lower().title()][0]()
+            instance.tags.append(concept)
+        ontology.sync_reasoner()
+        ontology.save('result.owl')
         # TODO infere picture category
         yield picture
 
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
-    LOADER = DBLoader("sqlite:///database/synx_instagram.db")
+    LOADER = DBLoader("sqlite:///../../database/synx_instagram.db")
     print(LOADER.photo_number())
-    for pic in classifier(LOADER.load(20), "resources", "kr-owlxml.owl"):
+    for pic in classifier(LOADER.load(20), "../../resources", "kr-owlxml2.owl"):
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
+

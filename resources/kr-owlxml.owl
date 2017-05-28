@@ -5,650 +5,918 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.tagis.kr.com">
+     ontologyIRI="http://www.tagis.kr.com"
+     versionIRI="http://www.tagis.kr.com">
+    <Prefix name="" IRI="http://www.tagis.kr.com#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="#Tearoom"/>
+        <Class IRI="http://tagis.kr.com#Fishing"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Zoo"/>
+        <Class IRI="http://tagis.kr.com#Walking"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Disco"/>
+        <Class IRI="http://tagis.kr.com#Car"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Sailing"/>
+        <Class IRI="http://tagis.kr.com#VideoGame"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Beverage"/>
+        <Class IRI="http://tagis.kr.com#Exposition"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#CultureConcept"/>
+        <ObjectProperty IRI="http://tagis.kr.com#tags"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cinema"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Student"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Tour"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Syndicate"/>
+        <Class IRI="http://tagis.kr.com#Music"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Journey"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Education"/>
+        <Class IRI="http://tagis.kr.com#Badminton"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#University"/>
+        <Class IRI="http://tagis.kr.com#Boat"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Mall"/>
+        <Class IRI="http://tagis.kr.com#PingPong"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Playing"/>
+        <Class IRI="http://tagis.kr.com#Hockey"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Bar"/>
+        <Class IRI="http://tagis.kr.com#Marathon"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Bowling"/>
+        <Class IRI="http://tagis.kr.com#Playing"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Boat"/>
+        <Class IRI="http://tagis.kr.com#Shopping"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Learn"/>
+        <Class IRI="http://tagis.kr.com#Cocktail"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Library"/>
+        <Class IRI="http://tagis.kr.com#Fish"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Union"/>
+        <Class IRI="http://tagis.kr.com#Business"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Professor"/>
+        <Class IRI="http://tagis.kr.com#Volunteering"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Football"/>
+        <Class IRI="http://tagis.kr.com#Champagne"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#IceCream"/>
+        <Class IRI="http://tagis.kr.com#Vegan"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Entertainment"/>
+        <Class IRI="http://tagis.kr.com#Burger"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Reading"/>
+        <Class IRI="http://tagis.kr.com#Nutrition"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Karate"/>
+        <Class IRI="http://tagis.kr.com#Learn"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Production"/>
+        <Class IRI="http://tagis.kr.com#Restaurant"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Vegan"/>
+        <Class IRI="http://tagis.kr.com#Cinema"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Mall"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Food"/>
+        <Class IRI="http://tagis.kr.com#Skate"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Exposition"/>
+        <Class IRI="http://tagis.kr.com#Work"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#InternetCafe"/>
+        <Class IRI="http://tagis.kr.com#Running"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Ski"/>
+        <Class IRI="http://tagis.kr.com#Beverage"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Judo"/>
+        <Class IRI="http://tagis.kr.com#Zoo"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Shopping"/>
+        <Class IRI="http://tagis.kr.com#Karate"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Diving"/>
+        <Class IRI="http://tagis.kr.com#Disco"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Car"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Train"/>
+        <Class IRI="http://tagis.kr.com#Travel"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Hockey"/>
+        <Class IRI="http://tagis.kr.com#Train"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#EntertainmentConcept"/>
+        <Class IRI="http://tagis.kr.com#Musee"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#School"/>
+        <Class IRI="http://tagis.kr.com#Meat"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Work"/>
+        <Class IRI="http://tagis.kr.com#Corporation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Company"/>
+        <Class IRI="http://tagis.kr.com#Library"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Shop"/>
+        <Class IRI="http://tagis.kr.com#Vegetable"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Tour"/>
+        <Class IRI="http://tagis.kr.com#Production"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ShoppingBag"/>
+        <Class IRI="http://tagis.kr.com#Picasso"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Judo"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Chess"/>
+        <Class IRI="http://tagis.kr.com#Basketball"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Teach"/>
+        <Class IRI="http://tagis.kr.com#Theatre"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Meat"/>
+        <Class IRI="http://tagis.kr.com#Football"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Musee"/>
+        <Class IRI="http://tagis.kr.com#Bus"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Kungfu"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Volunteering"/>
+        <Class IRI="http://tagis.kr.com#Cafe"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Walking"/>
+        <Class IRI="http://tagis.kr.com#Entertainment"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Theatre"/>
+        <Class IRI="http://tagis.kr.com#Company"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Student"/>
+        <Class IRI="http://tagis.kr.com#Mode"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#None"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Picture"/>
+        <Class IRI="http://tagis.kr.com#Culture"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Fishing"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#VideoGame"/>
+        <Class IRI="http://tagis.kr.com#Sport"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cafe"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Food"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Nutrition"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Kungfu"/>
+        <Class IRI="http://tagis.kr.com#Kebab"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Culture"/>
+        <Class IRI="http://tagis.kr.com#College"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Bus"/>
+        <Class IRI="http://tagis.kr.com#Dance"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#Teach"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Game"/>
+        <Class IRI="http://tagis.kr.com#Pizza"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Fish"/>
+        <Class IRI="http://tagis.kr.com#MiddleSchool"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Supermarket"/>
+        <Class IRI="http://tagis.kr.com#Bowling"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Business"/>
+        <Class IRI="http://tagis.kr.com#Salary"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cruise"/>
+        <Class IRI="http://tagis.kr.com#Academy"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#College"/>
+        <Class IRI="http://tagis.kr.com#Fitness"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Fac"/>
+        <Class IRI="http://tagis.kr.com#Employee"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Tennis"/>
+        <Class IRI="http://tagis.kr.com#Bar"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Basketball"/>
+        <Class IRI="http://tagis.kr.com#Cruise"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Running"/>
+        <Class IRI="http://tagis.kr.com#Supermarket"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Delicious"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Sport"/>
+        <Class IRI="http://tagis.kr.com#Tennis"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Vegetable"/>
+        <Class IRI="http://tagis.kr.com#Sailing"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PingPong"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Badminton"/>
+        <Class IRI="http://tagis.kr.com#School"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Fly"/>
+        <Class IRI="http://tagis.kr.com#Party"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Corporation"/>
+        <Class IRI="http://tagis.kr.com#Ham"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#None"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#MiddleSchool"/>
+        <Class IRI="http://tagis.kr.com#Fly"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Restaurant"/>
+        <Class IRI="http://tagis.kr.com#Union"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Travel"/>
+        <Class IRI="http://tagis.kr.com#Shop"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Employee"/>
+        <Class IRI="http://tagis.kr.com#ShoppingBag"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Academy"/>
+        <Class IRI="http://tagis.kr.com#Education"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Salary"/>
+        <Class IRI="http://tagis.kr.com#Syndicate"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Services"/>
+        <Class IRI="http://tagis.kr.com#Journey"/>
     </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Chess"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Services"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Travels"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Ski"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Picture"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#University"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#FairTrade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#NightLife"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Diving"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Castle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#InternetCafe"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Art"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Tearoom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Fac"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#DJ"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#IceCream"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Professor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Reading"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://tagis.kr.com#Game"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Culture"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#CultureConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Education"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#EducationConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Entertainment"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#None"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectExactCardinality cardinality="0">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+            </ObjectExactCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Nutrition"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Playing"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#PlayingConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Shopping"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Sport"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#SportConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Travel"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#TravelConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#Work"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <Class IRI="http://tagis.kr.com#WorkConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Academy"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Art"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Badminton"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Bar"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Bar"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Basketball"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Beverage"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Boat"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Bowling"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Burger"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Bus"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Business"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Cafe"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Car"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Castle"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Champagne"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Champagne"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Chess"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Cinema"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Cocktail"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Cocktail"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#College"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Company"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Corporation"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Cruise"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#Culture"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
+    </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Academy"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Badminton"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#DJ"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Bar"/>
-        <Class IRI="#EntertainmentConcept"/>
+        <Class IRI="http://tagis.kr.com#Dance"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Basketball"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Delicious"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Beverage"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Disco"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Boat"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Diving"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Bowling"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Education"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Bus"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Business"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Employee"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Cafe"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Entertainment"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Car"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Chess"/>
-        <Class IRI="#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#Exposition"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Cinema"/>
-        <Class IRI="#CultureConcept"/>
+        <Class IRI="http://tagis.kr.com#Fac"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#College"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#FairTrade"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Company"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#FairTrade"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Corporation"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#FairTrade"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Cruise"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Fish"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Culture"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Fishing"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#CultureConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Fitness"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Disco"/>
-        <Class IRI="#EntertainmentConcept"/>
+        <Class IRI="http://tagis.kr.com#Fly"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Diving"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Food"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Education"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Football"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#EducationConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Game"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Employee"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Ham"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Entertainment"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Hockey"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#EntertainmentConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#IceCream"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Exposition"/>
-        <Class IRI="#CultureConcept"/>
+        <Class IRI="http://tagis.kr.com#InternetCafe"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fac"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Journey"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fish"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Judo"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fishing"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Karate"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Fly"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Kebab"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Food"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Kungfu"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Football"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Learn"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Game"/>
-        <Class IRI="#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#Library"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Hockey"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Mall"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#IceCream"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Marathon"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#InternetCafe"/>
-        <Class IRI="#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#Meat"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Journey"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#MiddleSchool"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Judo"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Mode"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Karate"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Musee"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Kungfu"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Music"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Learn"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#NightLife"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Library"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#None"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Mall"/>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Nutrition"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Meat"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#MiddleSchool"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Party"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Musee"/>
-        <Class IRI="#CultureConcept"/>
+        <Class IRI="http://tagis.kr.com#Picasso"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#None"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#PingPong"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Nutrition"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Pizza"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#NutritionConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Playing"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PingPong"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Playing"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Production"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PlayingConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Professor"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Production"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Reading"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Professor"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Restaurant"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Reading"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Running"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Restaurant"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Sailing"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Running"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Salary"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Sailing"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#School"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Salary"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Services"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#School"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Shop"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Services"/>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Shopping"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Shop"/>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#ShoppingBag"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Shopping"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ShoppingBag"/>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Skate"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ShoppingConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Ski"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Ski"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Sport"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Sport"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#SportConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Student"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Student"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Supermarket"/>
+        <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Supermarket"/>
-        <Class IRI="#ShoppingConcept"/>
+        <Class IRI="http://tagis.kr.com#Syndicate"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Syndicate"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Teach"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Teach"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#Tearoom"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tearoom"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Tennis"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tennis"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Theatre"/>
+        <Class IRI="http://tagis.kr.com#CultureConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Theatre"/>
-        <Class IRI="#CultureConcept"/>
+        <Class IRI="http://tagis.kr.com#Tour"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tour"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Train"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Train"/>
-        <Class IRI="#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Travel"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Travel"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#TravelConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#Travels"/>
+        <Class IRI="http://tagis.kr.com#TravelConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Union"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Union"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#University"/>
-        <Class IRI="#EducationConcept"/>
+        <Class IRI="http://tagis.kr.com#University"/>
+        <Class IRI="http://tagis.kr.com#EducationConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Vegan"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Vegan"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Vegetable"/>
-        <Class IRI="#NutritionConcept"/>
+        <Class IRI="http://tagis.kr.com#Vegetable"/>
+        <Class IRI="http://tagis.kr.com#NutritionConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#VideoGame"/>
-        <Class IRI="#PlayingConcept"/>
+        <Class IRI="http://tagis.kr.com#VideoGame"/>
+        <Class IRI="http://tagis.kr.com#PlayingConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Volunteering"/>
-        <Class IRI="#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Volunteering"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Walking"/>
-        <Class IRI="#SportConcept"/>
+        <Class IRI="http://tagis.kr.com#Walking"/>
+        <Class IRI="http://tagis.kr.com#SportConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Work"/>
-        <Class IRI="#Category"/>
+        <Class IRI="http://tagis.kr.com#Work"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#WorkConcept"/>
-        <Class IRI="#Concept"/>
+        <Class IRI="http://tagis.kr.com#WorkConcept"/>
+        <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Zoo"/>
-        <Class IRI="#EntertainmentConcept"/>
+        <Class IRI="http://tagis.kr.com#Zoo"/>
+        <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
 </Ontology>
 

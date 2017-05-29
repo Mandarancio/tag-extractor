@@ -34,12 +34,7 @@ class Picture(db.CLASSIFIED_BASE):
         # List of picture's tags
         ptags = []
         for ptag in tags:
-            if ptag['lemmas']:
-                for i in range(0, len(ptag['lemmas'])):
-                    tid = '{}#{}'.format(ptag['id'], i)
-                    ptags.append(tid)
-            else:
-                ptags.append(ptag['id'])
+            ptags.append(ptag['tag_id'])
 
         # Tag request, filtered on ptags
         tags = session.query(Tag).filter(Tag.tag_id.in_(ptags))

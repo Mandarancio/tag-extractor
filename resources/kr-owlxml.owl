@@ -14,6 +14,9 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
+        <ObjectProperty IRI="http://tagis.kr.com#isTagOf"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://tagis.kr.com#Fishing"/>
     </Declaration>
     <Declaration>
@@ -1145,6 +1148,10 @@
         <Class IRI="http://tagis.kr.com#None"/>
         <Class IRI="http://tagis.kr.com#NoneConcept"/>
     </SubClassOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
+        <ObjectProperty IRI="http://tagis.kr.com#isTagOf"/>
+    </InverseObjectProperties>
 </Ontology>
 
 

@@ -99,9 +99,14 @@ def classifier(pictures, ontology):
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
-    LOADER = DBLoader("sqlite:///../../database/url_instagram.db")
-    ONTOLOGY = load_ontology('../../resources', 'kr-owlxml.owl',
+    from tagextractor.classification.storage.base import CLASSIFIED_BASE
+    import tagextractor.classification.storage.dbmanager as cbm
+    LOADER = DBLoader("sqlite:///database/url_instagram.db")
+    ONTOLOGY = load_ontology('resources', 'kr-owlxml.owl',
                              'http://tagis.kr.com')
+    manager = cbm.DBManager('sqlite:///database/output-classified.db')
+    CLASSIFIED_BASE.metadata.create_all(manager.engine())
+    session = manager.session()
 
     print(LOADER.photo_number())
     for pic in classifier(LOADER.load(20), ONTOLOGY):

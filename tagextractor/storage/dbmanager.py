@@ -48,7 +48,8 @@ def add_pict_to_db(picture, session):
     pict = Picture(pict=picture['id'], posted=picture['posted'],
                    taken=picture['taken'],
                    ntags=len(picture['tags']), owner=picture['owner'],
-                   lat=picture['lat'], lon=picture['lon'])
+                   lat=picture['lat'], lon=picture['lon'], url=picture['url'],
+                   image_url=picture['image_url'])
 
     # If picture not in the database
     if not pict.exist(session):

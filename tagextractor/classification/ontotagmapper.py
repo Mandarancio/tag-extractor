@@ -59,9 +59,8 @@ def load_ontology(base_path, filename, ontoname):
 
 
 def write_ontology(onto_in, onto_out):
-    results = owlr.to_owl(onto_in)
     output = open(onto_out, 'w')
-    output.write(results)
+    output.write(owlr.to_owl(onto_in))
     output.close()
 
 

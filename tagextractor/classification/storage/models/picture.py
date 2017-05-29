@@ -2,13 +2,14 @@
 """Picture Database table.
 author: Djavan Sergent
 """
-import tagextractor.storage.base as db
-from tagextractor.storage.models.tag import Tag
+import tagextractor.classification.storage.base as db
+from tagextractor.classification.storage.models.tag import Tag
+from tagextractor.classification.storage.models.category import Category
 from sqlalchemy import Column, Integer, Float, String, Sequence, exists
 from sqlalchemy.orm import relationship
 
 
-class Picture(db.BASE):
+class Picture(db.CLASSIFIED_BASE):
     """A Mapping class for Picture Objects."""
     __tablename__ = 'picture'
 
@@ -20,8 +21,11 @@ class Picture(db.BASE):
     taken = Column(String)
     ntags = Column(Integer, nullable=False)
     owner = Column(String)
+    url = Column(String)
+    image_url = Column(String)
     lon = Column(Float, nullable=False)
     lat = Column(Float, nullable=False)
+    categories = relationship(Category, secondary='picture_category_link')
     tags = relationship(Tag, secondary='picture_tag_link')
 
     # Bind tags to picture and picture to tags

@@ -9,4 +9,4 @@ author: Djavan Sergent
 
 from sqlalchemy.ext.declarative import declarative_base
 
-BASE = declarative_base()
+CLASSIFIED_BASE = declarative_base()

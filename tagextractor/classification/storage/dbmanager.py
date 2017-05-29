@@ -10,12 +10,13 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
 # Classes which needed a Base, no on top import
-from tagextractor.storage.models.tag import Tag
-from tagextractor.storage.models.picture import Picture
+from tagextractor.classification.storage.models.tag import Tag
+from tagextractor.classification.storage.models.picture import Picture
 
-# Used for table creation ! do not delete this line !
+# Used for table creation ! do not delete these lines !
 # pylint: disable = unused-import
-from tagextractor.storage.models.picturetaglink import PictureTagLink
+from tagextractor.classification.storage.models.picturetaglink import PictureTagLink
+from tagextractor.classification.storage.models.picturecategorylink import PictureCategoryLink
 
 
 class DBManager:
@@ -48,7 +49,7 @@ def add_pict_to_db(picture, session):
     pict = Picture(pict=picture['id'], posted=picture['posted'],
                    taken=picture['taken'],
                    ntags=len(picture['tags']), owner=picture['owner'],
-                   lat=picture['lat'], lon=picture['lon'])
+                   lat=picture['lat'], lon=picture['lon'], categories=picture['categorie'])
 
     # If picture not in the database
     if not pict.exist(session):
@@ -78,10 +79,10 @@ def __add_tag_to_db__(tag, session):
         for i in range(0, len(tag['lemmas'])):
             tid = '{}#{}'.format(tag['id'], i)
             ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tid,
-                       lemma=tag['lemmas'][i], synset=tag['synsets'][i])
+                       lemma=tag['lemmas'][i], synset=tag['synsets'][i], category=tag['category'])
         if not ntag.exist(session):
             session.add(ntag)
     else:
-        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'])
+        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'], category=tag['category'])
         if not tag.exist(session):
             session.add(tag)

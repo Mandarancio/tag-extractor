@@ -3,13 +3,13 @@
 
 author: Djavan Sergent
 """
-import tagextractor.storage.base as db
+import tagextractor.classification.storage.base as db
 from sqlalchemy import Column, Integer, Sequence, String, exists
 from sqlalchemy.orm import relationship
 
 
 # pylint: disable=too-few-public-methods
-class Tag(db.BASE):
+class Tag(db.CLASSIFIED_BASE):
     """A mapping class for Tag Objects."""
     __tablename__ = "tag"
 
@@ -19,6 +19,7 @@ class Tag(db.BASE):
     tag = Column(String, nullable=False)
     raw = Column(String, nullable=False)
     tag_id = Column(String, nullable=False)
+    concept = Column(String, nullable=False)
     lemma = Column(String)
     synset = Column(String)
 

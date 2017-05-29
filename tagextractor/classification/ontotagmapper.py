@@ -51,12 +51,15 @@ def __get_concept_subclasses__(ontology):
     return subclasses
 
 
-def classifier(pictures, base_path, ontology):
-    """Simple classifier."""
+def __load_ontology__(base_path, filename, ontoname):
     owlr.onto_path.append(base_path)
-    ontology = owlr.get_ontology(ontology)
+    ontology = owlr.get_ontology(filename)
     ontology.load()
-    ontology = owlr.ONTOLOGIES['http://tagis.kr.com']
+    return owlr.ONTOLOGIES[ontoname]
+
+
+def classifier(pictures, ontology):
+    """Simple classifier."""
 
     # owlclasses = ontology.classes
     owlconcept = __get_concept_subclasses__(ontology)
@@ -74,18 +77,22 @@ def classifier(pictures, base_path, ontology):
             tag['concept'] = __classify__(tag, classes)
             concept = classes[tag['concept'].lower().title()][0]()  # instance of concept
             instance.hasTags.append(concept)  # propriety of instance
-        ontology.sync_reasoner()
-        ontology.save('result.owl')
-        # TODO infere picture category
         yield picture
 
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
-    LOADER = DBLoader("sqlite:///database/synx_instagram.db")
+    LOADER = DBLoader("sqlite:///database/url_instagram.db")
+    ontology = __load_ontology__('resources', 'kr-owlxml.owl', 'http://tagis.kr.com')
+
     print(LOADER.photo_number())
-    for pic in classifier(LOADER.load(20), "resources", "kr-owlxml.owl"):
+    for pic in classifier(LOADER.load(20), ontology):
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
+
+    ontology.add(owlr.AllDistinct(*ontology.instances))
+    ontology.sync_reasoner()
+    ontology.save('result.owl')
+
 

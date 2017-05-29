@@ -48,7 +48,7 @@ def add_pict_to_db(picture, session):
     :param picture: the picture to store
     :param session: database transaction session
     """
-    pict = Picture(pict=picture['id'], posted=picture['posted'],
+    pict = Picture(pict=picture['name'], posted=picture['posted'],
                    taken=picture['taken'],
                    ntags=len(picture['tags']), owner=picture['owner'],
                    lat=picture['lat'], lon=picture['lon'])
@@ -58,7 +58,7 @@ def add_pict_to_db(picture, session):
         for ptag in picture['tags']:
             __add_tag_to_db__(ptag, session)
 
-        for category in picture['instance']['is_a']:
+        for category in picture['instance'].is_a:
             __add_category_to_db__(category, session)
 
         # Picture added to session
@@ -69,7 +69,7 @@ def add_pict_to_db(picture, session):
 
         # bind pictures with tags and categories
         pict.add_tags(picture['tags'], session)
-        pict.add_categories(picture['instance']['is_a'], session)
+        pict.add_categories(picture['instance'].is_a, session)
 
         # Session flush : validation of links
         session.commit()
@@ -80,19 +80,10 @@ def __add_tag_to_db__(tag, session):
     :param tag: the tag to store
     :param session: database transaction session
     """
-    if tag['lemmas']:
-        for i in range(0, len(tag['lemmas'])):
-            tid = '{}#{}'.format(tag['id'], i)
-            ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tid,
-                       lemma=tag['lemmas'][i], synset=tag['synsets'][i],
-                       concept=tag['concept'])
-        if not ntag.exist(session):
-            session.add(ntag)
-    else:
-        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'],
-                  concept=tag['concept'])
-        if not tag.exist(session):
-            session.add(tag)
+    ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['tag_id'],
+               lemma=tag['lemma'], synset=tag['synset'], concept=tag['concept'])
+    if not ntag.exist(session):
+        session.add(ntag)
 
 
 def __add_category_to_db__(categ, session):

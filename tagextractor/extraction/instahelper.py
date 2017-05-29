@@ -33,10 +33,12 @@ def get_info_from_url(url):
         return {
             'media_id': media_id,
             'author_id': author_id,
+            'image_url': res['thumbnail_url'],
             'tags': tags
         }
     return {
         'media_id': '',
         'author_id': '',
+        'image_url': '',
         'tags': []
     }

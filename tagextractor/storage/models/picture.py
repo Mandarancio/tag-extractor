@@ -20,6 +20,8 @@ class Picture(db.BASE):
     taken = Column(String)
     ntags = Column(Integer, nullable=False)
     owner = Column(String)
+    url = Column(String)
+    image_url = Column(String)
     lon = Column(Float, nullable=False)
     lat = Column(Float, nullable=False)
     tags = relationship(Tag, secondary='picture_tag_link')

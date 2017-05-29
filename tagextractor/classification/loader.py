@@ -1,9 +1,15 @@
 """Simple JSON/DB loader."""
+import re
 from sqlalchemy import func
 
 import tagextractor.storage.dbmanager as dbm
 from tagextractor.storage.base import BASE
 from tagextractor.storage.models.picture import Picture
+
+
+def __clean__(word):
+    """Simply remove all trash characters."""
+    return re.sub('[^A-Za-z0-9. ]+', '', word)
 
 
 class Loader:
@@ -44,9 +50,9 @@ class Loader:
 
 def __dbtag_to_dictag__(tag):
     dictag = {
-        "tag": tag.tag,
-        "raw": tag.raw,
-        "tag_id": tag.tag_id,
+        "tag": __clean__(tag.tag),
+        "raw": __clean__(tag.raw),
+        "tag_id": __clean__(tag.tag_id),
         "lemma": tag.lemma,
         "synset": tag.synset
     }

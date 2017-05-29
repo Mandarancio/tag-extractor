@@ -38,20 +38,21 @@ def __get_concept_subclasses__(ontology):
     metaclasses = []
     subclasses = []
 
-    for c in owlclasses:
-        if 'Concept' in c.name and c.name != 'Concept':
-            metaclasses.append(c)
-        if c.name == 'Picture':
-            subclasses.append(c)
+    for concept in owlclasses:
+        if 'Concept' in concept.name and concept.name != 'Concept':
+            metaclasses.append(concept)
+        if concept.name == 'Picture':
+            subclasses.append(concept)
 
-    for mc in metaclasses:
-        sub = ontology.subclasses_of(mc)
-        for s in sub:
-            subclasses.append(s)
+    for metaclasse in metaclasses:
+        subs = ontology.subclasses_of(metaclasse)
+        for sub in subs:
+            subclasses.append(sub)
     return subclasses
 
 
 def load_ontology(base_path, filename, ontoname):
+    """Load ontology."""
     owlr.onto_path.append(base_path)
     ontology = owlr.get_ontology(filename)
     ontology.load()
@@ -59,6 +60,7 @@ def load_ontology(base_path, filename, ontoname):
 
 
 def write_ontology(onto_in, onto_out):
+    """Write the new ontology to file."""
     results = owlr.to_owl(onto_in)
     output = open(onto_out, 'w')
     output.write(results)
@@ -66,12 +68,12 @@ def write_ontology(onto_in, onto_out):
 
 
 def make_distinct(ontology):
+    """Meke all instnaces distinct."""
     ontology.add(owlr.AllDistinct(*ontology.instances))
 
 
 def classifier(pictures, ontology):
     """Simple classifier."""
-
     # owlclasses = ontology.classes
     owlconcept = __get_concept_subclasses__(ontology)
 
@@ -86,24 +88,25 @@ def classifier(pictures, ontology):
         instance = classes['Picture'][0]()
         for tag in tags:
             tag['concept'] = __classify__(tag, classes)
-            concept = classes[tag['concept'].lower().title()][0]()  # instance of concept
-            instance.hasTags.append(concept)  # propriety of instance
+            # instance of concept
+            concept = classes[tag['concept'].lower().title()][0]()
+            # propriety of instance
+            instance.hasTags.append(concept)
         yield picture
 
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
     LOADER = DBLoader("sqlite:///database/url_instagram.db")
-    ontology = load_ontology('resources', 'kr-owlxml.owl', 'http://tagis.kr.com')
+    ONTOLOGY = load_ontology('resources', 'kr-owlxml.owl',
+                             'http://tagis.kr.com')
 
     print(LOADER.photo_number())
-    for pic in classifier(LOADER.load(20), ontology):
+    for pic in classifier(LOADER.load(20), ONTOLOGY):
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
 
-    make_distinct(ontology)
-    ontology.sync_reasoner()
-    ontology.save('result.owl')
-
-
+    make_distinct(ONTOLOGY)
+    ONTOLOGY.sync_reasoner()
+    ONTOLOGY.save('result.owl')

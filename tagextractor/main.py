@@ -109,7 +109,8 @@ def __export__(pipeline, config):
 def __classify__(config):
     loader = DBLoader(config['inputdb'])
     print("Photos to load: {}".format(loader.photo_number()))
-    ontology = owlc.load_ontology(config['ontology_path'], config['ontology'], config['ontology_name'])
+    ontology = owlc.load_ontology(config['ontology_path'], config['ontology'],
+                                  config['ontology_name'])
     for pic in owlc.classifier(loader.load(), ontology):
         print(pic['name'])
         for ptag in pic['tags']:

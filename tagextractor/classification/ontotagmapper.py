@@ -51,7 +51,7 @@ def __get_concept_subclasses__(ontology):
     return subclasses
 
 
-def __load_ontology__(base_path, filename, ontoname):
+def load_ontology(base_path, filename, ontoname):
     owlr.onto_path.append(base_path)
     ontology = owlr.get_ontology(filename)
     ontology.load()
@@ -83,7 +83,7 @@ def classifier(pictures, ontology):
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
     LOADER = DBLoader("sqlite:///database/url_instagram.db")
-    ontology = __load_ontology__('resources', 'kr-owlxml.owl', 'http://tagis.kr.com')
+    ontology = load_ontology('resources', 'kr-owlxml.owl', 'http://tagis.kr.com')
 
     print(LOADER.photo_number())
     for pic in classifier(LOADER.load(20), ontology):

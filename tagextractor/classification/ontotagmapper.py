@@ -112,7 +112,8 @@ if __name__ == '__main__':
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
+        cbm.add_pict_to_db(pic, session)
 
     make_distinct(ONTOLOGY)
     ONTOLOGY.sync_reasoner()
-    ONTOLOGY.save('result.owl')
+    # ONTOLOGY.save('result.owl')

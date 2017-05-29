@@ -33,16 +33,36 @@ def __classify__(tag, classes):
     return NONE_CATEGORY
 
 
+def __get_concept_subclasses__(ontology):
+    owlclasses = ontology.classes
+    metaclasses = []
+    subclasses = []
+
+    for c in owlclasses:
+        if 'Concept' in c.name and c.name != 'Concept':
+            metaclasses.append(c)
+        if c.name == 'Picture':
+            subclasses.append(c)
+
+    for mc in metaclasses:
+        sub = ontology.subclasses_of(mc)
+        for s in sub:
+            subclasses.append(s)
+    return subclasses
+
+
 def classifier(pictures, base_path, ontology):
     """Simple classifier."""
     owlr.onto_path.append(base_path)
     ontology = owlr.get_ontology(ontology)
     ontology.load()
     ontology = owlr.ONTOLOGIES['http://tagis.kr.com']
-    # TODO how to get only the concept sub-class?
-    owlclasses = ontology.classes
+
+    # owlclasses = ontology.classes
+    owlconcept = __get_concept_subclasses__(ontology)
+
     classes = {}
-    for owlclass in owlclasses:
+    for owlclass in owlconcept:
         # print(owlclass.name)
         syn = __get_synset__(owlclass)
         if syn:
@@ -52,8 +72,8 @@ def classifier(pictures, base_path, ontology):
         instance = classes['Picture'][0]()
         for tag in tags:
             tag['concept'] = __classify__(tag, classes)
-            concept = classes[tag['concept'].lower().title()][0]()
-            instance.tags.append(concept)
+            concept = classes[tag['concept'].lower().title()][0]()  # instance of concept
+            instance.hasTags.append(concept)  # propriety of instance
         ontology.sync_reasoner()
         ontology.save('result.owl')
         # TODO infere picture category

@@ -127,6 +127,7 @@ def __classify__(config):
     manager = cbm.DBManager(config['outputdb'])
     CLASSIFIED_BASE.metadata.create_all(manager.engine())
     session = manager.session()
+
     for pic in picts:
         cbm.add_pict_to_db(pic, session)
 

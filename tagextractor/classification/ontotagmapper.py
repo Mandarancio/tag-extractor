@@ -58,6 +58,17 @@ def load_ontology(base_path, filename, ontoname):
     return owlr.ONTOLOGIES[ontoname]
 
 
+def write_ontology(onto_in, onto_out):
+    results = owlr.to_owl(onto_in)
+    output = open(onto_out, 'w')
+    output.write(results)
+    output.close()
+
+
+def make_distinct(ontology):
+    ontology.add(owlr.AllDistinct(*ontology.instances))
+
+
 def classifier(pictures, ontology):
     """Simple classifier."""
 
@@ -91,7 +102,7 @@ if __name__ == '__main__':
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
 
-    ontology.add(owlr.AllDistinct(*ontology.instances))
+    make_distinct(ontology)
     ontology.sync_reasoner()
     ontology.save('result.owl')
 

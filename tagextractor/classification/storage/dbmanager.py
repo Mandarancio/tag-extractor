@@ -14,12 +14,15 @@ from tagextractor.classification.storage.models.picture import Picture
 
 # Used for table creation ! do not delete these lines !
 # pylint: disable = unused-import
-from tagextractor.classification.storage.models.picturetaglink import PictureTagLink
-from tagextractor.classification.storage.models.picturecategorylink import PictureCategoryLink
+from tagextractor.classification.storage.models.\
+    picturetaglink import PictureTagLink
+from tagextractor.classification.storage.models.\
+    picturecategorylink import PictureCategoryLink
 
 
 class DBManager:
     """DB manager"""
+
     def __init__(self, path):
         """Initialize database manager."""
         # Database engine and session parameters
@@ -81,11 +84,13 @@ def __add_tag_to_db__(tag, session):
         for i in range(0, len(tag['lemmas'])):
             tid = '{}#{}'.format(tag['id'], i)
             ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tid,
-                       lemma=tag['lemmas'][i], synset=tag['synsets'][i], concept=tag['concept'])
+                       lemma=tag['lemmas'][i], synset=tag['synsets'][i],
+                       concept=tag['concept'])
         if not ntag.exist(session):
             session.add(ntag)
     else:
-        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'], concept=tag['concept'])
+        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'],
+                  concept=tag['concept'])
         if not tag.exist(session):
             session.add(tag)
 

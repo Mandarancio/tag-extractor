@@ -25,7 +25,8 @@ class Category(db.CLASSIFIED_BASE):
         :param session: database transaction session
         :return: Boolean - False if not in database
         """
-        return session.query(exists().where(Category.name == self.name)).scalar()
+        return session.query(exists().where(
+            Category.name == self.name)).scalar()
 
     def __repr__(self):
         """Print the category."""

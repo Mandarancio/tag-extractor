@@ -25,4 +25,5 @@ classification:
   inputdb: sqlite:///database/output.db
   ontology_path: resources
   ontology: kr-owlxml.owl
+  result_ontology: data/results.owl
   outputdb: sqlite:///database/output-classified.db

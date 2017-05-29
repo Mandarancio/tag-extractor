@@ -9,7 +9,9 @@ import argparse
 import yaml
 import tagextractor.extraction.extractors as X
 import tagextractor.storage.dbmanager as dbm
+import tagextractor.classification.storage.dbmanager as cbm
 from tagextractor.storage.base import BASE
+from tagextractor.classification.storage.base import CLASSIFIED_BASE
 from tagextractor.conceptualization.wordnetreader import Wordnetreader
 
 import tagextractor.classification.ontotagmapper as owlc
@@ -111,13 +113,22 @@ def __classify__(config):
     print("Photos to load: {}".format(loader.photo_number()))
     ontology = owlc.load_ontology(config['ontology_path'], config['ontology'],
                                   config['ontology_name'])
+    picts = []
     for pic in owlc.classifier(loader.load(), ontology):
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))
+        picts.append(pic)
+
     owlc.make_distinct(ontology)
     ontology.sync_reasoner()
     owlc.write_ontology(ontology, config['result_ontology'])
+
+    manager = cbm.DBManager(config['outputdb'])
+    CLASSIFIED_BASE.metadata.create_all(manager.engine())
+    session = manager.session()
+    for pic in picts:
+        cbm.add_pict_to_db(pic, session)
 
 
 def main():

@@ -8,9 +8,8 @@ author: Djavan Sergent
 """
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-
-# Classes which needed a Base, no on top import
 from tagextractor.classification.storage.models.tag import Tag
+from tagextractor.classification.storage.models.category import Category
 from tagextractor.classification.storage.models.picture import Picture
 
 # Used for table creation ! do not delete these lines !
@@ -49,13 +48,15 @@ def add_pict_to_db(picture, session):
     pict = Picture(pict=picture['id'], posted=picture['posted'],
                    taken=picture['taken'],
                    ntags=len(picture['tags']), owner=picture['owner'],
-                   lat=picture['lat'], lon=picture['lon'], categories=picture['categorie'])
+                   lat=picture['lat'], lon=picture['lon'])
 
     # If picture not in the database
     if not pict.exist(session):
         for ptag in picture['tags']:
-            # add tags to the database
             __add_tag_to_db__(ptag, session)
+
+        for category in picture['instance']['is_a']:
+            __add_category_to_db__(category, session)
 
         # Picture added to session
         session.add(pict)
@@ -63,8 +64,9 @@ def add_pict_to_db(picture, session):
         # session flush : all elements inserted into database
         session.commit()
 
-        # add tags to pictures and pictures to tags (links)
+        # bind pictures with tags and categories
         pict.add_tags(picture['tags'], session)
+        pict.add_categories(picture['instance']['is_a'], session)
 
         # Session flush : validation of links
         session.commit()
@@ -79,10 +81,16 @@ def __add_tag_to_db__(tag, session):
         for i in range(0, len(tag['lemmas'])):
             tid = '{}#{}'.format(tag['id'], i)
             ntag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tid,
-                       lemma=tag['lemmas'][i], synset=tag['synsets'][i], category=tag['category'])
+                       lemma=tag['lemmas'][i], synset=tag['synsets'][i], concept=tag['concept'])
         if not ntag.exist(session):
             session.add(ntag)
     else:
-        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'], category=tag['category'])
+        tag = Tag(tag=tag['tag'], raw=tag['raw'], tag_id=tag['id'], concept=tag['concept'])
         if not tag.exist(session):
             session.add(tag)
+
+
+def __add_category_to_db__(categ, session):
+    category = Category(name=categ.name)
+    if not category.exist(session):
+        session.add(category)

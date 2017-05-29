@@ -48,6 +48,21 @@ class Picture(db.CLASSIFIED_BASE):
             self.tags.append(tag)
             tag.pictures.append(self)
 
+    # Bind tags to picture and picture to tags
+    def add_categories(self, categories, session):
+        """Add tags to dB."""
+        # List of picture's tags
+        categs = []
+        for category in categories:
+            categs.append(category.name)
+
+        # Tag request, filtered on ptags
+        categs = session.query(Category).filter(Category.name.in_(categs))
+        # Binding
+        for categ in categs:
+            self.categories.append(categ)
+            categ.pictures.append(self)
+
     # Test of existance in database
     def exist(self, session):
         """

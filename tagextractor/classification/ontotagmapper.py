@@ -34,6 +34,7 @@ def __classify__(tag, classes):
 
 
 def __get_concept_subclasses__(ontology):
+    """Get all subclass of 'concept' in ontology"""
     owlclasses = ontology.classes
     metaclasses = []
     subclasses = []
@@ -60,18 +61,15 @@ def load_ontology(base_path, filename, ontoname):
 
 
 def write_ontology(onto_in, onto_out):
-<<<<<<< HEAD
-=======
     """Write the new ontology to file."""
     results = owlr.to_owl(onto_in)
->>>>>>> 8c6b37d343e9393f600a83cd97a5ca9a96767899
     output = open(onto_out, 'w')
     output.write(owlr.to_owl(onto_in))
     output.close()
 
 
 def make_distinct(ontology):
-    """Meke all instnaces distinct."""
+    """Meke all instances distinct."""
     ontology.add(owlr.AllDistinct(*ontology.instances))
 
 
@@ -95,13 +93,14 @@ def classifier(pictures, ontology):
             concept = classes[tag['concept'].lower().title()][0]()
             # propriety of instance
             instance.hasTags.append(concept)
+        picture['instance'] = instance
         yield picture
 
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
-    LOADER = DBLoader("sqlite:///database/url_instagram.db")
-    ONTOLOGY = load_ontology('resources', 'kr-owlxml.owl',
+    LOADER = DBLoader("sqlite:///../../database/url_instagram.db")
+    ONTOLOGY = load_ontology('../../resources', 'kr-owlxml.owl',
                              'http://tagis.kr.com')
 
     print(LOADER.photo_number())

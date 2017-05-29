@@ -82,9 +82,9 @@ def classifier(pictures, base_path, ontology):
 
 if __name__ == '__main__':
     from tagextractor.classification.loader import DBLoader
-    LOADER = DBLoader("sqlite:///../../database/synx_instagram.db")
+    LOADER = DBLoader("sqlite:///database/synx_instagram.db")
     print(LOADER.photo_number())
-    for pic in classifier(LOADER.load(20), "../../resources", "kr-owlxml2.owl"):
+    for pic in classifier(LOADER.load(20), "resources", "kr-owlxml.owl"):
         print(pic['name'])
         for ptag in pic['tags']:
             print('  {}: {}'.format(ptag['raw'], ptag['concept']))

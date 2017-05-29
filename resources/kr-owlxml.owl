@@ -32,9 +32,6 @@
         <Class IRI="http://tagis.kr.com#Exposition"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://tagis.kr.com#tags"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="http://tagis.kr.com#Concept"/>
     </Declaration>
     <Declaration>
@@ -122,6 +119,9 @@
         <Class IRI="http://tagis.kr.com#Breakfast"/>
     </Declaration>
     <Declaration>
+        <Class IRI="http://tagis.kr.com#_Unclassified"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="http://tagis.kr.com#Diner"/>
     </Declaration>
     <Declaration>
@@ -162,6 +162,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="http://tagis.kr.com#Disco"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://tagis.kr.com#WorkConcept"/>
@@ -249,9 +252,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="http://tagis.kr.com#Mode"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://tagis.kr.com#None"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://tagis.kr.com#Culture"/>
@@ -450,20 +450,17 @@
     </Declaration>
     <EquivalentClasses>
         <Class IRI="http://tagis.kr.com#Culture"/>
-        <ObjectIntersectionOf>
-            <Class IRI="http://tagis.kr.com#Picture"/>
-            <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
-                <Class IRI="http://tagis.kr.com#CultureConcept"/>
-            </ObjectMinCardinality>
-        </ObjectIntersectionOf>
+        <ObjectMinCardinality cardinality="2">
+            <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
+            <Class IRI="http://tagis.kr.com#CultureConcept"/>
+        </ObjectMinCardinality>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://tagis.kr.com#Education"/>
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#EducationConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -473,18 +470,8 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
-            </ObjectMinCardinality>
-        </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="http://tagis.kr.com#None"/>
-        <ObjectIntersectionOf>
-            <Class IRI="http://tagis.kr.com#Picture"/>
-            <ObjectMinCardinality cardinality="3">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
-                <Class IRI="http://tagis.kr.com#NoneConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
@@ -493,7 +480,7 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#NutritionConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -503,7 +490,7 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#PlayingConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -513,7 +500,7 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#ShoppingConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -523,7 +510,7 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#SportConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -533,7 +520,7 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#TravelConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
@@ -543,8 +530,18 @@
         <ObjectIntersectionOf>
             <Class IRI="http://tagis.kr.com#Picture"/>
             <ObjectMinCardinality cardinality="2">
-                <ObjectProperty IRI="http://tagis.kr.com#tags"/>
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
                 <Class IRI="http://tagis.kr.com#WorkConcept"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://tagis.kr.com#_Unclassified"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://tagis.kr.com#Picture"/>
+            <ObjectMinCardinality cardinality="3">
+                <ObjectProperty IRI="http://tagis.kr.com#hasTags"/>
+                <Class IRI="http://tagis.kr.com#NoneConcept"/>
             </ObjectMinCardinality>
         </ObjectIntersectionOf>
     </EquivalentClasses>
@@ -901,10 +898,6 @@
         <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="http://tagis.kr.com#None"/>
-        <Class IRI="http://tagis.kr.com#Picture"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="http://tagis.kr.com#NoneConcept"/>
         <Class IRI="http://tagis.kr.com#Concept"/>
     </SubClassOf>
@@ -1143,6 +1136,10 @@
     <SubClassOf>
         <Class IRI="http://tagis.kr.com#Zoo"/>
         <Class IRI="http://tagis.kr.com#EntertainmentConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="http://tagis.kr.com#_Unclassified"/>
+        <Class IRI="http://tagis.kr.com#Picture"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="http://tagis.kr.com#None"/>

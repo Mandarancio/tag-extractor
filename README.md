@@ -55,6 +55,7 @@ classification:
   inputdb: sqlite:///database/output.db
   ontology_path: resources
   ontology: kr-owlxml.owl
+  ontology_name: http://tagis.kr.com
   outputdb: sqlite:///database/output-classified.db
 ```
 

@@ -48,9 +48,10 @@ def add_pict_to_db(picture, session):
     :param picture: the picture to store
     :param session: database transaction session
     """
-    pict = Picture(pict=picture['name'], posted=picture['posted'],
-                   taken=picture['taken'],
-                   ntags=len(picture['tags']), owner=picture['owner'],
+    pict = Picture(pict=picture['name'], owner=picture['owner'],
+                   taken=picture['taken'], posted=picture['posted'],
+                   ntags=len(picture['tags']),
+                   url=picture['url'], image_url=picture['image_url'],
                    lat=picture['lat'], lon=picture['lon'])
 
     # If picture not in the database

@@ -67,6 +67,8 @@ def __dbpic_to_dicpic__(pic):
         "posted": pic.posted,
         "taken": pic.taken,
         "owner": pic.owner,
+        "url": pic.url,
+        "image_url": pic.image_url,
         "tags": []
     }
     for tag in pic.tags:
